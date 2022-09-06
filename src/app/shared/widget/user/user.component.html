@@ -1,0 +1,84 @@
+<table class="table table-hover table-nowrap mb-0 align-middle">
+    <thead class="bg-light">
+        <tr>
+            <th class="rounded-start" style="width: 15px;">
+                <div class="form-check">
+                    <input class="form-check-input font-size-16" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"> </label>
+                </div>
+            </th>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Customer</th>
+            <th>Purchased</th>
+            <th colspan="2" class="rounded-end">Revenue</th>
+        </tr>
+        <!-- end tr -->
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let data of users">
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input font-size-16" type="checkbox" value="" id="flexCheckexampleone">
+                    <label class="form-check-label" for="flexCheckexampleone">
+                    </label>
+                </div>
+            </td>
+            <td class="fw-medium">
+                {{data.id}}
+            </td>
+            <td>
+                {{data.date}}
+            </td>
+            <td>
+                <div class="d-flex">
+                    <div class="me-2">
+                        <i class="mdi mdi-check-circle-outline text-success"
+                            [ngClass]=" { 'text-danger': data.status === 'Changeback', 'text-warning': data.status === 'Refunded' }"></i>
+                    </div>
+                    <div>
+                        <p class="mb-0">{{data.status}}</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="me-2">
+                        <img src="{{data.image}}" class="avatar-sm img-thumbnail h-auto rounded-circle" alt="Error">
+                    </div>
+                    <div>
+                        <h5 class="font-size-14 text-truncate mb-0"><a href="javascript:void(0);"
+                                class="text-reset">{{data.name}}</a>
+                        </h5>
+                    </div>
+                </div>
+            </td>
+            <td>
+                Wireframing Kit for Figma
+            </td>
+
+            <td>
+                $129.99
+            </td>
+            <td>
+                <div class="dropdown" ngbDropdown>
+                    <a href="javascript:void(0);" class="dropdown-toggle card-drop" data-bs-toggle="dropdown"
+                        aria-expanded="false" ngbDropdownToggle>
+                        <i class="mdi mdi-dots-horizontal font-size-18 text-muted"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <li><a href="javascript:void(0);" class="dropdown-item"><i
+                                    class="mdi mdi-pencil font-size-16 text-success me-1"></i>
+                                Edit</a></li>
+                        <li><a href="javascript:void(0);" class="dropdown-item"><i
+                                    class="mdi mdi-trash-can font-size-16 text-danger me-1"></i>
+                                Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <!-- end /tr -->
+    </tbody>
+</table>

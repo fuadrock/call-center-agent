@@ -1,0 +1,40 @@
+// 
+// _widgets.scss
+// 
+
+.main-chart {
+    .chart-border-left {
+        border-left: 1.4px solid $border-color;
+        padding: 2px 20px;
+
+        @media (max-width: 575.98px) {
+            border: 0;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+// map widget
+.map-widget{
+    @media (min-width: 992px) {
+        border-right: 1px solid $border-color;
+    }
+}
+
+body[data-layout-mode="dark"] {
+    .main-chart{
+        .chart-border-left{
+            border-left: 1.4px solid $gray-dark-300;
+        }
+    }
+
+    // map widget
+    .map-widget{
+        @media (min-width: 992px) {
+            border-right: 1px solid $gray-dark-300;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<table class="table mb-0">
+    <thead>
+        <tr>
+            <th scope="col">Sources</th>
+            <th scope="col">Sessions</th>
+            <th scope="col">Users</th>
+            <th scope="col" style="width: 25%;">Bounce Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of users">
+            <th scope="row">{{data.sources}}</th>
+            <td>{{data.sessions}}</td>
+            <td>{{data.users}}</td>
+            <td>
+                <div class="text-success text-nowrap">{{data.rate}}</div>
+            </td>
+        </tr>
+    </tbody>
+</table>

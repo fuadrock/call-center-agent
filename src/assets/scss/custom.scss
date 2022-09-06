@@ -1,0 +1,519 @@
+//Bootstrap Dropdown
+.dropdown-toggle::after {
+  display: none;
+}
+
+// Feather Icon
+i-feather {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+// // Side Menu
+#side-menu i-feather {
+  height: 16px !important;
+  width: 16px !important;
+  line-height: 16px;
+}
+
+// Calendar
+.fc .fc-col-header-cell-cushion {
+  padding: 8px 4px !important;
+  color: $gray-700 !important;
+}
+
+// Select2
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+  background-color: $primary;
+  border-color: $primary;
+  margin-bottom: 0;
+  margin-right: 0;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: $white;
+  margin-bottom: 5px;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+  gap: 5px;
+}
+
+.multi_default .ng-value-icon {
+  display: none !important;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+  border-right: 1px solid #b8dbff;
+  font-size: 16px;
+  line-height: 16px;
+  padding-left: 0;
+}
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value.ng-value-disabled {
+  background-color: $gray-600 !important;
+}
+
+/**
+*   Projects
+*/
+@import "~dropzone/dist/min/dropzone.min.css";
+
+.dropzone .dz-message {
+  font-size: 24px;
+  min-height: 150px !important;
+  border: none !important;
+  background: #fff !important;
+  color: #495057 !important;
+}
+
+aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator,
+aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.navigable a:hover .step-indicator {
+  font-size: 20px;
+  color: $primary !important;
+  line-height: 56px;
+  width: 56px;
+  height: 56px;
+  border: 1px solid $blue-200;
+}
+
+aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current .step-indicator {
+  width: 56px;
+  height: 56px;
+  border: 1px solid $blue-200;
+}
+
+aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li:not(:last-child):after {
+  width: 75%;
+  height: 2px;
+  left: 62%;
+}
+
+aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done .step-indicator {
+  background-color: $blue-200;
+  color: $primary;
+  border-color: $blue-200;
+}
+
+/**
+*   Profile page
+*/
+//Swiper
+.swiper-sliders .swiper-button-next,
+.swiper-sliders .swiper-button-prev {
+  height: 30px !important;
+  width: 30px !important;
+  margin: auto 0;
+  color: #fff !important;
+  background-color: #039ef5;
+}
+
+.swiper-sliders .swiper-button-next,
+.swiper-sliders .swiper-container-rtl .swiper-button-prev {
+  right: 0 !important;
+}
+
+.swiper-sliders .swiper-button-prev,
+.swiper-sliders .swiper-container-rtl .swiper-button-next {
+  left: 0 !important;
+}
+
+.swiper-sliders .swiper-button-next:after,
+.swiper-sliders .swiper-button-prev:after {
+  font-size: 18px !important;
+}
+
+.swiper-sliders .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 !important
+}
+
+/**
+* Faqs Page
+*/
+.general_faq .card-header {
+  padding: 0;
+  border: none;
+}
+
+.general_faq .card {
+  box-shadow: none;
+  margin: 0;
+  border: none;
+}
+
+.general_faq .card-body {
+  border-bottom: 1px solid $gray-dark-600;
+}
+
+.general_faq .btn-link {
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+
+.general_faq .collapsed .accordion-button {
+  background-color: transparent;
+  color: $gray-700;
+  box-shadow: none;
+  border-bottom: 1px solid $gray-dark-600;
+}
+
+.accordion_exp .card {
+  border: 1px solid $gray-dark-600 !important;
+}
+
+.accordion_exp .card-body {
+  border: none !important;
+}
+
+// table
+.datatables {
+  thead {
+    tr {
+      th {
+        position: relative;
+
+        &:before {
+          content: "\F0143";
+          position: absolute;
+          right: 0;
+          top: 7px;
+          font: normal normal normal 24px/1 "Material Design Icons";
+          opacity: 0.3;
+        }
+
+        &:after {
+          content: "\F0140";
+          position: absolute;
+          right: 0;
+          top: 14px;
+          opacity: 0.3;
+          font: normal normal normal 24px/1 "Material Design Icons";
+        }
+      }
+
+      .asc {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      .desc {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/**
+*   Ui Elements
+*/
+.alert-dismissible {
+  .btn-close {
+    font-size: 10px;
+    padding: $alert-padding-y * 1.4 $alert-padding-x;
+    background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat;
+  }
+}
+
+.custom-alert {
+  .close {
+    background: transparent;
+    border: 0;
+    font-size: 10px;
+    padding: 1.35rem 1.25rem;
+    background: transparent escape-svg($btn-close-bg) center / $btn-close-width auto no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    width: 1em;
+    height: 1em;
+    z-index: 2;
+    color: $btn-close-color;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+// Carousel
+.carousel-indicators li {
+  box-sizing: content-box;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: $white;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+
+.carousel-dark .carousel-indicators li {
+  background-color: $black;
+}
+
+// Colors
+.col-xl-3:last-child .card .overflow-hidden {
+  background-color: transparent !important;
+}
+
+/**
+* Extended Ui
+*/
+// LightBox
+@import "~ngx-lightbox/lightbox.css";
+
+.vimeo_video iframe {
+  width: 100%;
+}
+
+.vimeo_video #player {
+  max-width: 100% !important;
+}
+
+// Range Slider
+.ngx-slider .ngx-slider-pointer {
+  cursor: pointer !important;
+  width: 20px !important;
+  height: 20px !important;
+  top: -7px !important;
+  right: -10px !important;
+  background-color: $white !important;
+  z-index: 3 !important;
+  border-radius: 50% !important;
+  border: 1px solid $gray-dark-500;
+  box-shadow: inset 0 0 1px $white, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+}
+
+.ngx-slider .ngx-slider-pointer:after {
+  display: none;
+}
+
+// Sweet alert
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: none !important;
+}
+
+.swal2-icon.swal2-question {
+  border-color: $info !important;
+  color: $info !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: $warning !important;
+  color: $warning !important;
+}
+
+// Rating 
+.stars {
+  font-size: 30px;
+  color: $warning;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 30px;
+  color: $warning;
+}
+
+.star_fill {
+  color: $gray-500;
+}
+
+.full {
+  color: #b0c4de;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: $warning;
+}
+
+.filled {
+  color: #1e90ff;
+}
+
+.bad {
+  color: #deb0b0;
+}
+
+.filled.bad {
+  color: #ff1e1e;
+}
+
+// Swiper Slider
+.swiper-pagination {
+  transform: translateX(-50%) !important;
+}
+
+swiper>.swiper.s-wrapper .swiper-pagination .swiper-pagination-handle {
+  line-height: 0;
+  padding: 0 2px !important;
+}
+
+/**
+* Forms
+*/
+// flatpicker
+@import '~flatpickr/dist/flatpickr.css';
+
+// Advance Form
+.color_picker {
+  width: auto;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.color_picker .input-group-text {
+  padding: 20px;
+}
+
+/**
+* Icons
+*/
+// Feather Icon
+.icon-demo-content i-feather {
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 36px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.icon-demo-content span {
+  margin-top: 8px;
+  display: inline-block;
+}
+
+body[data-layout-mode="dark"] {
+
+  // Calender
+  .fc-theme-standard .fc-scrollgrid,
+  .fc-theme-standard td,
+  .fc-theme-standard th {
+    border: 1px solid $gray-dark-300;
+  }
+
+  .fc .fc-daygrid-day-number,
+  .fc .fc-col-header-cell-cushion {
+    color: $white;
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    color: $gray-400 !important;
+  }
+
+  .ng-select.ng-select-opened>.ng-select-container {
+    background: lighten($gray-dark-200, 2%);
+  }
+
+  .ng-select .ng-select-container {
+    background-color: lighten($gray-dark-200, 2%);
+    border: 1px solid $gray-dark-300;
+  }
+
+  .ng-dropdown-panel {
+    background-color: lighten($gray-dark-200, 2%);
+    border: 1px solid $gray-dark-300;
+  }
+
+  /**
+    * Projects
+    */
+  aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li:not(:last-child):after {
+    background-color: $gray-dark-300;
+  }
+
+  //Project create
+  .dropzone {
+    background-color: lighten($gray-dark-200, 2%) !important;
+    border-color: $gray-dark-300 !important;
+  }
+
+  .dropzone .dz-message {
+    background-color: lighten($gray-dark-200, 2%) !important;
+    color: $white !important;
+  }
+
+  /**
+    *   Faqs Page
+    */
+  .general_faq .collapsed .accordion-button {
+    color: $white;
+    border-bottom: 1px solid $gray-dark-300;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .general_faq .card-body {
+    border-bottom: 1px solid $gray-dark-300;
+  }
+
+  .general_faq .card {
+    box-shadow: none;
+  }
+
+  /**
+    *  Ui Elements
+    */
+  // Alert
+  .alert-outline.custom-alert,
+  .alert-top-border.custom-alert {
+    .close {
+      background: transparent;
+      border: 0;
+      font-size: 10px;
+      padding: 1.35rem 1.25rem;
+      background: transparent escape-svg($btn-close-bg-dark) center / $btn-close-width auto no-repeat;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0.5;
+      width: 1em;
+      height: 1em;
+      z-index: 2;
+      color: $btn-close-color;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  /**
+  * Range Slider
+  */
+  .ngx-slider .ngx-slider-bar {
+    background-color: lighten($gray-dark-200, 2%);
+  }
+}
+
+body {
+  * {
+    outline: none;
+  }
+}
+
+.switch-pane {
+  color: white;
+}

@@ -1,0 +1,331 @@
+// 
+// pages-rtl.scss
+//
+
+// calendar
+
+#external-events {
+    .external-event{
+        text-align: right;
+    }
+}
+
+// email
+
+.email-leftbar{
+    float: right;
+}
+
+.email-rightbar {
+    margin-right: 245px;
+    margin-left: 0px;
+}
+
+.message-list {
+    li {
+        .col-mail{
+            float: right;
+        }
+        .col-mail-1{
+            .star-toggle, .checkbox-wrapper-mail, .dot{
+                float: right
+            }
+            .checkbox-wrapper-mail {
+                margin: 15px 20px 0 10px;
+            }
+            .star-toggle {
+                margin-right: 5px;
+            }
+            
+            .title {
+                right: 90px;
+                left: 0;
+            }
+        }
+        .col-mail-2{
+            right: 260px;
+            left: 0;
+
+            .subject {
+                right: 0;
+                left: 200px;
+            }
+
+            .date {
+                left: 0;
+                right: auto;
+                padding-right: 80px;
+                padding-left: 0px;
+            }
+        
+        }
+    }
+    .checkbox-wrapper-mail {
+        label{
+            &:before{
+                right: 4px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .email-leftbar {
+        float: none !important;
+        width: 100%;
+    }
+    .email-rightbar {
+        margin-right: 0;
+    }
+}
+
+
+
+.close{
+    right: auto !important;
+    top: 0;
+    left: 0;
+}
+  
+
+.modal-open{
+      padding-right: 0px !important;
+}
+
+
+// chat page
+
+.chat-conversation {
+    .conversation-list{
+        .ctext-wrap-content{
+            border-radius: 8px 0px 8px 8px;
+            margin-left: 0;
+            margin-right: 16px;
+            &:before{
+                left: auto;
+                right: -10px;
+                border-right-color: transparent;
+                border-left-color: rgba($primary,0.1);
+            }
+        }
+
+        .conversation-name .time{
+            margin-left: 0;
+            margin-right: 8px;
+        }
+    }
+
+    .right{
+        .conversation-list{
+            float: left;
+            text-align: left;
+
+            .ctext-wrap {
+                .ctext-wrap-content{
+                    text-align: left;
+                    border-radius: 0px 8px 8px 8px;
+                    margin-right: 0;
+                    margin-left: 16px;
+                    &::before{
+                        right: auto;
+                        left: -10px;
+                        border-left-color: transparent;
+                        border-right-color: rgba($light, 0.5);
+                    }
+                }
+
+                .conversation-name .time{
+                    margin-right: 0;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+
+// authentication
+
+.auth-logo{
+    text-align: center;
+}
+
+.form-floating-custom{
+    >label{
+        left: auto;
+        right: 48px;
+    }
+    >.form-control, >.form-select{
+        padding-left: $input-btn-padding-x;
+        padding-right: 60px;
+    }
+    .form-floating-icon{
+        left: auto;
+        right: 0;
+    }
+}
+
+// Gallery
+
+.categories-filter{
+    .list-inline-item:after{
+        right: auto;
+        left: -2px;
+    }
+}
+
+// coming soon
+.countdownlist{
+    .count-num::after{
+        right: auto;
+        left: -16px;
+    }
+}
+
+// timline
+
+.verti-timeline {
+    &:before{
+        left: auto;
+        right: 0;
+    }
+    @media (min-width: 768px){
+        &:before{
+            left: auto;
+            right: 50%;
+        }
+
+        .time-show-btn{
+            left: auto;
+            right: 67px;
+            text-align: left;
+           
+        }
+    }
+
+    .timeline-box{
+        border: 1px solid $border-color;
+        border-right: 2px solid $primary;
+        margin-left: 0;
+        margin-right: 45px;
+        &:before{
+            left: auto;
+            right: -53px;
+        }
+
+        &:after{
+            border-right-color: transparent;
+            border-left-color: $primary;
+            right: -20px;
+            left: auto;
+        }
+    }
+
+    &.left-timeline .time-show-btn{
+        left: auto;
+        right: 0;
+        text-align: right;
+    }
+}
+
+.timeline-item {
+    @media (min-width: 768px) {
+        .timeline-box{
+            margin-left: 0;
+            margin-right: 45px;
+        }
+
+        &.left {
+            text-align: left;
+            .timeline-box{
+                margin-right: 0;
+                margin-left: 45px;
+                border-right: 1px solid $border-color;
+                border-left: 2px solid $primary;
+                &:before {
+                    right: auto;
+                    left: -55px;
+                }
+
+                &:after {
+                    right: auto;
+                    left: -20px;
+                    border-left-color: transparent;
+                    border-right-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+// vretical timeline
+.verti-timeline{
+    &.left-timeline{
+        &:before{
+            left: auto;
+            right: 0;
+        }
+
+        .timeline-item.left{
+            text-align: right;
+            .timeline-box{
+                margin-left: 0;
+                margin-right: 45px;
+                border-left: 1px solid $light;
+                border-right: 2px solid $primary;
+                &::before{
+                    left: auto;
+                    right: -55px;
+                }
+
+                &:after{
+                    left: auto;
+                    right: -20px;
+                    border-right-color: transparent;
+                    border-left-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+// datatable icon
+.datatables {
+    thead {
+        tr {
+            th {
+                position: relative;
+                &:before {
+                    content: "\F0143";
+                    position: absolute;
+                    left: 0;
+                    right: auto;
+                    top: 7px;
+                    font: normal normal normal 24px/1 "Material Design Icons";
+                    opacity: 0.3;
+                }
+                &:after {
+                    content: "\F0140";
+                    position: absolute;
+                    left: 0;
+                    right: auto;
+                    top: 14px;
+                    opacity: 0.3;
+                    font: normal normal normal 24px/1 "Material Design Icons";
+                }
+            }
+
+            .asc {
+                &:before {
+                    opacity: 1;
+                }
+            }
+
+            .desc {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

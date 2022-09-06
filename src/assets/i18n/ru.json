@@ -1,0 +1,368 @@
+{
+  "HEADER": {
+    "SEARCH": "Поиск...",
+    "MEGA_MENU": "Мега Меню",
+    "NOTIFICATIONS": {
+      "TITLE": "Уведомления",
+      "NEW": "Новый",
+      "EARLIER": "Ранее",
+      "VIEW_ALL": "Посмотреть все",
+      "LOAD_MORE": "Посмотреть больше..",
+      "FIRST": {
+        "TITLE": "Ваш заказ размещен",
+        "TEXT": "Если несколько языков объединяют грамматику",
+        "TIME": "3 минуты назад"
+      },
+      "SECOND": {
+        "TITLE": "Джеймс Лемир",
+        "TEXT": "Это будет похоже на упрощенный английский.",
+        "TIME": "1 час назад"
+      },
+      "THIRD": {
+        "TITLE": "Ваш товар отправлен",
+        "TEXT": "Если несколько языков объединяют грамматику",
+        "TIME": "3 минуты назад"
+      },
+      "FOUR": {
+        "TITLE": "Салена Лэйфилд",
+        "TEXT": "Как скептически настроенный мой кембриджский друг с Запада.",
+        "TIME": "10 часов назад"
+      }
+    },
+    "DASHBOARDS": {
+      "TEXT": "Дашборды",
+      "LIST": {
+        "SALES": "Продажи",
+        "ANALYTICS": "Аналитика"
+      }
+    },
+    "APPS": {
+      "TEXT": "Программы"
+    },
+    "COMPONENTS": {
+      "TEXT": "Составные части"
+    },
+    "EXTRAPAGES": {
+      "TEXT": "Дополнительные страницы"
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Аутентификация",
+      "BADGE": "девять",
+      "LIST": {
+        "BASIC": "Базовый",
+        "COVER": "Обложка",
+        "SIGNIN": "Войти",
+        "SIGNUP": "Зарегистрироваться",
+        "SIGNOUT": "Выход",
+        "LOCKSCREEN": "Экран блокировки",
+        "FORGOTPASSWORD": "Забыли пароль",
+        "RESETPWD": "Сброс пароля",
+        "EMAILVERIFICATION": "подтверждение адреса электронной почты",
+        "TWOSTEPVERIFICATION": "Двухэтапная аутентификация",
+        "THANKYOU": "Спасибо"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Страницы ошибок",
+      "LIST": {
+        "400": "четыреста четыре",
+        "500": "пятьсот",
+        "BASIC": "Базовый",
+        "COVER": "Обложка"
+      }
+    }
+  },
+  "TOPBAR": {
+    "COMPONENT": {
+      "TEXT": "Составные части",
+      "LIST": {
+        "ALERTS": "Оповещения",
+        "BUTTONS": "Кнопки",
+        "CARDS": "Карты",
+        "DROPDOWNS": "Выпадающие списки",
+        "LIGHTBOX": "Лайтбокс",
+        "MODALS": "Модальные окна",
+        "RANGESLIDER": "Ползунок диапазона", 
+        "PROGRESSBARS": "Индикаторы прогресса",
+        "SWEETALERTS": "Сладкое оповещение",
+        "TABS&ACCODIONS": "Табы и аккордеоны",
+        "TYPOGRAPHY": "Типография",
+        "GENERAL": "Общий",
+        "RATING": "Рейтинг",
+        "NOTIFICATIONS": "Уведомления"
+      }
+    },
+    "CATEGORIES": {
+      "TEXT": "Категории",
+      "LIST": {
+        "COMPUTERSACCESSORIES": "Компьютеры и аксессуары",
+        "LAPTOPSTABLETS": "Ноутбуки и планшеты",
+        "DESKTOPCOMPUTERS": "Настольные компьютеры",
+        "NETWORKINGPRODUCTS": "Сетевые продукты (NAS)",
+        "MONITORS": "Мониторы",
+        "BAGS": "Сумки, чехлы и рукава",
+        "BATTERIES": "Аккумуляторы", 
+        "CHARGES": "Зарядки и адаптеры",
+        "SMARTPHONES": "Смартфоны и планшеты",
+        "APPLEIPHONE": "Apple iPhone",
+        "ANDROID": "Смартфоны Android",
+        "PHABLETS": "Фаблеты",
+        "APPLEIPAD": "Apple iPad",
+        "ANDROIDTABLETS": "Планшеты Android",
+        "TABLETS": "Планшеты с клавиатурой",
+        "TELEVISION": "Телевидение и видео",
+        "TV": "Телевизоры",
+        "HOME": "Системы домашнего кинотеатра",
+        "DVDPLAYERS": "DVD-плееры и рекордеры",
+        "DVDVCR": "Комбинации DVD-VCR",
+        "PROJECTORS": "Проекторы",
+        "PROJECTIONSCREENS": "Проекционные экраны",
+        "SATELITE": "Спутниковое телевидение",
+        "CAMERAS": "Камеры, фото и видео",
+        "POINT": "Цифровые камеры Point & Shoot",
+        "DSLRCAMERAS": "DSLR камеры",
+        "MIRRORLESS": "Беззеркальные камеры",
+        "BODY": "Установленные на теле камеры",
+        "CAMERALENSES": "Объективы для фотоаппаратов",
+        "VIDEOSTUDIO": "Видео Студия"
+      }
+    }    
+  },
+  "MENUITEMS": {
+    "DASHBOARDS": {
+      "TEXT": "ПАНЕЛИ"
+    },
+    "SALES": {
+      "TEXT": "Продажи",
+      "BADGE": "пять"
+    },
+    "ANALYTICS": {
+      "TEXT": "Аналитика"
+    },
+    "APPLICATIONS": {
+      "TEXT": "ПРИЛОЖЕНИЯ"
+    },
+    "CALENDAR": {
+      "TEXT": "Календарь"
+    },
+    "CHAT": {
+      "TEXT": "Чат",
+      "BADGE": "Горячий"
+    },
+    "KANBANBOARD": {
+      "TEXT": "Канбан Доска"
+    },
+    "FILEMANAGER": {
+      "TEXT": "Файловый менеджер"
+    },
+    "EMAIL": {
+      "TEXT": "Электронное письмо",
+      "LIST": {
+        "INBOX": "Входящие",
+        "READEMAIL": "Читать электронную почту"
+      }
+    },
+    "CONTACTS": {
+      "TEXT": "Контакты",
+      "LIST": {
+        "USERGRID": "Сетка пользователя",
+        "USERLIST": "Список пользователей",
+        "SETTINGS": "Пользовательские настройки"
+      }
+    },
+    "GALLERY": {
+      "TEXT": "Галерея"
+    },
+    "PROJECTS": {
+      "TEXT": "Проекты",
+      "LIST": {
+        "PROJECTSGRID": "Сетка проекта",
+        "PROJECTSLIST": "Список проектов",
+        "PROJECTSOVERVIEW": "Обзор проекта",
+        "CREATENEW": "Создать новое"
+      }
+    },
+    "PAGES": {
+      "TEXT": "СТРАНИЦЫ"
+    },
+
+    "APPS": {
+      "TEXT": "Программы",
+      "LIST": {
+        "INVOICES": "Счета",
+        "INVOICELIST": "Список счетов",
+        "INVOICEDETAIL": "Детали счета",
+        "CONTACTS": "Контакты",
+        "USERGRID": "Сетка пользователя",
+        "USERLIST": "Список пользователей",
+        "PROFILE": "Профиль"
+      }
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Аутентификация",
+      "BADGE": "девять",
+      "LIST": {
+        "SIGNIN": "Войти",
+        "BASIC": "Базовый",
+        "COVER": "Обложка",
+        "SIGNUP": "Зарегистрироваться",
+        "SIGNOUT": "Выход",
+        "LOCKSCREEN": "Экран блокировки",
+        "FORGOTPASSWORD": "Забыли пароль",
+        "RESETPWD": "Сброс пароля",
+        "EMAILVERIFICATION": "подтверждение адреса электронной почты",
+        "TWOSTEPVERIFICATION": "Двухэтапная аутентификация",
+        "THANKYOU": "Спасибо"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Страницы ошибок",
+      "LIST": {
+        "404BASIC": "404 Базовый",
+        "404COVER": "404 Крышка",
+        "500BASIC": "500 Базовый",
+        "500COVER": "500 Крышка"
+      }
+    },
+    "UTILITY": {
+      "TEXT": "Полезность",
+      "LIST": {
+        "STARTER": "Стартовая страница",
+        "PROFILE": "Профиль",
+        "MAINTENANCE": "Обслуживание",
+        "COMINGSOON": "Скоро будет",
+        "FAQS": "FAQs"
+      }
+    },
+    "PRICING": {
+      "TEXT": "Ценообразование",
+      "LIST": {
+        "BASIC": "Базовый",
+        "TABLE": "Таблица"
+      }
+    },
+    "INVOICES": {
+      "TEXT": "Счета",
+      "LIST": {
+        "INVOICELIST": "Список счетов",
+        "INVOICEDETAIL": "Детали счета"
+      }
+    },
+    "TIMELINE": {
+      "TEXT": "График",
+      "LIST": {
+        "CENTERVIEW": "Центральный вид",
+        "LEFTVIEW": "Вид слева",
+        "HORIZONTALVIEW": "Горизонтальный вид"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "СОСТАВНЫЕ ЧАСТИ"
+    },
+    "UIELEMENTS": {
+      "TEXT": "Элементы пользовательского интерфейса",
+      "LIST": {
+        "ALERTS": "Оповещения",
+        "BUTTONS": "Кнопки",
+        "CARDS": "Карты",
+        "CAROUSEL": "Карусель",
+        "DROPDOWNS": "Выпадающие списки",
+        "GRID": "Сетка",
+        "IMAGES": "Images",
+        "MODALS": "Модальные окна",
+        "PROGRESSBAR": "Индикаторы прогресса",
+        "TABS": "Табы и аккордеоны",
+        "TYPOGRAPHY": "Типография",
+        "VIDEO": "видео",
+        "GENERAL": "Общий",
+        "COLORS": "Цвета",
+        "UTILITIES": "Утилиты"
+      }
+    },
+    "EXTENDED": {
+      "TEXT": "Расширенный интерфейс",
+      "LIST": {
+        "LIGHTBOX": "Лайтбокс",
+        "RANGESLIDER": "Ползунок диапазона",
+        "SWEETALERT": "SweetAlert 2",
+        "RATING": "Рейтинг",
+        "NOTIFICATION": "Уведомления",
+        "SWIPERSLIDER": "Ползунок Swiper"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "Виджеты"
+    },
+    "FORMS": {
+      "TEXT": "Формы",
+      "LIST": {
+        "ELEMENTS": "Основные элементы",
+        "VALIDATION": "Проверка",
+        "ADVANCED": "Расширенный плагин",
+        "EDITOR": "Редакторы",
+        "FILEUPLOAD": "Файл загружен",
+        "WIZARD": "волшебник",
+        "MASK": "Маска"
+      }
+    },
+    "TABLES": {
+      "TEXT": "Столы",
+      "LIST": {
+        "BASIC": "Bootstrap Basic",
+        "ADVANCEDTABLES": "Таблицы заранее"
+      }
+    },
+    "APEXCHARTS": {
+      "TEXT": "Графики Apex",
+      "LIST": {
+        "LINE": "Линия",
+        "AREA": "Площадь",
+        "COLUMN": "Столбец",
+        "BAR": "Бар",
+        "MIXED": "Смешанный",
+        "TIMELINE": "График",
+        "CANDLESTICK": "Подсвечник",
+        "BOXPLOT": "Boxplot",
+        "BUBBLE": "Пузырь",
+        "SCATTER": "Разброс",
+        "HEATMAP": "Тепловая карта",
+        "TREEMAP": "Древовидная карта",
+        "PIE": "Пирог",
+        "RADIALBAR": "Радиальная полоса",
+        "RADAR": "Радар",
+        "POLARAREA": "Полярная область"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Иконки",
+      "LIST": {
+        "UNICONS": "Unicons",
+        "FEATHERICONS": "Перо иконы",
+        "BOXICONS": "Боксиконы",
+        "MATERIALDESIGN": "Материальный дизайн",
+        "FONTAWESOME": "Font Awesome"
+      }
+    },
+    "MAPS": {
+      "TEXT": "Карты",
+      "LIST": {
+        "GOOGLEMAP": "Google",
+        "LEAFLET": "Листовка"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "Многоуровневый",
+      "LIST": {
+        "LEVEL1": {
+          "1": "Уровень 1.1",
+          "2": "Уровень 1.2",
+          "LEVEL2": {
+            "1": "Уровень 2.1",
+            "2": "Уровень 2.2"
+          }
+        }
+      }
+    }   
+           
+  }
+}

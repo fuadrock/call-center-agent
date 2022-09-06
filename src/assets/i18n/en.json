@@ -1,0 +1,368 @@
+{
+  "HEADER": {
+    "SEARCH": "Search...",
+    "MEGA_MENU": "Mega Menu",
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "VIEW_ALL": "Mark all as read",
+      "NEW": "New",
+      "EARLIER": "Earlier",
+      "LOAD_MORE": "View More..",
+      "FIRST": {
+        "TITLE": "Your order is placed",
+        "TEXT": "If several languages coalesce the grammar",
+        "TIME": "3 min ago"
+      },
+      "SECOND": {
+        "TITLE": "James Lemire",
+        "TEXT": "It will seem like simplified English.",
+        "TIME": "1 hours ago"
+      },
+      "THIRD": {
+        "TITLE": "Your item is shipped",
+        "TEXT": "If several languages coalesce the grammar",
+        "TIME": "3 min ago"
+      },
+      "FOUR": {
+        "TITLE": "Salena Layfield",
+        "TEXT": "As a skeptical Cambridge friend of mine occidental.",
+        "TIME": "1 hours ago"
+      }
+    },
+    "DASHBOARDS": {
+      "TEXT": "Dashboards",
+      "LIST": {
+        "SALES": "Sales",
+        "ANALYTICS": "Analytics"
+      }
+    },
+    "APPS": {
+      "TEXT": "Apps"
+    },
+    "COMPONENTS": {
+      "TEXT": "Components"
+    },
+    "EXTRAPAGES": {
+      "TEXT": "Extra pages"
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Authentication",
+      "BADGE": "9",
+      "LIST": {
+        "BASIC": "Basic",
+        "COVER": "Cover",
+        "SIGNIN": "Sign In",
+        "SIGNUP": "Sign Up",
+        "SIGNOUT": "Sign Out",
+        "LOCKSCREEN": "Lock screen",
+        "FORGOTPASSWORD": "Forgot Password",
+        "RESETPWD": "Reset Password",
+        "EMAILVERIFICATION": "Email Verification",
+        "TWOSTEPVERIFICATION": "2-step Verification",
+        "THANKYOU": "Thank you"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Error Pages",
+      "LIST": {
+        "400": "404",
+        "500": "500",
+        "BASIC": "Basic",
+        "COVER": "Cover"
+      }
+    }
+  },
+  "TOPBAR": {
+    "COMPONENT": {
+      "TEXT": "Components",
+      "LIST": {
+        "ALERTS": "Alerts",
+        "BUTTONS": "Buttons",
+        "CARDS": "Cards",
+        "DROPDOWNS": "Dropdowns",
+        "LIGHTBOX": "Lightbox",
+        "MODALS": "Modals",
+        "RANGESLIDER": "Range Slider", 
+        "PROGRESSBARS": "Progress Bars",
+        "SWEETALERTS": "Sweet-Alert",
+        "TABS&ACCODIONS": "Tabs & Accordions",
+        "TYPOGRAPHY": "Typography",
+        "GENERAL": "General",
+        "RATING": "Rating",
+        "NOTIFICATIONS": "Notifications"
+      }
+    },
+    "CATEGORIES": {
+      "TEXT": "Categories",
+      "LIST": {
+        "COMPUTERSACCESSORIES": "Computers & Accessories",
+        "LAPTOPSTABLETS": "Laptops & Tablets",
+        "DESKTOPCOMPUTERS": "Desktop Computers",
+        "NETWORKINGPRODUCTS": "Networking Products (NAS)",
+        "MONITORS": "Monitors",
+        "BAGS": "Bags, Cases & Sleeves",
+        "BATTERIES": "Batteries", 
+        "CHARGES": "Charges & Adapters",
+        "SMARTPHONES": "Smartphones & Tablets",
+        "APPLEIPHONE": "Apple iPhone",
+        "ANDROID": "Android Smartphones",
+        "PHABLETS": "Phablets",
+        "APPLEIPAD": "Apple iPad",
+        "ANDROIDTABLETS": "Android Tablets",
+        "TABLETS": "Tablets with Keyboard",
+        "TELEVISION": "Television & Video",
+        "TV": "TV Sets",
+        "HOME": "Home Theater Systems",
+        "DVDPLAYERS": "DVD Players & Recorders",
+        "DVDVCR": "DVD-VCR Combos",
+        "PROJECTORS": "Projectors",
+        "PROJECTIONSCREENS": "Projection Screens",
+        "SATELITE": "Satelite Television",
+        "CAMERAS": "Cameras, Photo & Video",
+        "POINT": "Point & Shoot Digital Cameras",
+        "DSLRCAMERAS": "DSLR Cameras",
+        "MIRRORLESS": "Mirrorless Cameras",
+        "BODY": "Body Mounted Cameras",
+        "CAMERALENSES": "Camera Lenses",
+        "VIDEOSTUDIO": "Video Studio"
+      }
+    }    
+  },
+  "MENUITEMS": {
+    "DASHBOARDS": {
+      "TEXT": "DASHBOARDS"
+    },
+    "SALES": {
+      "TEXT": "Sales",
+      "BADGE": "+5"
+    },
+    "ANALYTICS": {
+      "TEXT": "Analytics"
+    },
+    "APPLICATIONS": {
+      "TEXT": "APPLICATIONS"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendar"
+    },
+    "CHAT": {
+      "TEXT": "Chat",
+      "BADGE": "HOT"
+    },
+    "KANBANBOARD": {
+      "TEXT": "Kanban Board"
+    },
+    "FILEMANAGER": {
+      "TEXT": "File Manager"
+    },
+    "EMAIL": {
+      "TEXT": "Email",
+      "LIST": {
+        "INBOX": "Inbox",
+        "READEMAIL": "Read Email"
+      }
+    },
+    "CONTACTS": {
+      "TEXT": "Contacts",
+      "LIST": {
+        "USERGRID": "User Grid",
+        "USERLIST": "User List",
+        "SETTINGS": "User Settings"
+      }
+    },
+    "GALLERY": {
+      "TEXT": "Gallery"
+    },
+    "PROJECTS": {
+      "TEXT": "Projects",
+      "LIST": {
+        "PROJECTSGRID": "Project Grid",
+        "PROJECTSLIST": "Project List",
+        "PROJECTSOVERVIEW": "Project Overview",
+        "CREATENEW": "Create New"
+      }
+    },
+    "PAGES": {
+      "TEXT": "PAGES"
+    },
+
+    "APPS": {
+      "TEXT": "Apps",
+      "LIST": {
+        "INVOICES": "Invoices",
+        "INVOICELIST": "Invoice List",
+        "INVOICEDETAIL": "Invoice Detail",
+        "CONTACTS": "Contacts",
+        "USERGRID": "User Grid",
+        "USERLIST": "User List",
+        "PROFILE": "Profile"
+      }
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Authentication",
+      "BADGE": "9",
+      "LIST": {
+        "SIGNIN": "Sign In",
+        "BASIC": "Basic",
+        "COVER": "Cover",
+        "SIGNUP": "Sign Up",
+        "SIGNOUT": "Sign Out",
+        "LOCKSCREEN": "Lock screen",
+        "FORGOTPASSWORD": "Forgot Password",
+        "RESETPWD": "Reset Password",
+        "EMAILVERIFICATION": "Email Verification",
+        "TWOSTEPVERIFICATION": "2-step Verification",
+        "THANKYOU": "Thank you"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Error Pages",
+      "LIST": {
+        "404BASIC": "404 Basic",
+        "404COVER": "404 Cover",
+        "500BASIC": "500 Basic",
+        "500COVER": "500 Cover"
+      }
+    },
+    "UTILITY": {
+      "TEXT": "Utility",
+      "LIST": {
+        "STARTER": "Starter Page",
+        "PROFILE": "Profile",
+        "MAINTENANCE": "Maintenance",
+        "COMINGSOON": "Coming Soon",
+        "FAQS": "FAQs"
+      }
+    },
+    "PRICING": {
+      "TEXT": "Pricing",
+      "LIST": {
+        "BASIC": "Basic",
+        "TABLE": "Table"
+      }
+    },
+    "INVOICES": {
+      "TEXT": "Invoices",
+      "LIST": {
+        "INVOICELIST": "Invoice List",
+        "INVOICEDETAIL": "Invoice Detail"
+      }
+    },
+    "TIMELINE": {
+      "TEXT": "Timeline",
+      "LIST": {
+        "CENTERVIEW": "Center View",
+        "LEFTVIEW": "Left View",
+        "HORIZONTALVIEW": "Horizontal View"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "COMPONENTS"
+    },
+    "UIELEMENTS": {
+      "TEXT": "UI Elements",
+      "LIST": {
+        "ALERTS": "Alerts",
+        "BUTTONS": "Buttons",
+        "CARDS": "Cards",
+        "CAROUSEL": "Carousel",
+        "DROPDOWNS": "Dropdowns",
+        "GRID": "Grid",
+        "IMAGES": "Images",
+        "MODALS": "Modals",
+        "PROGRESSBAR": "Progress Bars",
+        "TABS": "Tabs & Accordions",
+        "TYPOGRAPHY": "Typography",
+        "VIDEO": "Video",
+        "GENERAL": "General",
+        "COLORS": "Colors",
+        "UTILITIES": "Utilities"
+      }
+    },
+    "EXTENDED": {
+      "TEXT": "Extended UI",
+      "LIST": {
+        "LIGHTBOX": "Lightbox",
+        "RANGESLIDER": "Range Slider",
+        "SWEETALERT": "SweetAlert 2",
+        "RATING": "Rating",
+        "NOTIFICATION": "Notifications",
+        "SWIPERSLIDER": "Swiper Slider"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "Widgets"
+    },
+    "FORMS": {
+      "TEXT": "Forms",
+      "LIST": {
+        "ELEMENTS": "Basic Elements",
+        "VALIDATION": "Validation",
+        "ADVANCED": "Advanced Plugin",
+        "EDITOR": "Editors",
+        "FILEUPLOAD": "File Upload",
+        "WIZARD": "Wizard",
+        "MASK": "Mask"
+      }
+    },
+    "TABLES": {
+      "TEXT": "Tables",
+      "LIST": {
+        "BASIC": "Bootstrap Basic",
+        "ADVANCEDTABLES": "Advance Tables"
+      }
+    },
+    "APEXCHARTS": {
+      "TEXT": "Apex Charts",
+      "LIST": {
+        "LINE": "Line",
+        "AREA": "Area",
+        "COLUMN": "Column",
+        "BAR": "Bar",
+        "MIXED": "Mixed",
+        "TIMELINE": "Timeline",
+        "CANDLESTICK": "Candlestick",
+        "BOXPLOT": "Boxplot",
+        "BUBBLE": "Bubble",
+        "SCATTER": "Scatter",
+        "HEATMAP": "Heatmap",
+        "TREEMAP": "Treemap",
+        "PIE": "Pie",
+        "RADIALBAR": "Radialbar",
+        "RADAR": "Radar",
+        "POLARAREA": "Polararea"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Icons",
+      "LIST": {
+        "UNICONS": "Unicons",
+        "FEATHERICONS": "Feather icons",
+        "BOXICONS": "Boxicons",
+        "MATERIALDESIGN": "Material Design",
+        "FONTAWESOME": "Font Awesome"
+      }
+    },
+    "MAPS": {
+      "TEXT": "Maps",
+      "LIST": {
+        "GOOGLEMAP": "Google",
+        "LEAFLET": "Leaflet"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "Multi Level",
+      "LIST": {
+        "LEVEL1": {
+          "1": "Level 1.1",
+          "2": "Level 1.2",
+          "LEVEL2": {
+            "1": "Level 2.1",
+            "2": "Level 2.2"
+          }
+        }
+      }
+    }   
+           
+  }
+}

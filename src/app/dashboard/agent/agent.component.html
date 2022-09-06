@@ -1,0 +1,266 @@
+<div class="row">
+  <div class="col-xl-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="alert alert-warning border-0 d-flex align-items-center" role="alert">
+          <i class="uil uil-users-alt font-size-16 text-warning me-2"></i>
+          <div class="flex-grow-1 text-truncate">
+            <b>804</b> Sales & Support Queue.
+          </div>
+          <div class="flex-shrink-0">
+            <a href="#!" class="text-reset text-decoration-underline"><b>Logout</b></a>
+          </div>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-sm-12">
+            <p class="font-size-18">Available Queues </p>
+            <div class=" ">
+              <!-- <select class="js-example-basic-multiple col-12" name="states[]" multiple="multiple">
+                              <option value="1">Queue 1 - Sales</option>
+                              <option value="2">Queue 2 - Support</option>
+                              <option value="3">Queue 3 - Billing</option>
+                              <option value="4">Queue 4 - General Enquiries</option>
+                            </select> -->
+              <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+              </ng-multiselect-dropdown>
+            </div>
+            <div class="mt-4">
+              <a href="#" class="btn btn-primary">Change Queue</a>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+
+  </div> <!-- end col-->
+  <div class="col-xl-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <div class="p-3 border-bottom">
+          <div class="row align-items-center">
+            <div class="col-10">
+              <form>
+                <div class="search-box">
+                  <div class="position-relative">
+                    <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                      placeholder="Enter name or Number...">
+                    <i class="uil-search search-icon"></i>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div class="col-2">
+              <a href="#!"><i class="icon-sm small-pad" data-feather="grid"></i> </a>
+            </div>
+
+          </div>
+        </div>
+        <img src="assets/images/dialpad.png" class="img-fluid">
+      </div> <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+  </div> <!-- end col-->
+  <div class="col-xl-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="card-title">Contacts <span class="text-muted fw-normal ms-2">(34)</span></h5>
+            </div>
+          </div><!-- end col -->
+
+          <div class="col-md-6">
+            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
+
+              <div>
+                <a href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addContactModal"><i
+                    class="uil uil-plus me-1"></i> Add New</a>
+              </div>
+
+            </div>
+          </div><!-- end col -->
+        </div><!-- end row -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addContactModalLabel">Add Contact</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- end modalheader -->
+              <div class="modal-body p-4">
+                <div>
+                  <div class="mb-3">
+                    <label for="addcontact-name-input" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="addcontact-name-input" placeholder="Enter Name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="addcontact-designation-input" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="addcontact-designation-input"
+                      placeholder="Enter Phone Number">
+                  </div>
+                  <div class="mb-3">
+                    <label for="addcontact-file-input" class="form-label">Company</label>
+                    <input type="text" class="form-control" id="addcontact-company-input"
+                      placeholder="Enter Company Name">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="addcontact-email-input" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="addcontact-email-input" placeholder="Enter Email">
+                  </div>
+                </div>
+              </div>
+              <!-- end modalbody -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary w-sm">Add</button>
+              </div>
+              <!-- end modalfooter -->
+            </div><!-- end content -->
+          </div>
+        </div>
+        <!-- end modal -->
+
+        <div class="table-responsive">
+          <table class="table align-middle table-nowrap table-check">
+
+            <tbody>
+              <tr>
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">Donald Risher</a>
+                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
+                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                </td>
+                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="uil uil-phone"></i>
+                  </button>
+                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="uil uil-edit"></i>
+                  </button>
+                </td>
+              </tr><!-- end tr -->
+              <tr>
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">Donald Risher</a>
+                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
+                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                </td>
+                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="uil uil-phone"></i>
+                  </button>
+                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="uil uil-edit"></i>
+                  </button>
+                </td>
+              </tr><!-- end tr -->
+              <tr>
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">Donald Risher</a>
+                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
+                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                </td>
+                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="uil uil-phone"></i>
+                  </button>
+                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="uil uil-edit"></i>
+                  </button>
+                </td>
+              </tr><!-- end tr -->
+              <!-- end tr -->
+              <tr>
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">Donald Risher</a>
+                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
+                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                </td>
+                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="uil uil-phone"></i>
+                  </button>
+                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="uil uil-edit"></i>
+                  </button>
+                </td>
+              </tr><!-- end tr -->
+              <tr>
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">Donald Risher</a>
+                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
+                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                </td>
+                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="uil uil-phone"></i>
+                  </button>
+                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="uil uil-edit"></i>
+                  </button>
+                </td>
+              </tr><!-- end tr -->
+            </tbody><!-- end tbody -->
+          </table><!-- end table -->
+        </div><!-- end table responsive -->
+
+        <div class="row g-0 text-center text-sm-start">
+          <div class="col-sm-6">
+            <div>
+              <p class="mb-sm-0">Showing 1 to 10 of 34 entries</p>
+            </div>
+          </div>
+          <!-- end col -->
+          <div class="col-sm-6">
+            <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
+              <li class="page-item disabled">
+                <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">1</a>
+              </li>
+              <li class="page-item active">
+                <a href="#" class="page-link">2</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">3</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">4</a>
+              </li>
+
+            </ul><!-- end ul -->
+          </div><!-- end col -->
+        </div><!-- end row -->
+
+      </div><!-- end card body -->
+    </div><!-- end card -->
+
+
+  </div> <!-- end col-->
+
+</div>

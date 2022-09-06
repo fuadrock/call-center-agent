@@ -1,0 +1,49 @@
+// 
+// Kanbanboard . scss
+// 
+
+
+// task
+
+.task-board{
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  align-items: stretch;
+}
+
+.tasks{
+  min-height: 300px;
+}
+
+.task-list{
+  min-width: 280px;
+  white-space: normal;
+
+  @media (min-width: 576px) {
+    width: 400px;
+  }
+  
+  
+  &:not(:last-child) {
+      margin-right: 20px;
+  }
+
+  .tasklist-content{
+    max-height: calc(100vh - 430px);
+  }
+
+  .task-box{
+      border: 1px solid $gray-300;
+
+      &:last-child{
+          margin-bottom: 0;
+      }
+  }
+  
+}
+
+.gu-transit {
+    border: 1px dashed $gray-600 !important;
+    background-color: $gray-200 !important;
+}

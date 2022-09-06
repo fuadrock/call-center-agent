@@ -1,0 +1,369 @@
+{
+  "HEADER": {
+    "SEARCH": "Suche...",
+    "MEGA_MENU": "Mega-Menü",
+    "NOTIFICATIONS": {
+      "TITLE": "Benachrichtigungen",
+      "VIEW_ALL": "Alle ansehen",
+      "NEW": "Nuevo",
+      "EARLIER": "Más temprano",
+      "LOAD_MORE": "Mehr sehen..",
+      "FIRST": {
+        "TITLE": "Ihre Bestellung ist aufgegeben",
+        "TEXT": "Wenn mehrere Sprachen die Grammatik zusammenführen",
+        "TIME": "Vor 3 Minuten"
+      },
+      "SECOND": {
+        "TITLE": "James Lemire",
+        "TEXT": "Es wird wie vereinfachtes Englisch erscheinen.",
+        "TIME": "Vor 1 Stunden"
+      },
+      "THIRD": {
+        "TITLE": "Ihr Artikel wird versendet",
+        "TEXT": "Wenn mehrere Sprachen die Grammatik zusammenführen",
+        "TIME": "Vor 3 Minuten"
+      },
+      "FOUR": {
+        "TITLE": "Salena Layfield",
+        "TEXT": "Als skeptischer Cambridge-Freund von mir abendländisch.",
+        "TIME": "Vor 1 Stunden"
+      }
+    },
+    "DASHBOARDS": {
+      "TEXT": "Cuadros de mando",
+      "LIST": {
+        "SALES": "Ventas",
+        "ANALYTICS": "Analítica"
+      }
+    },
+    "APPS": {
+      "TEXT": "Aplicaciones"
+    },
+    "COMPONENTS": {
+      "TEXT": "Componentes"
+    },
+    "EXTRAPAGES": {
+      "TEXT": "Páginas extra"
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Autenticación",
+      "BADGE": "nueve",
+      "LIST": {
+        "BASIC": "Básico",
+        "COVER": "Cubrir",
+        "SIGNIN": "Registrarse",
+        "SIGNUP": "Inscribirse",
+        "SIGNOUT": "Desconectar",
+        "LOCKSCREEN": "Bloquear pantalla",
+        "FORGOTPASSWORD": "Has olvidado tu contraseña",
+        "RESETPWD": "Restablecer la contraseña",
+        "EMAILVERIFICATION": "verificacion de email",
+        "TWOSTEPVERIFICATION": "Verificación en dos pasos",
+        "THANKYOU": "Gracias"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Páginas de errores",
+      "LIST": {
+        "400": "cuatrocientos cuatro",
+        "500": "quinientos",
+        "BASIC": "Básico",
+        "COVER": "Cubrir"
+      }
+    }
+  },
+  "TOPBAR": {
+    "COMPONENT": {
+      "TEXT": "Komponenten",
+      "LIST": {
+        "ALERTS": "Benachrichtigungen",
+        "BUTTONS": "Tasten",
+        "CARDS": "Karten",
+        "DROPDOWNS": "Dropdowns",
+        "LIGHTBOX": "Leuchtkasten",
+        "MODALS": "Modalitäten",
+        "RANGESLIDER": "Bereichsschieberegler", 
+        "PROGRESSBARS": "Fortschrittsbalken",
+        "SWEETALERTS": "Sweet-Alarm",
+        "TABS&ACCODIONS": "Tabs & Akkordeons",
+        "TYPOGRAPHY": "Typografie",
+        "GENERAL": "Allgemein",
+        "RATING": "Bewertung",
+        "NOTIFICATIONS": "Benachrichtigungen"
+      }
+    },
+    "CATEGORIES": {
+      "TEXT": "Categories",
+      "LIST": {
+        "COMPUTERSACCESSORIES": "Computer & Zubehör",
+        "LAPTOPSTABLETS": "Laptops und Tablets",
+        "DESKTOPCOMPUTERS": "Desktop-Computer",
+        "NETWORKINGPRODUCTS": "Netzwerkprodukte (NAS)",
+        "MONITORS": "Monitore",
+        "BAGS": "Taschen, Etuis & Hüllen",
+        "BATTERIES": "Batterien", 
+        "CHARGES": "Gebühren & Adapter",
+        "SMARTPHONES": "Gebühren & Adapter",
+        "APPLEIPHONE": "Apple iPhone",
+        "ANDROID": "Android-Smartphones",
+        "PHABLETS": "Smartphones",
+        "APPLEIPAD": "Apple Ipad",
+        "ANDROIDTABLETS": "Android-Tablets",
+        "TABLETS": "Tablets mit Tastatur",
+        "TELEVISION": "Fernsehen & Video",
+        "TV": "Fernsehgeräte",
+        "HOME": "Heimkinosysteme",
+        "DVDPLAYERS": "DVD-Player und -Recorder",
+        "DVDVCR": "DVD-VCR-Kombinationen",
+        "PROJECTORS": "Projektoren",
+        "PROJECTIONSCREENS": "Projektionswände",
+        "SATELITE": "Satellitenfernsehen",
+        "CAMERAS": "Kameras, Foto & Video",
+        "POINT": "Point & Shoot Digitalkameras",
+        "DSLRCAMERAS": "DSLR-Kameras",
+        "MIRRORLESS": "Spiegellose Kameras",
+        "BODY": "Kameras für die Körpermontage",
+        "CAMERALENSES": "Kameraobjektive",
+        "VIDEOSTUDIO": "Videostudio"
+      }
+    }    
+  },
+  "MENUITEMS": {
+    "DASHBOARDS": {
+      "TEXT": "DASHBOARDS"
+    },
+    "SALES": {
+      "TEXT": "Der Umsatz",
+      "BADGE": "fünf"
+    },
+    "ANALYTICS": {
+      "TEXT": "Analytik"
+    },
+    "APPLICATIONS": {
+      "TEXT": "ANWENDUNGEN"
+    },
+    "CALENDAR": {
+      "TEXT": "Kalender"
+    },
+    "CHAT": {
+      "TEXT": "Plaudern",
+      "BADGE": "HEISS"
+    },
+    "KANBANBOARD": {
+      "TEXT": "Kanban-Board"
+    },
+    "FILEMANAGER": {
+      "TEXT": "Dateimanager"
+    },
+    "EMAIL": {
+      "TEXT": "Email",
+      "LIST": {
+        "INBOX": "Posteingang",
+        "READEMAIL": "E-Mail lesen"
+      }
+    },
+    "CONTACTS": {
+      "TEXT": "Kontakte",
+      "LIST": {
+        "USERGRID": "Benutzerraster",
+        "USERLIST": "Benutzerliste",
+        "SETTINGS": "Benutzereinstellungen"
+      }
+    },
+    "GALLERY": {
+      "TEXT": "Gallery"
+    },
+    "PROJECTS": {
+      "TEXT": "Projects",
+      "LIST": {
+        "PROJECTSGRID": "Project Grid",
+        "PROJECTSLIST": "Project List",
+        "PROJECTSOVERVIEW": "Project Overview",
+        "CREATENEW": "Erstelle neu"
+      }
+    },
+    "PAGES": {
+      "TEXT": "SEITEN"
+    },
+
+    "APPS": {
+      "TEXT": "Apps",
+      "LIST": {
+        "INVOICES": "Rechnungen",
+        "INVOICELIST": "Rechnungsliste",
+        "INVOICEDETAIL": "Rechnungsdetails",
+        "CONTACTS": "Kontakte",
+        "USERGRID": "Benutzerraster",
+        "USERLIST": "Benutzerliste",
+        "PROFILE": "Profil"
+      }
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Authentifizierung",
+      "BADGE": "neun",
+      "LIST": {
+        "SIGNIN": "Einloggen",
+        "BASIC": "Basic",
+        "COVER": "Abdeckung",
+        "SIGNUP": "Anmeldung",
+        "SIGNOUT": "Austragen",
+        "LOCKSCREEN": "Bildschirm sperren",
+        "FORGOTPASSWORD": "Passwort vergessen",
+        "RESETPWD": "Passwort zurücksetzen",
+        "EMAILVERIFICATION": "E-Mail-Verifizierung",
+        "TWOSTEPVERIFICATION": "Bestätigung in zwei Schritten",
+        "THANKYOU": "Danke"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Fehlerseiten",
+      "LIST": {
+        "404BASIC": "404 Basis",
+        "404COVER": "404 Abdeckung",
+        "500BASIC": "500 Basis",
+        "500COVER": "500 Abdeckung"
+      }
+    },
+    "UTILITY": {
+      "TEXT": "Nützlichkeit",
+      "LIST": {
+        "STARTER": "Startseite",
+        "PROFILE": "Profil",
+        "MAINTENANCE": "Maintenance",
+        "COMINGSOON": "Demnächst",
+        "FAQS": "Häufig gestellte Fragen"
+      }
+    },
+    "PRICING": {
+      "TEXT": "Preisgestaltung",
+      "LIST": {
+        "BASIC": "Basic",
+        "TABLE": "Tisch"
+      }
+    },
+    "INVOICES": {
+      "TEXT": "Rechnungen",
+      "LIST": {
+        "INVOICELIST": "Invoice List",
+        "INVOICEDETAIL": "Invoice Detail"
+      }
+    },
+    "TIMELINE": {
+      "TEXT": "Timeline",
+      "LIST": {
+        "CENTERVIEW": "Mittelpunkt",
+        "LEFTVIEW": "Linke ansicht",
+        "HORIZONTALVIEW": "Horizontale Ansicht"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "KOMPONENTEN"
+    },
+    "UIELEMENTS": {
+      "TEXT": "UI-Elemente",
+      "LIST": {
+        "ALERTS": "Benachrichtigungen",
+        "BUTTONS": "Tasten",
+        "CARDS": "Karten",
+        "CAROUSEL": "Karussell",
+        "DROPDOWNS": "Dropdowns",
+        "GRID": "Netz",
+        "IMAGES": "Bilder",
+        "MODALS": "Modalitäten",
+        "PROGRESSBAR": "Fortschrittsbalken",
+        "TABS": "Tabs & Akkordeons",
+        "TYPOGRAPHY": "Typografie",
+        "VIDEO": "Video",
+        "GENERAL": "Allgemein",
+        "COLORS": "Farben",
+        "UTILITIES": "Dienstprogramme"
+      }
+    },
+    "EXTENDED": {
+      "TEXT": "Erweiterte Benutzeroberfläche",
+      "LIST": {
+        "LIGHTBOX": "Leuchtkasten",
+        "RANGESLIDER": "Bereichsschieberegler",
+        "SWEETALERT": "SweetAlert 2",
+        "RATING": "Bewertung",
+        "NOTIFICATION": "Benachrichtigungen",
+        "SWIPERSLIDER": "Swiper-Schieberegler"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "Widgets"
+    },
+    "FORMS": {
+      "TEXT": "Formen",
+      "LIST": {
+        "ELEMENTS": "Grundelemente",
+        "VALIDATION": "Validierung",
+        "ADVANCED": "Erweitertes Plugin",
+        "EDITOR": "Herausgeber",
+        "FILEUPLOAD": "Datei-Upload",
+        "WIZARD": "Magier",
+        "MASK": "Maske"
+      }
+    },
+    "TABLES": {
+      "TEXT": "Tabellen",
+      "LIST": {
+        "BASIC": "Bootstrap-Grundlagen",
+        "ADVANCEDTABLES": "Advance-Tabellen"
+      }
+    },
+    "APEXCHARTS": {
+      "TEXT": "Apex-Diagramme",
+      "LIST": {
+        "LINE": "Linie",
+        "AREA": "Bereich",
+        "COLUMN": "Spalte",
+        "BAR": "Bar",
+        "MIXED": "Gemischt",
+        "TIMELINE": "Zeitleiste",
+        "CANDLESTICK": "Leuchter",
+        "BOXPLOT": "Box-Plot",
+        "BUBBLE": "Blase",
+        "SCATTER": "Streuen",
+        "HEATMAP": "Heatmap",
+        "TREEMAP": "Baumkarte",
+        "PIE": "Kuchen",
+        "RADIALBAR": "Radialbalken",
+        "RADAR": "Radar",
+        "POLARAREA": "Polargebiet"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Symbole",
+      "LIST": {
+        "UNICONS": "Unicons",
+        "FEATHERICONS": "Federsymbole",
+        "BOXICONS": "Boxicons",
+        "MATERIALDESIGN": "Material Design",
+        "FONTAWESOME": "Schriftart Super"
+      }
+    },
+    "MAPS": {
+      "TEXT": "Karten",
+      "LIST": {
+        "GOOGLEMAP": "Google",
+        "LEAFLET": "Flugblatt"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "Mehrstufig",
+      "LIST": {
+        "LEVEL1": {
+          "1": "Niveau 1.1",
+          "2": "Niveau 1.2",
+          "LEVEL2": {
+            "1": "Niveau 2.1",
+            "2": "Niveau 2.2"
+          }
+        }
+      }
+    }   
+           
+  }
+ 
+}

@@ -1,0 +1,119 @@
+// 
+// _demos.scss
+// 
+
+// Demo Only
+.button-items {
+    margin-left: -8px;
+    margin-bottom: -12px;
+    
+    .btn {
+        margin-bottom: 12px;
+        margin-left: 8px;
+    }
+}
+
+// search-box
+.search-box{
+  .form-control{
+      border-radius: 30px;
+      padding-left: 40px;
+  }
+  .search-icon{
+      font-size: 16px;    
+      position: absolute;
+      left: 13px;
+      top: 0;
+      line-height: 38px;
+  }
+}
+
+// Modals
+.bs-example-modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+    display: block;
+}
+
+// Icon demo ( Demo only )
+.icon-demo-content {
+    text-align: center;
+    color: $gray-500;
+  
+    i, svg{
+      display: block;
+      width: 40px;
+      height: 40px;
+      line-height: 36px;
+      font-size: 24px;
+      margin: 0px auto 16px;
+      border: 2px solid $gray-300;
+      color: $gray-600;
+      border-radius: 4px;
+      transition: all 0.4s;
+    }
+    svg {
+      padding: 6px;
+    }
+  
+    .col-lg-4 {
+      margin-top: 24px;
+  
+      &:hover {
+        i, svg {
+          color: $white;
+          background-color: $primary;
+          border-color: $primary;
+          transform: scale(1.15);
+        }
+      }
+    }
+}
+
+
+// Grid
+
+.grid-structure {
+    .grid-container {
+        background-color: $gray-100;
+        margin-top: 10px;
+        font-size: .8rem;
+        font-weight: $font-weight-medium;
+        padding: 10px 20px;
+    }
+}
+
+// toast
+.toast:not(:last-child) {
+  margin-bottom: .75rem;
+}
+
+
+body[data-layout-mode="dark"] {
+  .icon-demo-content{
+    i, svg{
+      color: $gray-dark-600;
+      border-color: $gray-dark-300;
+    }
+  }
+}
+
+
+// ribbon
+
+.ribbon{
+  position: absolute;
+  right: -26px;
+  top: 20px;
+  transform: rotate(45deg);
+  color: $white;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  padding: 1px 22px;
+  font-size: 13px;
+  font-weight: 500;
+}

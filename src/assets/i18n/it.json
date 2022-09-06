@@ -1,0 +1,368 @@
+{
+  "HEADER": {
+    "SEARCH": "Ricerca...",
+    "MEGA_MENU": "Menu Mega",
+    "NOTIFICATIONS": {
+      "TITLE": "Notifiche",
+      "VIEW_ALL": "Mostra tutto",
+      "NEW": "Nuovo",
+      "EARLIER": "Prima",
+      "LOAD_MORE": "Visualizza altro..",
+      "FIRST": {
+        "TITLE": "Il tuo ordine è stato effettuato",
+        "TEXT": "Se più lingue uniscono la grammatica",
+        "TIME": "3 minuti fa"
+      },
+      "SECOND": {
+        "TITLE": "James Lemire",
+        "TEXT": "Sembrerà un inglese semplificato.",
+        "TIME": "1 ora fa"
+      },
+      "THIRD": {
+        "TITLE": "Il tuo articolo viene spedito",
+        "TEXT": "Se più lingue uniscono la grammatica",
+        "TIME": "3 minuti fa"
+      },
+      "FOUR": {
+        "TITLE": "Salena Layfield",
+        "TEXT": "Come un mio amico occidentale scettico di Cambridge.",
+        "TIME": "1 ora fa"
+      }
+    },
+    "DASHBOARDS": {
+      "TEXT": "Dashboard",
+      "LIST": {
+        "SALES": "I saldi",
+        "ANALYTICS": "Analisi"
+      }
+    },
+    "APPS": {
+      "TEXT": "App"
+    },
+    "COMPONENTS": {
+      "TEXT": "Componenti"
+    },
+    "EXTRAPAGES": {
+      "TEXT": "Pagine extra"
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Autenticazione",
+      "BADGE": "nove",
+      "LIST": {
+        "BASIC": "Di base",
+        "COVER": "Coperchio",
+        "SIGNIN": "Registrazione",
+        "SIGNUP": "Iscrizione",
+        "SIGNOUT": "Disconnessione",
+        "LOCKSCREEN": "Blocca schermo",
+        "FORGOTPASSWORD": "Ha dimenticato la password",
+        "RESETPWD": "Resetta la password",
+        "EMAILVERIFICATION": "verifica email",
+        "TWOSTEPVERIFICATION": "Verifica in 2 passaggi",
+        "THANKYOU": "Grazie"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Pagine di errori",
+      "LIST": {
+        "400": "quattro­cento­quattro",
+        "500": "cinque­cento",
+        "BASIC": "Di base",
+        "COVER": "Coperchio"
+      }
+    }
+  },
+  "TOPBAR": {
+    "COMPONENT": {
+      "TEXT": "Componenti",
+      "LIST": {
+        "ALERTS": "Avvisi",
+        "BUTTONS": "Avvisi",
+        "CARDS": "Carte",
+        "DROPDOWNS": "menu a discesa",
+        "LIGHTBOX": "Lightbox",
+        "MODALS": "modali",
+        "RANGESLIDER": "Dispositivo di scorrimento dell'intervallo", 
+        "PROGRESSBARS": "Barre di avanzamento",
+        "SWEETALERTS": "Dolce-Allarme",
+        "TABS&ACCODIONS": "Tablature e fisarmoniche",
+        "TYPOGRAPHY": "Tipografia",
+        "GENERAL": "Generale",
+        "RATING": "Valutazione",
+        "NOTIFICATIONS": "Notifiche"
+      }
+    },
+    "CATEGORIES": {
+      "TEXT": "Categorie",
+      "LIST": {
+        "COMPUTERSACCESSORIES": "Computer e accessori",
+        "LAPTOPSTABLETS": "Computer portatili e tablet",
+        "DESKTOPCOMPUTERS": "Computer desktop",
+        "NETWORKINGPRODUCTS": "Prodotti di rete (NAS)",
+        "MONITORS": "monitor",
+        "BAGS": "Borse, custodie e custodie",
+        "BATTERIES": "batterie", 
+        "CHARGES": "Addebiti e adattatori",
+        "SMARTPHONES": "Smartphone e tablet",
+        "APPLEIPHONE": "Apple iphone",
+        "ANDROID": "Smartphone Android",
+        "PHABLETS": "Phablet",
+        "APPLEIPAD": "Apple iPad",
+        "ANDROIDTABLETS": "Tablet Android",
+        "TABLETS": "Tablet con tastiera",
+        "TELEVISION": "Televisione e video",
+        "TV": "Televisori",
+        "HOME": "Sistemi home theater",
+        "DVDPLAYERS": "Lettori e registratori DVD",
+        "DVDVCR": "Combo DVD-videoregistratore",
+        "PROJECTORS": "proiettori",
+        "PROJECTIONSCREENS": "Schermi di proiezione",
+        "SATELITE": "Televisione satellitare",
+        "CAMERAS": "Fotocamere, foto e video",
+        "POINT": "Fotocamere digitali inquadra e scatta",
+        "DSLRCAMERAS": "Fotocamere DSLR",
+        "MIRRORLESS": "Fotocamere Mirrorless",
+        "BODY": "Fotocamere montate sul corpo",
+        "CAMERALENSES": "Obiettivi della fotocamera",
+        "VIDEOSTUDIO": "Video Studio"
+      }
+    }    
+  },
+  "MENUITEMS": {
+    "DASHBOARDS": {
+      "TEXT": "CRUSCOTTI"
+    },
+    "SALES": {
+      "TEXT": "I saldi",
+      "BADGE": "cinque"
+    },
+    "ANALYTICS": {
+      "TEXT": "Analisi"
+    },
+    "APPLICATIONS": {
+      "TEXT": "APPLICAZIONI"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendario"
+    },
+    "CHAT": {
+      "TEXT": "Chiacchierata",
+      "BADGE": "PICCANTE"
+    },
+    "KANBANBOARD": {
+      "TEXT": "Tabellone Kanban"
+    },
+    "FILEMANAGER": {
+      "TEXT": "File Manager"
+    },
+    "EMAIL": {
+      "TEXT": "E-mail",
+      "LIST": {
+        "INBOX": "Posta in arrivo",
+        "READEMAIL": "Leggi e-mail"
+      }
+    },
+    "CONTACTS": {
+      "TEXT": "Contatti",
+      "LIST": {
+        "USERGRID": "Griglia utente",
+        "USERLIST": "lista degli utenti",
+        "SETTINGS": "Impostazioni utente"
+      }
+    },
+    "GALLERY": {
+      "TEXT": "Galleria"
+    },
+    "PROJECTS": {
+      "TEXT": "Progetti",
+      "LIST": {
+        "PROJECTSGRID": "Griglia di progetto",
+        "PROJECTSLIST": "Elenco dei progetti",
+        "PROJECTSOVERVIEW": "Panoramica del progetto",
+        "CREATENEW": "Create New"
+      }
+    },
+    "PAGES": {
+      "TEXT": "PAGINE"
+    },
+
+    "APPS": {
+      "TEXT": "App",
+      "LIST": {
+        "INVOICES": "Fatture",
+        "INVOICELIST": "Elenco fatture",
+        "INVOICEDETAIL": "Dettaglio fattura",
+        "CONTACTS": "Contatti",
+        "USERGRID": "Griglia utente",
+        "USERLIST": "lista degli utenti",
+        "PROFILE": "Profilo"
+      }
+    },
+    "AUTHENTICATION": {
+      "TEXT": "Autenticazione",
+      "BADGE": "nove",
+      "LIST": {
+        "SIGNIN": "Registrazione",
+        "BASIC": "Di base",
+        "COVER": "Coperchio",
+        "SIGNUP": "Iscrizione",
+        "SIGNOUT": "Disconnessione",
+        "LOCKSCREEN": "Blocca schermo",
+        "FORGOTPASSWORD": "Ha dimenticato la password",
+        "RESETPWD": "Resetta la password",
+        "EMAILVERIFICATION": "verifica email",
+        "TWOSTEPVERIFICATION": "Verifica in 2 passaggi",
+        "THANKYOU": "Grazie"
+      }
+    },
+    "ERRORSPAGES": {
+      "TEXT": "Pagine di errori",
+      "LIST": {
+        "404BASIC": "404 di base",
+        "404COVER": "404 Copertina",
+        "500BASIC": "500 di base",
+        "500COVER": "500 Coperchio"
+      }
+    },
+    "UTILITY": {
+      "TEXT": "Utilità",
+      "LIST": {
+        "STARTER": "Pagina iniziale",
+        "PROFILE": "Profilo",
+        "MAINTENANCE": "Manutenzione",
+        "COMINGSOON": "Prossimamente",
+        "FAQS": "FAQ"
+      }
+    },
+    "PRICING": {
+      "TEXT": "Prezzi",
+      "LIST": {
+        "BASIC": "Di base",
+        "TABLE": "Tavolo"
+      }
+    },
+    "INVOICES": {
+      "TEXT": "Fatture",
+      "LIST": {
+        "INVOICELIST": "Elenco fatture",
+        "INVOICEDETAIL": "Dettaglio fattura"
+      }
+    },
+    "TIMELINE": {
+      "TEXT": "Sequenza temporale",
+      "LIST": {
+        "CENTERVIEW": "Vista centrale",
+        "LEFTVIEW": "Vista a sinistra",
+        "HORIZONTALVIEW": "Vista orizzontale"
+      }
+    },
+    "COMPONENTS": {
+      "TEXT": "COMPONENTI"
+    },
+    "UIELEMENTS": {
+      "TEXT": "Elementi dell'interfaccia utente",
+      "LIST": {
+        "ALERTS": "Avvisi",
+        "BUTTONS": "pulsanti",
+        "CARDS": "Carte",
+        "CAROUSEL": "Giostra",
+        "DROPDOWNS": "menu a discesa",
+        "GRID": "Griglia",
+        "IMAGES": "immagini",
+        "MODALS": "modali",
+        "PROGRESSBAR": "Barre di avanzamento",
+        "TABS": "Tablature e fisarmoniche",
+        "TYPOGRAPHY": "Tipografia",
+        "VIDEO": "video",
+        "GENERAL": "Generale",
+        "COLORS": "Colori",
+        "UTILITIES": "Utilità"
+      }
+    },
+    "EXTENDED": {
+      "TEXT": "Interfaccia utente estesa",
+      "LIST": {
+        "LIGHTBOX": "Lightbox",
+        "RANGESLIDER": "Dispositivo di scorrimento dell'intervallo",
+        "SWEETALERT": "SweetAlert 2",
+        "RATING": "Valutazione",
+        "NOTIFICATION": "Notifiche",
+        "SWIPERSLIDER": "Swiper Slider"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "Widget"
+    },
+    "FORMS": {
+      "TEXT": "Forme",
+      "LIST": {
+        "ELEMENTS": "Elementi basici",
+        "VALIDATION": "Convalida",
+        "ADVANCED": "Plugin avanzato",
+        "EDITOR": "Editori",
+        "FILEUPLOAD": "Upload di file",
+        "WIZARD": "procedura guidata",
+        "MASK": "Maschera"
+      }
+    },
+    "TABLES": {
+      "TEXT": "Tabelle",
+      "LIST": {
+        "BASIC": "Bootstrap di base",
+        "ADVANCEDTABLES": "Tabelle avanzate"
+      }
+    },
+    "APEXCHARTS": {
+      "TEXT": "Grafici Apex",
+      "LIST": {
+        "LINE": "Linea",
+        "AREA": "La zona",
+        "COLUMN": "Colonna",
+        "BAR": "Sbarra",
+        "MIXED": "Misto",
+        "TIMELINE": "Sequenza temporale",
+        "CANDLESTICK": "Candeliere",
+        "BOXPLOT": "trama a scatole",
+        "BUBBLE": "Bolla",
+        "SCATTER": "dispersione",
+        "HEATMAP": "Mappa di calore",
+        "TREEMAP": "Mappa ad albero",
+        "PIE": "Torta",
+        "RADIALBAR": "barra radiale",
+        "RADAR": "Radar",
+        "POLARAREA": "Polararea"
+      }
+    },
+    "ICONS": {
+      "TEXT": "Icone",
+      "LIST": {
+        "UNICONS": "Unicon",
+        "FEATHERICONS": "Icone di piume",
+        "BOXICONS": "Boxicon",
+        "MATERIALDESIGN": "Design dei materiali",
+        "FONTAWESOME": "Carattere fantastico"
+      }
+    },
+    "MAPS": {
+      "TEXT": "Mappe",
+      "LIST": {
+        "GOOGLEMAP": "Google",
+        "LEAFLET": "Volantino"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "Multi livello",
+      "LIST": {
+        "LEVEL1": {
+          "1": "Livello 1.1",
+          "2": "Livello 1.2",
+          "LEVEL2": {
+            "1": "Livello 2.1",
+            "2": "Livello 2.2"
+          }
+        }
+      }
+    }   
+           
+  }
+}
