@@ -1,3 +1,8 @@
+<!-- <div *ngIf="isLoading" class="loading-shade">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div> -->
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "pacman" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
 <div class="authentication-bg min-vh-100">
   <div class="bg-overlay bg-white"></div>
   <div class="container">
@@ -18,20 +23,27 @@
                       <div class="mb-1">
                           <p class="bg-warning d-none" id="AgentMsg">Logged in as <span class="userext"></span></p>
                       </div>
-                      <form id="LoginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm">
+                      <form id="LoginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="needs-validation">
                           <div class="form-floating form-floating-custom mb-3">
-                              <input formControlName="email" type="text" class="form-control" id="input-username" placeholder="Enter User Name">
+                              <input formControlName="email" type="text" class="form-control" id="input-username" placeholder="Enter User Name"  [ngClass]="{'is-invalid': submit && form.email.errors}">
                               <label for="input-username">Username</label>
                               <div class="form-floating-icon">
                                   <i class="uil uil-users-alt"></i>
                               </div>
+                              <div *ngIf="submit && form.email.errors" class="invalid-feedback">
+                                <span *ngIf="form.email.errors.required">Please provide a valid username.</span>
+                            </div>
                           </div>
                           <div class="form-floating form-floating-custom mb-3">
-                              <input formControlName="password" type="password" class="form-control" id="input-password" placeholder="Enter Password">
+                              <input formControlName="password" type="password" class="form-control" id="input-password" placeholder="Enter Password" [ngClass]="{'is-invalid': submit && form.password.errors}">
                               <label for="input-password">Password</label>
                               <div class="form-floating-icon">
                                   <i class="uil uil-padlock"></i>
                               </div>
+                              <div *ngIf="submit && form.password.errors" class="invalid-feedback">
+                                <span *ngIf="form.password.errors.required">Password is required.</span>
+                                <span *ngIf="form.password.errors.minlength">Please provide a valid password.</span>
+                            </div>
                           </div>
 
                           <div class="form-check form-check-info font-size-16">

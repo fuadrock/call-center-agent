@@ -8,6 +8,7 @@ import { LanguageService } from '../../core/services/language.service';
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../core/services/auth.service';
 import { AuthfakeauthenticationService } from '../../core/services/authfake.service';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-topbar',
@@ -26,6 +27,7 @@ export class TopbarComponent implements OnInit {
   cookieValue: any;
   countryName: any;
   valueset: any;
+  user:any;
 
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
@@ -35,7 +37,8 @@ export class TopbarComponent implements OnInit {
     public _cookiesService: CookieService,
     public translate: TranslateService,
     private authService: AuthenticationService,
-    private authFackservice: AuthfakeauthenticationService) { }
+    private authFackservice: AuthfakeauthenticationService,
+    private apiService:ApiService) { }
 
   /***
    * Language Listing
@@ -60,6 +63,12 @@ export class TopbarComponent implements OnInit {
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
+    this.apiService.get('auth/profile').subscribe(
+      res=>{
+        this.user=res.user;
+      }
+    )
+
   }
 
   /***
@@ -91,12 +100,8 @@ export class TopbarComponent implements OnInit {
    * Logout the user
    */
   logout() {
-    if (environment.defaultauth === 'firebase') {
-      this.authService.logout();
-    } else {
-      this.authFackservice.logout();
-    }
-    this.router.navigate(['/account/login']);
+    localStorage.clear();
+    this.router.navigate(['/auth/login']);
   }
 
 }

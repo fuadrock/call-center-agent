@@ -372,38 +372,21 @@
                   <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
                       alt="Header Avatar">
                   <span class="ms-2 d-none d-sm-block user-item-desc">
-                      <span class="user-name">Kate Dudley</span>
+                      <span class="user-name">{{user.name}}</span>
                       <span class="user-sub-title">Administrator</span>
                   </span>
               </button>
               <div class="dropdown-menu dropdown-menu-end pt-0" ngbDropdownMenu>
                   <div class="p-3 bg-primary border-bottom">
-                      <h6 class="mb-0 text-white">Kate Dudley</h6>
-                      <p class="mb-0 font-size-11 text-white-50 fw-semibold">kate.dudley@email.com</p>
+                      <h6 class="mb-0 text-white">{{user.email}}</h6>
+                      <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{user.email}}</p>
                   </div>
-                  <a class="dropdown-item" routerLink="/pages/profile"><i
+                  <a class="dropdown-item" routerLink="/dashboard/setting"><i
                           class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span
                           class="align-middle">Profile</span></a>
-                  <a class="dropdown-item" routerLink="/chat"><i
-                          class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Messages</span></a>
-                  <a class="dropdown-item" routerLink="/kanban-board"><i
-                          class="mdi mdi-calendar-check-outline text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Taskboard</span></a>
-                  <a class="dropdown-item" routerLink="/pages/faqs"><i
-                          class="mdi mdi-lifebuoy text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Help</span></a>
+
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" routerLink="/pages/profile"><i
-                          class="mdi mdi-wallet text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Balance : <b>$6951.02</b></span></a>
-                  <a class="dropdown-item d-flex align-items-center" routerLink="/contacts/settings"><i
-                          class="mdi mdi-cog-outline text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Settings</span><span
-                          class="badge badge-soft-success ms-auto">New</span></a>
-                  <a class="dropdown-item" routerLink="/account/lockscreen/basic"><i
-                          class="mdi mdi-lock text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Lock screen</span></a>
+
                   <a class="dropdown-item" href="javascript: void(0);" (click)="logout()"><i
                           class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span
                           class="align-middle">Logout</span></a>
