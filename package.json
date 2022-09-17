@@ -61,6 +61,7 @@
     "ngx-ui-switch": "^12.0.1",
     "ngx-youtube-player": "^9.1.0",
     "rxjs": "~6.6.0",
+    "safe-pipe": "^2.0.2",
     "simplebar-angular": "^2.3.5",
     "sweetalert2": "^11.0.20",
     "tslib": "^2.1.0",

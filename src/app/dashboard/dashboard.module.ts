@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgentComponent } from './agent/agent.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,7 +10,8 @@ import { PanelComponent } from './panel/panel.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { SafePipeModule } from 'safe-pipe';
 
 const routes: Routes = [
   {
@@ -52,7 +53,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgMultiSelectDropDownModule.forRoot()
-  ]
+    NgMultiSelectDropDownModule.forRoot(),
+    NgxSpinnerModule,
+    SafePipeModule
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DashboardModule { }

@@ -35,8 +35,8 @@
                                   </a>
                               </div>
 
-                              <h5 class="font-size-16 mb-1">Vimal Adhithanan</h5>
-                              <p class="text-muted mb-0">Support Engineer</p>
+                              <h5 class="font-size-16 mb-1">{{profile.name}}</h5>
+                              <p class="text-muted mb-0">{{profile.agent.designation}}</p>
                           </div>
                           <hr class="my-4">
                           <div>
@@ -44,17 +44,17 @@
 
                               <div class="mt-4">
                                   <p class="text-muted mb-1">Name :</p>
-                                  <h5 class="font-size-14 text-truncate">Vimal Adhithanan</h5>
+                                  <h5 class="font-size-14 text-truncate">{{profile.name}}</h5>
                               </div>
 
                               <div class="mt-4">
                                   <p class="text-muted mb-1">E-mail :</p>
-                                  <h5 class="font-size-14 text-truncate">adhi@asiatel.com.sg</h5>
+                                  <h5 class="font-size-14 text-truncate">{{profile.email}}</h5>
                               </div>
 
                               <div class="mt-4">
                                   <p class="text-muted mb-1">Location :</p>
-                                  <h5 class="font-size-14 text-truncate">Singapore - SG</h5>
+                                  <h5 class="font-size-14 text-truncate">{{profile.agent.location}}</h5>
                               </div>
                           </div>
                       </div>
@@ -68,7 +68,8 @@
                   <div class="card">
                       <div class="card-body">
                           <h5 class="card-title mb-4">Setting</h5>
-                          <form>
+                          <form id="profileF" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="needs-validation">
+
                               <div class="card border shadow-none mb-5">
                                   <div class="card-header d-flex align-items-center">
                                       <div class="flex-shrink-0 me-3">
@@ -89,21 +90,21 @@
                                               <div class="col-lg-6">
                                                   <div class="mb-3">
                                                       <label class="form-label" for="gen-info-name-input">Name</label>
-                                                      <input type="text" class="form-control" id="gen-info-name-input" placeholder="Enter Name">
+                                                      <input formControlName="name" type="text" class="form-control" id="gen-info-name-input" placeholder="Enter Name">
                                                   </div>
 
                                               </div>
                                               <div class="col-lg-6">
                                                   <div class="mb-3">
                                                       <label class="form-label" for="gen-info-designation-input">Designation</label>
-                                                      <input type="text" class="form-control" id="gen-info-designation-input" placeholder="Enter Designation">
+                                                      <input type="text" formControlName="designation" class="form-control" id="gen-info-designation-input" placeholder="Enter Designation">
                                                   </div>
                                               </div>
                                           </div>
 
                                           <div class="mb-3">
                                               <label class="form-label" for="gen-info-description-input">Description</label>
-                                              <textarea class="form-control" placeholder="Enter Description" id="gen-info-description-input" rows="3"></textarea>
+                                              <textarea class="form-control" formControlName="description" placeholder="Enter Description" id="gen-info-description-input" rows="3"></textarea>
                                           </div>
 
                                           <div class="form-check mb-3" data-bs-toggle="collapse" data-bs-target="#collapseChangePassword" aria-expanded="false" aria-controls="collapseChangePassword">
@@ -159,19 +160,19 @@
                                   <div class="card-body">
                                       <div class="mb-3">
                                           <label for="contact-info-email-input">E-mail :</label>
-                                          <input type="email" class="form-control" id="contact-info-email-input" placeholder="Enter Email">
+                                          <input formControlName="email" type="email" class="form-control" id="contact-info-email-input" placeholder="Enter Email">
                                       </div>
                                       <div class="row">
                                           <div class="col-md-6">
                                               <div class="mb-md-0">
                                                   <label for="contact-info-website-input" class="form-label">Phone</label>
-                                                  <input type="text" class="form-control" placeholder="Enter phone number" id="contact-info-phone-input">
+                                                  <input type="text" class="form-control" formControlName="phone_number" placeholder="Enter phone number" id="contact-info-phone-input">
                                               </div>
                                           </div>
                                           <div class="col-md-6">
                                               <div class="mb-md-0">
                                                   <label for="contact-info-location-input" class="form-label">Location</label>
-                                                  <input type="url" class="form-control" placeholder="Enter Address" id="contact-info-location-input">
+                                                  <input type="url" class="form-control" formControlName="location" placeholder="Enter Address" id="contact-info-location-input">
                                               </div>
                                           </div>
                                       </div>

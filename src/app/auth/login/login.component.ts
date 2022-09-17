@@ -20,15 +20,17 @@ export class LoginComponent implements OnInit {
 
   year: number = new Date().getFullYear();
   loginForm: any;
-  isLoading:any = false;
-  submit: boolean=false;
+  isLoading: any = false;
+  submit: boolean = false;
 
-  constructor(private apiService:ApiService,
+  constructor(private apiService: ApiService,
     private router: Router,
-    private storage:StorageService,
+    private storage: StorageService,
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService) {
+      localStorage.clear();
+     }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -46,26 +48,29 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-onSubmit(){
-  this.submit = true;
-  console.log(this.form);
-  if(this.loginForm.valid){
-  this.spinner.show();
+  onSubmit() {
+    this.submit = true;
+    console.log(this.form);
+    if (this.loginForm.valid) {
+      this.spinner.show();
 
-  this.apiService.login('auth/login',this.loginForm.value).subscribe(
-    res=>{
-      this.storage.setAccessToken(res.access_token);
-      this.router.navigate(['/dashboard/home']);
-      this.toastr.success('Login Success!', 'Success!');
-      this.spinner.hide();
+      this.apiService.login('auth/login', this.loginForm.value).subscribe(
+        res => {
+          this.storage.setAccessToken(res.access_token);
+          localStorage.setItem("password",this.loginForm.value.password);
+          this.router.navigate(['/auth/queue-login']);
+          this.toastr.success('Login Success!', 'Success!');
+          this.spinner.hide();
 
-    },
-    err=>{
-      this.spinner.hide();
-      this.toastr.error('Login failed!', 'Failed!');
+        },
+        err => {
+          this.spinner.hide();
+          this.toastr.error('Login failed!', 'Failed!');
+
+
+        }
+      )
     }
-  )
   }
-}
 
 }

@@ -5,10 +5,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { TranslateService } from '@ngx-translate/core';
 
 import { LanguageService } from '../../core/services/language.service';
-import { environment } from '../../../environments/environment';
-import { AuthenticationService } from '../../core/services/auth.service';
-import { AuthfakeauthenticationService } from '../../core/services/authfake.service';
 import { ApiService } from 'src/app/core/services/api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { CommunicationService } from 'src/app/core/services/communication.service';
 
 @Component({
   selector: 'app-topbar',
@@ -27,7 +27,7 @@ export class TopbarComponent implements OnInit {
   cookieValue: any;
   countryName: any;
   valueset: any;
-  user:any;
+  user: any = { name: "Admin", email: "admin@asiatel.com" };
 
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
@@ -36,9 +36,10 @@ export class TopbarComponent implements OnInit {
     public languageService: LanguageService,
     public _cookiesService: CookieService,
     public translate: TranslateService,
-    private authService: AuthenticationService,
-    private authFackservice: AuthfakeauthenticationService,
-    private apiService:ApiService) { }
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+    private apiService: ApiService,
+    private com:CommunicationService) { }
 
   /***
    * Language Listing
@@ -63,9 +64,11 @@ export class TopbarComponent implements OnInit {
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
-    this.apiService.get('auth/profile').subscribe(
+
+
+    this.com.getProfile.subscribe(
       res=>{
-        this.user=res.user;
+        this.user=res;
       }
     )
 
@@ -100,8 +103,20 @@ export class TopbarComponent implements OnInit {
    * Logout the user
    */
   logout() {
-    localStorage.clear();
-    this.router.navigate(['/auth/login']);
+    this.spinner.show();
+    this.apiService.get("auth/logout").subscribe(
+      res => {
+        this.spinner.hide();
+        localStorage.clear();
+        this.toastr.success("Logout successful.", "Success");
+        this.router.navigate(['/auth/login']);
+      },
+      err => {
+        this.router.navigate(['/auth/login']);
+        this.toastr.error("Logout failed!", "Failed");
+      }
+    )
+
   }
 
 }

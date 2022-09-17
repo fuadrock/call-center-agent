@@ -1,3 +1,7 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
 <div class="row">
   <div class="col-xl-3">
     <div class="card">
@@ -8,7 +12,7 @@
             <b>804</b> Sales & Support Queue.
           </div>
           <div class="flex-shrink-0">
-            <a href="#!" class="text-reset text-decoration-underline"><b>Logout</b></a>
+            <a [routerLink]="[]" class="text-reset text-decoration-underline" (click)="queueLogout()"><b>Logout</b></a>
           </div>
         </div>
 
@@ -16,19 +20,14 @@
           <div class="col-sm-12">
             <p class="font-size-18">Available Queues </p>
             <div class=" ">
-              <!-- <select class="js-example-basic-multiple col-12" name="states[]" multiple="multiple">
-                              <option value="1">Queue 1 - Sales</option>
-                              <option value="2">Queue 2 - Support</option>
-                              <option value="3">Queue 3 - Billing</option>
-                              <option value="4">Queue 4 - General Enquiries</option>
-                            </select> -->
-              <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+
+              <ng-multiselect-dropdown [placeholder]="'Select queue..'" [settings]="dropdownSettings"
                 [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
                 (onSelectAll)="onSelectAll($event)">
               </ng-multiselect-dropdown>
             </div>
             <div class="mt-4">
-              <a href="#" class="btn btn-primary">Change Queue</a>
+              <a [routerLink]="[]" (click)="queueLogin()" class="btn btn-primary">Change Queue</a>
             </div>
           </div>
 
@@ -62,7 +61,17 @@
 
           </div>
         </div>
-        <img src="assets/images/dialpad.png" class="img-fluid">
+        <div>
+
+          <!-- <iframe
+            src="https://172.17.1.40/callcenter/dialer/js_sip-dialpad.html?uri=sip:100@20.212.144.167&uname=100@20.212.144.167&password=shinto123&stun=stun:stun.l.google.com:19302"
+            style="height: 500px; overflow: scroll; width: 300px" frameborder="0"></iframe> -->
+
+            <embed type="text/html" [src]="iframeSrc" width="100%" height="500">
+
+
+
+        </div>
       </div> <!-- end card-body-->
     </div>
     <!-- end card -->
@@ -138,13 +147,13 @@
           <table class="table align-middle table-nowrap table-check">
 
             <tbody>
-              <tr>
+              <tr *ngFor="let contact of contacts">
 
                 <td>
                   <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a href="#" class="text-body fw-medium">Donald Risher</a>
-                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
-                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
+                  <a href="#" class="text-body fw-medium">{{contact.first_name}} {{contact.last_name}}</a>
+                  <a href="#" class="badge badge-soft-primary">{{contact.mobile}}</a>
+                  <a href="#" class="badge badge-soft-success">{{contact.organization}}</a>
                 </td>
                 <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -154,76 +163,7 @@
                     <i class="uil uil-edit"></i>
                   </button>
                 </td>
-              </tr><!-- end tr -->
-              <tr>
 
-                <td>
-                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a href="#" class="text-body fw-medium">Donald Risher</a>
-                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
-                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
-                </td>
-                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="uil uil-phone"></i>
-                  </button>
-                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="uil uil-edit"></i>
-                  </button>
-                </td>
-              </tr><!-- end tr -->
-              <tr>
-
-                <td>
-                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a href="#" class="text-body fw-medium">Donald Risher</a>
-                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
-                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
-                </td>
-                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="uil uil-phone"></i>
-                  </button>
-                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="uil uil-edit"></i>
-                  </button>
-                </td>
-              </tr><!-- end tr -->
-              <!-- end tr -->
-              <tr>
-
-                <td>
-                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a href="#" class="text-body fw-medium">Donald Risher</a>
-                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
-                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
-                </td>
-                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="uil uil-phone"></i>
-                  </button>
-                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="uil uil-edit"></i>
-                  </button>
-                </td>
-              </tr><!-- end tr -->
-              <tr>
-
-                <td>
-                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a href="#" class="text-body fw-medium">Donald Risher</a>
-                  <a href="#" class="badge badge-soft-primary">+65 123456789</a>
-                  <a href="#" class="badge badge-soft-success">ABC Company Pvt Ltd</a>
-                </td>
-                <td> <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="uil uil-phone"></i>
-                  </button>
-                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="uil uil-edit"></i>
-                  </button>
-                </td>
-              </tr><!-- end tr -->
             </tbody><!-- end tbody -->
           </table><!-- end table -->
         </div><!-- end table responsive -->

@@ -4,15 +4,19 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { QueueLoginComponent } from './queue-login/queue-login.component';
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent  },
+  { path: 'queue-login', component: QueueLoginComponent  },
 
 ];
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    QueueLoginComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +24,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    NgMultiSelectDropDownModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

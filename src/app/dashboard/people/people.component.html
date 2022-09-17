@@ -93,7 +93,7 @@
                           <!-- end modal -->
 
                           <div class="row">
-                              <div class="col-xl-4 col-sm-6">
+                              <div class="col-xl-4 col-sm-6" >
                                   <div class="card border shadow-none">
                                       <div class="card-body p-4">
                                           <div class="d-flex align-items-start">
@@ -103,8 +103,7 @@
                                               </div>
                                               <div class="flex-grow-1 overflow-hidden">
                                                   <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Donald
-                                                          Risher +651234789</a></h5>
+                                                          href="pages-profile.html" class="text-dark">Kibria +651234789</a></h5>
                                                   <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available
                                                   </p>
                                               </div>
@@ -135,7 +134,7 @@
                                       </div>
                                   </div><!-- end card -->
                               </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
+                              <div class="col-xl-4 col-sm-6" *ngFor="let con of contacts">
                                   <div class="card border shadow-none">
                                       <div class="card-body p-4">
                                           <div class="d-flex align-items-start">
@@ -145,21 +144,11 @@
                                               </div>
                                               <div class="flex-grow-1 overflow-hidden">
                                                   <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Helen
+                                                          href="pages-profile.html" class="text-dark">{{con.first_name}} Helen
                                                           Barron +65678456</a></h5>
                                                   <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available</p>
                                               </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
+
                                           </div>
                                       </div><!-- end cardbody -->
                                       <div class="btn-group btn-icon" role="group">
