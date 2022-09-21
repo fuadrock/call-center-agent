@@ -50,10 +50,14 @@ export class QueueLoginComponent implements OnInit {
   }
   onItemSelect(item: any) {
     console.log(item);
+
   }
   onSelectAll(items: any) {
     console.log(items);
   }
+
+
+
 
   submit() {
     this.submitted = true;
@@ -105,7 +109,7 @@ export class QueueLoginComponent implements OnInit {
           this.spinner.hide();
           localStorage.setItem('queue-login', "1");
           localStorage.setItem("profile",JSON.stringify(res.user));
-          this.com.setProfile(res.user);
+         // this.com.setProfile(res.user);
           this.router.navigate(['/dashboard/home']);
         },
         err => {

@@ -40,11 +40,9 @@ export class SettingComponent implements OnInit {
      }
 
   ngOnInit(): void {
-//    this.profile = JSON.parse(localStorage.getItem("profile") || '{}');
+   this.profile = JSON.parse(localStorage.getItem("profile") || '{}');
 
-   this.subscrition =  this.com.getProfile.subscribe(
-      res=>{
-        this.profile=res;
+
         this.profileForm.patchValue({
 
           email: this.profile.email,
@@ -55,8 +53,7 @@ export class SettingComponent implements OnInit {
           location: this.profile.agent.location
         });
 
-      }
-    )
+
   }
 
 
@@ -68,7 +65,9 @@ export class SettingComponent implements OnInit {
 
       this.apiService.post('auth/profile_update', this.profileForm.value).subscribe(
         res => {
-
+          this.profile = res.user;
+          this.com.setProfile(res.user);
+          localStorage.setItem("profile",JSON.stringify(res.user));
           this.toastr.success('Profile update successful!', 'Success!');
           this.spinner.hide();
 

@@ -22,28 +22,20 @@ export class AgentComponent implements OnInit {
   contacts: any;
   profile: any;
   password: any;
-
+  queueText='';
 
   constructor(private apiService: ApiService,
     private router: Router,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private sanitizer: DomSanitizer,
-    private com:CommunicationService) {
+    private com: CommunicationService) {
 
-
+    this.profile = JSON.parse(localStorage.getItem('profile') || '{}');
     this.password = localStorage.getItem('password');
     this.dropdownList = JSON.parse(localStorage.getItem('queues') || '{}');
-    this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '{}');
-
-  //  this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://172.17.1.40/callcenter/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension+ `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-  this.com.getProfile.subscribe(
-    res=>{
-      this.profile=res;
-      this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://172.17.1.40/callcenter/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension+ `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-
-    }
-  )
+    this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
 
   }
 
@@ -69,22 +61,9 @@ export class AgentComponent implements OnInit {
       }
     );
 
-    // this.com.getProfile.subscribe(
-    //   res=>{
-    //     this.profile=res;
-    //     this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://172.17.1.40/callcenter/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension+ `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-
-    //   }
-    // )
+    this.queueText = this.getExtension();
   }
 
-
-  transform() {
-
-    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://172.17.1.40/callcenter/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension+ `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-    console.log(this.iframeSrc);
-    return this.iframeSrc;
-  }
 
   onItemSelect(item: any) {
     console.log(item);
@@ -112,6 +91,7 @@ export class AgentComponent implements OnInit {
         res => {
           this.toastr.success("Success", "Logout from queue successful!");
           this.selectedItems = [];
+          this.queueText = '';
           this.spinner.hide();
         },
         err => {
@@ -122,6 +102,27 @@ export class AgentComponent implements OnInit {
 
     }
     return false;
+  }
+
+  getExtension() {
+    let queues: any = [];
+    let text = '';
+    this.selectedItems.forEach((e: { name: any; alias: any }) => {
+      let data = this.dropdownList.find((el: any) => el.name == e.name);
+      let queue = { name: e.name, alias: e.alias, extension: data.extension };
+      queues.push(queue);
+
+    });
+    if (queues.length > 0) {
+      text+= "<b>" + queues[0].extension + "</b> " + queues[0].alias;
+      queues.forEach((e: any, index: any) => {
+        if (index >= 1) {
+          text += " & <b>" + queues[index].extension + "</b> " + queues[index].alias;
+        }
+      })
+    }
+
+    return text;
   }
 
   queueLogin() {
@@ -139,9 +140,8 @@ export class AgentComponent implements OnInit {
         res => {
           localStorage.setItem('queue-login', "1");
           localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
-
+          this.queueText = this.getExtension();
           this.toastr.success('Login Success!', 'Success!');
-          this.router.navigate(['/dashboard/home']);
           this.spinner.hide();
         },
         err => {

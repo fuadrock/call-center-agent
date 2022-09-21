@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -9,21 +10,22 @@ import { ApiService } from 'src/app/core/services/api.service';
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.scss']
 })
-export class PeopleComponent implements OnInit {
+export class PeopleComponent implements OnInit,OnDestroy{
 
   submitted: boolean=false;
-  contacts: any=[];
+  contacts: any;
+  subscribe: Subscription
 
   constructor(private apiService: ApiService,
     private router: Router,
 
     private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
+
       this.spinner.show();
-      this.apiService.get('auth/contacts').subscribe(
+     this.subscribe =  this.apiService.get('auth/contacts').subscribe(
         (res) => {
          this.contacts = res.contacts;
-         console.log(res.contacts);
          this.spinner.hide();
         },
 
@@ -36,6 +38,9 @@ export class PeopleComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+  ngOnDestroy(): void {
+      this.subscribe.unsubscribe();
   }
 
 }

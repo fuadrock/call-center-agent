@@ -134,7 +134,8 @@
                                       </div>
                                   </div><!-- end card -->
                               </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6" *ngFor="let con of contacts">
+                              <ng-template *ngIf="contacts">
+                              <div  *ngFor="let con of contacts" class="col-xl-4 col-sm-6" >
                                   <div class="card border shadow-none">
                                       <div class="card-body p-4">
                                           <div class="d-flex align-items-start">
@@ -164,6 +165,7 @@
                                       </div>
                                   </div><!-- end card -->
                               </div><!-- end col -->
+                            </ng-template>
                               <div class="col-xl-4 col-sm-6">
                                   <div class="card border shadow-none">
                                       <div class="card-body p-4">

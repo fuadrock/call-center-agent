@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommunicationService } from 'src/app/core/services/communication.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-topbar',
@@ -30,6 +31,8 @@ export class TopbarComponent implements OnInit {
   user: any = { name: "Admin", email: "admin@asiatel.com" };
 
   @Output() mobileMenuButtonClicked = new EventEmitter();
+  iframeSrc: SafeUrl | undefined;
+  password: string | null;
 
   constructor(
     private router: Router,
@@ -39,7 +42,16 @@ export class TopbarComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private apiService: ApiService,
-    private com:CommunicationService) { }
+    private com: CommunicationService,
+    private sanitizer: DomSanitizer,) {
+
+    this.user = JSON.parse(localStorage.getItem("profile") || '{}');
+    console.log("profile3",this.user);
+    this.password = localStorage.getItem('password');
+
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.user.agent.extension + `@20.212.144.167&uname=` + this.user.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
+
+  }
 
   /***
    * Language Listing
@@ -55,6 +67,7 @@ export class TopbarComponent implements OnInit {
   @Output() settingsButtonClicked = new EventEmitter();
 
   ngOnInit(): void {
+
     // Cookies wise Language set
     this.cookieValue = this._cookiesService.get('lang');
     const val = this.listLang.filter(x => x.lang === this.cookieValue);
@@ -68,15 +81,15 @@ export class TopbarComponent implements OnInit {
 
     this.com.getProfile.subscribe(
       res=>{
+        if(res){
         this.user=res;
+        }
       }
     )
 
   }
 
-  /***
-   * Language Value Set
-   */
+
   setLanguage(text: string, lang: string, flag: string) {
     this.countryName = text;
     this.flagvalue = flag;
@@ -112,6 +125,7 @@ export class TopbarComponent implements OnInit {
         this.router.navigate(['/auth/login']);
       },
       err => {
+        this.spinner.hide();
         this.router.navigate(['/auth/login']);
         this.toastr.error("Logout failed!", "Failed");
       }

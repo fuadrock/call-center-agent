@@ -42,11 +42,28 @@ export class ApiService {
     let token = this.storage.getAccessToken();
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
       'Authorization': 'Bearer '+token
    });
    if(params){
      return { headers: reqHeader,params:params}
    }
+    return { headers: reqHeader}
+  }
+
+  getLoginHeader(){
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+
+   });
+
     return { headers: reqHeader}
   }
 
@@ -89,8 +106,9 @@ export class ApiService {
   }
 
   public login(route:any, data:any): Observable<any> {
+    let headers = this.getLoginHeader();
     const url = this.baseUrl + route;
-    return this.http.post(url, data);
+    return this.http.post(url, data,headers);
   }
 
   public saveWithoutToken(route:any, data:any): Observable<any> {
