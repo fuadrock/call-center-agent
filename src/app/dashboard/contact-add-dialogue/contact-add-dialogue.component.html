@@ -1,0 +1,76 @@
+<div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-content">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addContactModalLabel">Add Contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeDialog()"></button>
+      </div>
+      <!-- end modalheader -->
+      <div class="modal-body p-4">
+        <div>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="addcontact-name-input" class="form-label">Type *</label>
+              <select class="form-select" formControlName="type" >
+                <option>Customer</option>
+                <option>Supplier</option>
+                <option>Contractor</option>
+                <option>Lead</option>
+                <option>Friend</option>
+              </select>
+            </div>
+            <div class="mb-3 col-4">
+              <label for="addcontact-name-input" class="form-label">First Name *</label>
+              <input type="text" class="form-control" placeholder="Enter First Name" formControlName="first_name" >
+            </div>
+            <div class="mb-3 col-4">
+              <label for="addcontact-name-input" class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="last_name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="addcontact-designation-input" class="form-label">Company</label>
+              <input type="email" class="form-control" placeholder="Ex: Asiatel Pte Ltd.," formControlName="organization">
+            </div>
+            <div class="mb-3 col-6">
+              <label for="addcontact-designation-input" class="form-label">Designation</label>
+              <input type="text" class="form-control" placeholder="Ex: Sales Manager"  formControlName="role">
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-6">
+              <label for="addcontact-designation-input" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Enter Email"  formControlName="email">
+            </div>
+            <div class="mb-3 col-6">
+              <label for="addcontact-designation-input" class="form-label">Time Zone</label>
+              <input type="text" class="form-control" placeholder="Ex: Asia/Singapore"  formControlName="timezone">
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-4">
+              <label for="addcontact-designation-input" class="form-label">Work Phone</label>
+              <input type="text" class="form-control" placeholder="Enter Work Phone"  formControlName="work_phone">
+            </div>
+            <div class="mb-3 col-4">
+              <label for="addcontact-designation-input" class="form-label">Ext:</label>
+              <input type="text" class="form-control" placeholder="Ex:100"  formControlName="extension">
+            </div>
+            <div class="mb-3 col-4">
+              <label for="addcontact-designation-input" class="form-label">Mobile</label>
+              <input type="text" class="form-control" placeholder="Enter Mobile"  formControlName="mobile">
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end modalbody -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal" (click)="closeDialog()">Close</button>
+        <button type="submit" class="btn btn-primary w-sm">Add</button>
+      </div>
+    </form>
+    <!-- end modalfooter -->
+  </div><!-- end content -->
+</div>

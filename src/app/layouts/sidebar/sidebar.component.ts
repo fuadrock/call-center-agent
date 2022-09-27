@@ -1,8 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import MetisMenu from 'metismenujs';
 import { Router, NavigationEnd } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
 
@@ -22,13 +20,8 @@ export class SidebarComponent implements OnInit {
   menuItems: MenuItem[] = [];
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
-  constructor(private router: Router, public translate: TranslateService) {
-    translate.setDefaultLang('en');
-    router.events.forEach((event) => {
-      if (event instanceof NavigationEnd) {
-        this._activateMenuDropdown();
-      }
-    });
+  constructor(private router: Router) {
+
   }
 
   ngOnInit(): void {

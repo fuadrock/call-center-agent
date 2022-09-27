@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { SimplebarAngularModule } from 'simplebar-angular';
-import { LanguageService } from '../core/services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { LayoutComponent } from './layout.component';
@@ -32,6 +31,6 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     ClickOutsideModule
   ],
-  providers: [LanguageService]
+  providers: []
 })
 export class LayoutsModule { }

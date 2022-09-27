@@ -13,7 +13,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class PeopleComponent implements OnInit,OnDestroy{
 
   submitted: boolean=false;
-  contacts: any;
+  peoples: any=[];
   subscribe: Subscription
 
   constructor(private apiService: ApiService,
@@ -23,14 +23,14 @@ export class PeopleComponent implements OnInit,OnDestroy{
     private spinner: NgxSpinnerService) {
 
       this.spinner.show();
-     this.subscribe =  this.apiService.get('auth/contacts').subscribe(
+     this.subscribe =  this.apiService.get('auth/peoples').subscribe(
         (res) => {
-         this.contacts = res.contacts;
+         this.peoples = res.peoples;
          this.spinner.hide();
         },
 
         (err) => {
-          this.toastr.error('Failed to fetch contacts!', 'Failed!');
+          this.toastr.error('Failed to fetch peoples!', 'Failed!');
           this.spinner.hide();
         }
       )

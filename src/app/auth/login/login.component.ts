@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submit = true;
-    console.log(this.form);
     if (this.loginForm.valid) {
       this.spinner.show();
 

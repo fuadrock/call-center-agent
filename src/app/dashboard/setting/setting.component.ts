@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import {  Subscription } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
 import { CommunicationService } from 'src/app/core/services/communication.service';
-import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
   selector: 'app-setting',

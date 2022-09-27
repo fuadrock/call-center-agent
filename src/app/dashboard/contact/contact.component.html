@@ -1,0 +1,136 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <h4 class="mb-0">Address Book</h4>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+            </div>
+          </div><!-- end col -->
+
+          <div class="col-md-6">
+            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
+
+              <div class="search-box">
+                <div class="position-relative">
+                  <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                    placeholder="Enter name or Number...">
+
+                </div>
+
+              </div>
+
+              <div>
+                <a [routerLink]="[]" (click)="addContact()" class="btn btn-light" ><i
+                    class="uil uil-plus me-1"></i> Add New</a>
+              </div>
+
+            </div>
+          </div><!-- end col -->
+        </div><!-- end row -->
+
+
+
+        <div class="table-responsive">
+          <table class="table align-middle table-nowrap table-check">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Ext.</th>
+                <th scope="col">Email</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Company</th>
+                <th scope="col">Mobile</th>
+                <th style="width: 80px; min-width: 80px;">Action</th>
+              </tr><!-- end tr -->
+            </thead><!-- end thead -->
+            <tbody>
+              <tr *ngFor="let con of contacts">
+
+                <td>
+                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <a href="#" class="text-body fw-medium">{{con.first_name+" "+ con.last_name}}</a>
+                </td>
+                <td>{{con.work_phone}} Ext.+{{con.extension}}</td>
+                <td>{{con.email}}</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="badge badge-soft-primary">{{con.role}}</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="badge badge-soft-primary">{{con.organization}}</a>
+                  </div>
+                </td>
+                <td>{{con.mobile}}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <i class="uil uil-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="#">Edit</a></li>
+                      <li><a class="dropdown-item" href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr><!-- end tr -->
+
+            </tbody><!-- end tbody -->
+          </table><!-- end table -->
+        </div><!-- end table responsive -->
+
+        <div class="row g-0 text-center text-sm-start">
+          <div class="col-sm-6">
+            <div>
+              <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
+            </div>
+          </div>
+          <!-- end col -->
+          <div class="col-sm-6">
+            <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
+              <li class="page-item disabled">
+                <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">1</a>
+              </li>
+              <li class="page-item active">
+                <a href="#" class="page-link">2</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">3</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">4</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">5</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+              </li>
+            </ul><!-- end ul -->
+          </div><!-- end col -->
+        </div><!-- end row -->
+
+      </div><!-- end card body -->
+    </div><!-- end card -->
+  </div><!-- end col -->
+</div><!-- end row -->
+<!-- end row -->

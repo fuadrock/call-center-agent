@@ -1,211 +1,101 @@
 <header id="page-topbar">
   <div class="navbar-header">
-      <div class="d-flex">
-          <!-- LOGO -->
-          <div class="navbar-brand-box">
-              <a routerLink="/" class="logo logo-dark">
-                  <span class="logo-sm">
-                      <img src="assets/images/logo-sm.png" alt="" height="22">
-                  </span>
-                  <span class="logo-lg">
-                      <img src="assets/images/logo-dark.png" alt="" height="22">
-                  </span>
-              </a>
+    <div class="d-flex">
+      <!-- LOGO -->
+      <div class="navbar-brand-box">
+        <a routerLink="/" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="assets/images/logo-sm.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="22">
+          </span>
+        </a>
 
-              <a routerLink="/" class="logo logo-light">
-                  <span class="logo-sm">
-                      <img src="assets/images/logo-sm.png" alt="" height="22">
-                  </span>
-                  <span class="logo-lg">
-                      <img src="assets/images/logo-light.png" alt="" height="22">
-                  </span>
-              </a>
-          </div>
-
-          <button type="button" class="btn btn-sm px-3 font-size-16 header-item vertical-menu-btn"
-              (click)="toggleMobileMenu($event)">
-              <i class="fa fa-fw fa-bars"></i>
-          </button>
-
+        <a routerLink="/" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="assets/images/logo-sm.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-light.png" alt="" height="22">
+          </span>
+        </a>
       </div>
 
-      <div class="d-flex">
-          <div class="dropdown d-inline-block" ngbDropdown placement="bottom-right">
-              <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false" ngbDropdownToggle>
-                  <i-feather class="icon-sm" name="search"></i-feather>
-              </button>
-              <div class="dropdown-menu dropdown-menu-lg p-0 dropdown-menu-end" ngbDropdownMenu>
-                  <form class="p-2">
-                      <div class="search-box">
-                          <div class="position-relative">
-                              <input type="text" class="form-control rounded bg-light border-0"
-                                  placeholder="Search...">
-                              <i class="mdi mdi-magnify search-icon"></i>
-                          </div>
-                      </div>
-                  </form>
+      <button type="button" class="btn btn-sm px-3 font-size-16 header-item vertical-menu-btn"
+        (click)="toggleMobileMenu($event)">
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+
+    </div>
+
+    <div class="d-flex">
+      <div class="dropdown d-inline-block" ngbDropdown placement="bottom-right">
+        <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>
+          <i-feather class="icon-sm" name="search"></i-feather>
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg p-0 dropdown-menu-end" ngbDropdownMenu>
+          <form class="p-2">
+            <div class="search-box">
+              <div class="position-relative">
+                <input type="text" class="form-control rounded bg-light border-0" placeholder="Search...">
+                <i class="mdi mdi-magnify search-icon"></i>
               </div>
-          </div>
-
-
-
-          <div class="dropdown d-none d-lg-inline-block" ngbDropdown [autoClose]="false">
-              <button type="button" class="btn header-item noti-icon" data-bs-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false" ngbDropdownToggle>
-                  <i-feather class="icon-sm" name="grid"></i-feather>
-              </button>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" ngbDropdownMenu>
-                <iframe
-                [src]="iframeSrc" allow="camera;microphone"
-                style="height: 600px; width: 100%; " frameborder="0"></iframe>
-
-              </div>
-          </div>
-
-          <!-- <div class="dropdown d-inline-block" ngbDropdown>
-              <button type="button" class="btn header-item noti-icon" id="page-header-notifications-dropdown"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
-                  <i-feather class="icon-sm" name="bell"></i-feather>
-                  <span class="noti-dot bg-danger"></span>
-              </button>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                  aria-labelledby="page-header-notifications-dropdown" ngbDropdownMenu>
-                  <div class="p-3">
-                      <div class="row align-items-center">
-                          <div class="col">
-                              <h5 class="m-0 font-size-15"> {{ 'HEADER.NOTIFICATIONS.TITLE' | translate}} </h5>
-                          </div>
-                          <div class="col-auto">
-                              <a href="javascript:void(0);" class="small"> {{
-                                  'HEADER.NOTIFICATIONS.VIEW_ALL' | translate}}</a>
-                          </div>
-                      </div>
-                  </div>
-                  <ngx-simplebar style="max-height: 250px;">
-                      <h6 class="dropdown-header bg-light">{{
-                          'HEADER.NOTIFICATIONS.NEW' | translate}}</h6>
-                      <a href="" class="text-reset notification-item">
-                          <div class="d-flex border-bottom align-items-start">
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-sm"
-                                      alt="user-pic">
-                              </div>
-                              <div class="flex-grow-1">
-                                  <h6 class="mb-1">{{ 'HEADER.NOTIFICATIONS.FIRST.TITLE' | translate}}</h6>
-                                  <div class="text-muted">
-                                      <p class="mb-1 font-size-13">{{ 'HEADER.NOTIFICATIONS.FIRST.TEXT' | translate}}
-                                      </p>
-                                      <p class="mb-0 font-size-10 text-uppercase fw-bold"><i
-                                              class="mdi mdi-clock-outline"></i> {{
-                                                  'HEADER.NOTIFICATIONS.FIRST.TIME' | translate}}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                      <a href="" class="text-reset notification-item">
-                          <div class="d-flex border-bottom align-items-start">
-                              <div class="flex-shrink-0">
-                                  <div class="avatar-sm me-3">
-                                      <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                          <i class="uil-shopping-basket"></i>
-                                      </span>
-                                  </div>
-                              </div>
-                              <div class="flex-grow-1">
-                                  <h6 class="mb-1">{{ 'HEADER.NOTIFICATIONS.SECOND.TITLE' | translate}}</h6>
-                                  <div class="text-muted">
-                                      <p class="mb-1 font-size-13">{{ 'HEADER.NOTIFICATIONS.SECOND.TEXT' | translate}}</p>
-                                      <p class="mb-0 font-size-10 text-uppercase fw-bold"><i
-                                              class="mdi mdi-clock-outline"></i> {{
-                                                  'HEADER.NOTIFICATIONS.SECOND.TIME' | translate}}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                      <h6 class="dropdown-header bg-light">{{
-                          'HEADER.NOTIFICATIONS.EARLIER' | translate}}</h6>
-                      <a href="" class="text-reset notification-item">
-                          <div class="d-flex border-bottom align-items-start">
-                              <div class="flex-shrink-0">
-                                  <div class="avatar-sm me-3">
-                                      <span
-                                          class="avatar-title bg-soft-success text-success rounded-circle font-size-16">
-                                          <i class="uil-truck"></i>
-                                      </span>
-                                  </div>
-                              </div>
-                              <div class="flex-grow-1">
-                                  <h6 class="mb-1">{{ 'HEADER.NOTIFICATIONS.THIRD.TITLE' | translate}}</h6>
-                                  <div class="text-muted">
-                                      <p class="mb-1 font-size-13">{{ 'HEADER.NOTIFICATIONS.THIRD.TEXT' | translate}}
-                                      </p>
-                                      <p class="mb-0 font-size-10 text-uppercase fw-bold"><i
-                                              class="mdi mdi-clock-outline"></i> {{
-                                                  'HEADER.NOTIFICATIONS.THIRD.TIME' |
-                                                  translate}}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-
-                      <a href="" class="text-reset notification-item">
-                          <div class="d-flex border-bottom align-items-start">
-                              <div class="flex-shrink-0">
-                                  <img src="assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-sm"
-                                      alt="user-pic">
-                              </div>
-                              <div class="flex-grow-1">
-                                  <h6 class="mb-1">{{ 'HEADER.NOTIFICATIONS.FOUR.TITLE' | translate}}</h6>
-                                  <div class="text-muted">
-                                      <p class="mb-1 font-size-13">{{ 'HEADER.NOTIFICATIONS.FOUR.TEXT' | translate}}</p>
-                                      <p class="mb-0 font-size-10 text-uppercase fw-bold"><i
-                                              class="mdi mdi-clock-outline"></i>{{
-                                                  'HEADER.NOTIFICATIONS.FOUR.TIME' |
-                                                  translate}}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                  </ngx-simplebar>
-                  <div class="p-2 border-top d-grid">
-                      <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
-                          <i class="uil-arrow-circle-right me-1"></i> <span>{{
-                              'HEADER.NOTIFICATIONS.LOAD_MORE' | translate}}</span>
-                      </a>
-                  </div>
-              </div>
-          </div> -->
-
-
-
-          <div class="dropdown d-inline-block" ngbDropdown>
-              <button type="button" class="btn header-item user text-start d-flex align-items-center"
-                  id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  ngbDropdownToggle>
-                  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
-                      alt="Header Avatar">
-                  <span class="ms-2 d-none d-sm-block user-item-desc">
-                      <span class="user-name">{{user?.name }}</span>
-                      <span class="user-sub-title">{{user?.agent?.designation}}</span>
-                  </span>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end pt-0" ngbDropdownMenu>
-                  <div class="p-3 bg-primary border-bottom">
-                      <h6 class="mb-0 text-white">{{user?.email}}</h6>
-                      <!-- <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{user.email}}</p> -->
-                  </div>
-                  <a class="dropdown-item" routerLink="/dashboard/setting"><i
-                          class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Profile</span></a>
-
-                  <div class="dropdown-divider"></div>
-
-                  <a class="dropdown-item" href="javascript: void(0);" (click)="logout()"><i
-                          class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span
-                          class="align-middle">Logout</span></a>
-              </div>
-          </div>
+            </div>
+          </form>
+        </div>
       </div>
+
+      <div class="dropdown d-inline-block d-flex align-items-center"> <i
+          class="fas fa-circle  font-size-16 align-middle me-1" id="StatusBtn" #StatusBtn></i></div>
+
+
+      <div class="dropdown d-none d-lg-inline-block" ngbDropdown [autoClose]="false">
+        <button type="button" class="btn header-item noti-icon" data-bs-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" ngbDropdownToggle>
+          <i-feather class="icon-sm" name="grid"></i-feather>
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" ngbDropdownMenu>
+
+          <iframe [src]="iframeSrc" allow="camera;microphone" style="height: 600px; width: 100%; " frameborder="0">
+          </iframe>
+
+        </div>
+      </div>
+
+
+
+      <div class="dropdown d-inline-block" ngbDropdown>
+        <button type="button" class="btn header-item user text-start d-flex align-items-center"
+          id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          ngbDropdownToggle>
+          <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+          <span class="ms-2 d-none d-sm-block user-item-desc">
+            <span class="user-name">{{user?.name }}</span>
+            <span class="user-sub-title">{{user?.agent?.designation}}</span>
+          </span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end pt-0" ngbDropdownMenu>
+          <div class="p-3 bg-primary border-bottom">
+            <h6 class="mb-0 text-white">{{user?.email}}</h6>
+            <!-- <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{user.email}}</p> -->
+          </div>
+          <ng-container *ngFor="let status of statuses">
+            <a class="dropdown-item" (click)="setStatus(status,StatusBtn)" [ngClass]="status.a_class"
+              [routerLink]="[]"><i [ngClass]="status.i_class" class="fas fa-circle font-size-16 align-middle me-1 "></i>
+              <span class="align-middle">{{status.name}}</span></a>
+
+          </ng-container>
+
+
+          <div class="dropdown-divider"></div>
+
+          <a class="dropdown-item" href="javascript: void(0);" (click)="logout()"><i
+              class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Exit
+              client</span></a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>

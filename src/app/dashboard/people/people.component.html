@@ -1,516 +1,126 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<!-- start page title -->
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <h4 class="mb-0">People</h4>
+    </div>
+  </div>
+</div>
+<!-- end page title -->
 
-          <!-- start page title -->
-          <div class="row">
-              <div class="col-12">
-                  <div class="page-title-box d-flex align-items-center justify-content-between">
-                      <h4 class="mb-0">People</h4>
-                  </div>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <h5 class="card-title">Peoples List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+
+            </div>
+          </div><!-- end col -->
+          <div class="col-md-6">
+            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
+              <div>
+                <ul class="nav nav-pills">
+                  <li class="nav-item">
+                    <div class="search-box">
+                      <div class="position-relative">
+                        <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                          placeholder="Enter name or Number...">
+
+                      </div>
+
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
+                      title="Search"><i class="uil-search search-icon"></i></a>
+                  </li>
+                </ul>
               </div>
+
+
+            </div>
+          </div><!-- end col -->
+        </div><!-- end row -->
+
+
+
+
+        <div class="row">
+
+
+          <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples">
+            <div class="card border shadow-none">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-start">
+                  <div class="flex-shrink-0 avatar rounded-circle me-3">
+                    <img src="assets/images/users/avatar-1.jpg" alt="" class="img-fluid rounded-circle">
+                  </div>
+                  <div class="flex-grow-1 overflow-hidden">
+                    <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html"
+                        class="text-dark">{{con.name}} ({{con.extension}}) <br><span style="color: grey;">
+                          +{{con.mobile}}</span></a></h5>
+                    <p class="text-muted text-truncate mb-0"><i class="fas fa-circle  font-size-16 align-middle me-1"
+                        [ngClass]="con.status.i_class"></i> {{con.status.description}}</p>
+                  </div>
+
+                </div>
+              </div><!-- end cardbody -->
+              <div class="btn-group btn-icon" role="group">
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="Profile"><i class="uil uil-user"></i></button>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="Chats"><i class="uil uil-envelope-alt"></i></button>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="Calls"><i class="uil uil-phone"></i></button>
+              </div>
+            </div><!-- end card -->
+          </div><!-- end col -->
+
+
+        </div><!-- end row -->
+        <div class="row g-0 text-center text-sm-start">
+          <div class="col-sm-6">
+            <div>
+              <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
+            </div>
           </div>
-          <!-- end page title -->
-
-
-
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="card">
-                      <div class="card-body">
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <div class="mb-3">
-                                      <h5 class="card-title">Contact List <span
-                                              class="text-muted fw-normal ms-2">(834)</span></h5>
-
-                                  </div>
-                              </div><!-- end col -->
-                              <div class="col-md-6">
-                                  <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
-                                      <div>
-                                          <ul class="nav nav-pills">
-                                              <li class="nav-item">
-                                                  <div class="search-box">
-                                                      <div class="position-relative">
-                                                          <input type="text" class="form-control rounded bg-light border-0 dialsearch" placeholder="Enter name or Number...">
-
-                                                      </div>
-
-                                                  </div>
-                                              </li>
-                                              <li class="nav-item">
-                                                  <a class="nav-link active" href="#!"
-                                                      data-bs-toggle="tooltip" data-bs-placement="top"
-                                                      title="Search"><i class="uil-search search-icon"></i></a>
-                                              </li>
-                                          </ul>
-                                      </div>
-                                      <div>
-                                          <a href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addContactModal"><i class="uil uil-plus me-1"></i> Add
-                                              New</a>
-                                      </div>
-
-                                  </div>
-                              </div><!-- end col -->
-                          </div><!-- end row -->
-
-                          <!-- Modal -->
-                          <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-lg modal-dialog-centered">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="addContactModalLabel">Add Contact</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body p-4">
-                                          <div>
-                                              <div class="mb-3">
-                                                  <label for="addcontact-name-input" class="form-label">Name</label>
-                                                  <input type="text" class="form-control" id="addcontact-name-input" placeholder="Enter Name">
-                                              </div>
-                                              <div class="mb-3">
-                                                  <label for="addcontact-designation-input" class="form-label">Phone Number</label>
-                                                  <input type="text" class="form-control" id="addcontact-phone-input" placeholder="Enter Phone Number">
-                                              </div>
-
-                                              <div class="mb-3">
-                                                  <label for="addcontact-email-input" class="form-label">Email</label>
-                                                  <input type="email" class="form-control" id="addcontact-email-input" placeholder="Enter Email">
-                                              </div>
-                                              <div class="mb-3">
-                                                  <label for="addcontact-company-input" class="form-label">Company</label>
-                                                  <input type="text" class="form-control" id="addcontact-company-input" placeholder="Enter Company Name">
-                                              </div>
-                                          </div>
-                                      </div><!-- end modalbody -->
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary w-sm">Add</button>
-                                      </div>
-                                      <!-- end modalfooter -->
-                                  </div>
-                                  <!-- end modal content -->
-                              </div>
-                          </div>
-                          <!-- end modal -->
-
-                          <div class="row">
-                              <div class="col-xl-4 col-sm-6" >
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Kibria +651234789</a></h5>
-                                                  <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div><!-- end dropdown -->
-                                          </div>
-                                      </div>
-                                      <!-- end card body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                                  class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <ng-template *ngIf="contacts">
-                              <div  *ngFor="let con of contacts" class="col-xl-4 col-sm-6" >
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">{{con.first_name}} Helen
-                                                          Barron +65678456</a></h5>
-                                                  <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available</p>
-                                              </div>
-
-                                          </div>
-                                      </div><!-- end cardbody -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                                  class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                            </ng-template>
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Philip
-                                                          Theroux +656789034</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-danger  font-size-16 align-middle me-1"></i> Do Not Disturb
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                              <!-- end dropdown -->
-                                          </div>
-                                      </div><!-- end card -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                                  class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Donald
-                                                          Risher +651234789</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-warning  font-size-16 align-middle me-1"></i> Away
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <!-- end card body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                                  class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Gerald
-                                                          Moyer +65777445</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-danger  font-size-16 align-middle me-1"></i> Do Not Disturb
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                          </div><!-- end -->
-                                      </div><!-- end cardbody -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                              class="uil uil-user"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                              class="uil uil-envelope-alt"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                              class="uil uil-phone"></i></button>
-                                      </div>
-                                      <!-- end btn-group -->
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Sharon
-                                                          Carver +651234789</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <!-- end card body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                              class="uil uil-user"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                              class="uil uil-envelope-alt"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                              class="uil uil-phone"></i></button>
-                                      </div>
-                                      <!-- end button group -->
-                                  </div>
-                                  <!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Jody
-                                                          Tondreau +65455242345</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                              <!-- end dropdown -->
-                                          </div>
-                                      </div>
-                                      <!-- end card body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                                  class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a
-                                                          href="pages-profile.html" class="text-dark">Dennis
-                                                          Goulet +651234789</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-success  font-size-16 align-middle me-1" style="color:chartreuse !important;"></i> Lunch
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <!-- end card body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                              class="uil uil-user"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                              class="uil uil-envelope-alt"></i></button>
-                                      <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                              class="uil uil-phone"></i></button>
-                                      </div>
-                                      <!-- end button group -->
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                              <div class="col-xl-4 col-sm-6">
-                                  <div class="card border shadow-none">
-                                      <div class="card-body p-4">
-                                          <div class="d-flex align-items-start">
-                                              <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                                  <img src="assets/images/users/avatar-1.jpg" alt=""
-                                                      class="img-fluid rounded-circle">
-                                              </div>
-                                              <div class="flex-grow-1 overflow-hidden">
-                                                  <h5 class="font-size-15 mb-1 text-truncate"><a href="#"
-                                                          class="text-dark">Cecelia Farrell +12345678</a></h5>
-                                                  <p class="text-muted text-truncate mb-0">
-                                                      <i class="fas fa-circle text-warning  font-size-16 align-middle me-1"></i> Away
-                                                  </p>
-                                              </div>
-                                              <div class="flex-shrink-0 dropdown">
-                                                  <a class="text-body dropdown-toggle font-size-16" href="#"
-                                                      role="button" data-bs-toggle="dropdown"
-                                                      aria-haspopup="true">
-                                                      <i class="icon-xs" data-feather="more-horizontal"></i>
-                                                  </a>
-                                                  <div class="dropdown-menu dropdown-menu-end">
-                                                      <a class="dropdown-item" href="#">Edit</a>
-                                                      <a class="dropdown-item" href="#">Remove</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <!-- end crad body -->
-                                      <div class="btn-group btn-icon" role="group">
-                                          <button type="button" class="btn btn-outline-light"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i
-                                              class="uil uil-user"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Chats"><i
-                                                  class="uil uil-envelope-alt"></i></button>
-                                          <button type="button" class="btn btn-outline-light"
-                                              data-bs-toggle="tooltip" data-bs-placement="top" title="Calls"><i
-                                                  class="uil uil-phone"></i></button>
-                                      </div>
-                                  </div><!-- end card -->
-                              </div><!-- end col -->
-                          </div><!-- end row -->
-                          <div class="row g-0 text-center text-sm-start">
-                              <div class="col-sm-6">
-                                  <div>
-                                      <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
-                                  </div>
-                              </div>
-                              <!-- end col -->
-                              <div class="col-sm-6">
-                                  <ul
-                                      class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
-                                      <li class="page-item disabled">
-                                          <a href="#" class="page-link"><i class="ui uil-arrow-left"></i></a>
-                                      </li>
-                                      <li class="page-item">
-                                          <a href="#" class="page-link">1</a>
-                                      </li>
-                                      <li class="page-item active">
-                                          <a href="#" class="page-link">2</a>
-                                      </li>
-                                      <li class="page-item">
-                                          <a href="#" class="page-link">3</a>
-                                      </li>
-                                      <li class="page-item">
-                                          <a href="#" class="page-link">4</a>
-                                      </li>
-                                      <li class="page-item">
-                                          <a href="#" class="page-link">5</a>
-                                      </li>
-                                      <li class="page-item">
-                                          <a href="#" class="page-link"><i class="ui uil-arrow-right"></i></a>
-                                      </li>
-                                  </ul>
-                              </div><!-- end col -->
-                          </div><!-- end row -->
-                      </div><!-- end card body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
-          </div><!-- end row -->
-          <!-- end row -->
-
-
-
-
+          <!-- end col -->
+          <div class="col-sm-6">
+            <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
+              <li class="page-item disabled">
+                <a href="#" class="page-link"><i class="ui uil-arrow-left"></i></a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">1</a>
+              </li>
+              <li class="page-item active">
+                <a href="#" class="page-link">2</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">3</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">4</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">5</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link"><i class="ui uil-arrow-right"></i></a>
+              </li>
+            </ul>
+          </div><!-- end col -->
+        </div><!-- end row -->
+      </div><!-- end card body -->
+    </div><!-- end card -->
+  </div><!-- end col -->
+</div><!-- end row -->
+<!-- end row -->

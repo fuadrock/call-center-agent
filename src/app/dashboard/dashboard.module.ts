@@ -12,6 +12,8 @@ import { MaterialModule } from '../material/material.module';
 import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SafePipeModule } from 'safe-pipe';
+import { ContactComponent } from './contact/contact.component';
+import { ContactAddDialogueComponent } from './contact-add-dialogue/contact-add-dialogue.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,10 @@ const routes: Routes = [
   {
     path: 'panel',
     component: PanelComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   }
 ]
 
@@ -45,7 +51,11 @@ const routes: Routes = [
     AgentComponent,
     ChatComponent,
     CallsComponent,
-    SettingComponent
+    SettingComponent,
+    PeopleComponent,
+    PanelComponent,
+    ContactComponent,
+    ContactAddDialogueComponent
   ],
   imports: [
     CommonModule,

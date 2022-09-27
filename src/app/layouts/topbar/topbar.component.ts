@@ -1,10 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CookieService } from 'ngx-cookie-service';
-import { TranslateService } from '@ngx-translate/core';
 
-import { LanguageService } from '../../core/services/language.service';
 import { ApiService } from 'src/app/core/services/api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -23,27 +20,37 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class TopbarComponent implements OnInit {
 
   mode: string | undefined;
-  element: any;
   flagvalue: any;
   cookieValue: any;
   countryName: any;
   valueset: any;
   user: any = { name: "Admin", email: "admin@asiatel.com" };
-
+  @ViewChild('StatusBtn', { static: true }) input: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
   iframeSrc: SafeUrl | undefined;
   password: string | null;
+  statuses: any;
+  currentStatus: any={
+    "id": 1,
+    "name": "Available",
+    "description": "Available",
+    "color": "#51d28c",
+    "status": true,
+    "created_at": "2022-09-22T12:39:17.000000Z",
+    "updated_at": "2022-09-22T12:39:17.000000Z",
+    "a_class": "st-available",
+    "i_class": "text-success"
+};
 
   constructor(
     private router: Router,
-    public languageService: LanguageService,
-    public _cookiesService: CookieService,
-    public translate: TranslateService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private apiService: ApiService,
     private com: CommunicationService,
-    private sanitizer: DomSanitizer,) {
+    private sanitizer: DomSanitizer,
+    private element: ElementRef,
+    private renderer: Renderer2,) {
 
     this.user = JSON.parse(localStorage.getItem("profile") || '{}');
     console.log("profile3",this.user);
@@ -56,28 +63,11 @@ export class TopbarComponent implements OnInit {
   /***
    * Language Listing
    */
-  listLang = [
-    { text: 'English', flag: 'assets/images/flags/us.jpg', lang: 'en' },
-    { text: 'Spanish', flag: 'assets/images/flags/spain.jpg', lang: 'es' },
-    { text: 'German', flag: 'assets/images/flags/germany.jpg', lang: 'de' },
-    { text: 'Italian', flag: 'assets/images/flags/italy.jpg', lang: 'it' },
-    { text: 'Russian', flag: 'assets/images/flags/russia.jpg', lang: 'ru' },
-  ];
+
 
   @Output() settingsButtonClicked = new EventEmitter();
 
   ngOnInit(): void {
-
-    // Cookies wise Language set
-    this.cookieValue = this._cookiesService.get('lang');
-    const val = this.listLang.filter(x => x.lang === this.cookieValue);
-    this.countryName = val.map(element => element.text);
-    if (val.length === 0) {
-      if (this.flagvalue === undefined) { this.valueset = 'assets/images/flags/us.jpg'; }
-    } else {
-      this.flagvalue = val.map(element => element.flag);
-    }
-
 
     this.com.getProfile.subscribe(
       res=>{
@@ -85,17 +75,53 @@ export class TopbarComponent implements OnInit {
         this.user=res;
         }
       }
+    );
+
+    this.apiService.get("auth/statuses").subscribe(
+      res => {
+        this.statuses = res.statuses;
+      },
+      err=>{}
+    );
+    this.getCurrentStatus();
+
+  }
+
+  getCurrentStatus(){
+    this.apiService.get("auth/get_status").subscribe(
+      res => {
+        if(res.status?.status){
+          this.currentStatus = res.status.status;
+          this.input.nativeElement.classList.add(this.currentStatus.i_class);
+        }
+      }
+      )
+  }
+
+  setStatus(status:any,StatusBtn:HTMLElement){
+    let data = status;
+    this.spinner.show();
+    this.apiService.post("auth/set_status",{"status_id":data.id}).subscribe(
+      res => {
+        this.spinner.hide();
+        console.log(StatusBtn);
+        this.input.nativeElement.classList.remove(this.currentStatus.i_class);
+        this.currentStatus=res.status.status;
+        this.input.nativeElement.classList.add(this.currentStatus.i_class);
+        console.log(StatusBtn);
+        this.toastr.success("Status update successful.", "Success");
+      },
+      err=>{
+        this.spinner.hide();
+        this.toastr.error("Status update failed!", "Failed");
+      }
     )
+  }
+
+  setStatusColor(StatusBtn:HTMLElement){
 
   }
 
-
-  setLanguage(text: string, lang: string, flag: string) {
-    this.countryName = text;
-    this.flagvalue = flag;
-    this.cookieValue = lang;
-    this.languageService.setLanguage(lang);
-  }
 
   /**
    * Toggles the right sidebar
