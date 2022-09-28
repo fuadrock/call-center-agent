@@ -32,6 +32,8 @@ import { AuthInterceptor } from './core/helpers/auth.interceptor';
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
 
-
+  providers:[
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <h5 class="card-title">Peoples List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+              <h5 class="card-title">Peoples List <span class="text-muted fw-normal ms-2">({{total}})</span></h5>
 
             </div>
           </div><!-- end col -->
@@ -50,18 +50,13 @@
           </div><!-- end col -->
         </div><!-- end row -->
 
-
-
-
         <div class="row">
-
-
-          <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples">
+          <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples;let i = index">
             <div class="card border shadow-none">
               <div class="card-body p-4">
                 <div class="d-flex align-items-start">
                   <div class="flex-shrink-0 avatar rounded-circle me-3">
-                    <img src="assets/images/users/avatar-1.jpg" alt="" class="img-fluid rounded-circle">
+                    <img src='assets/images/users/avatar-{{i+1}}.jpg' alt="" class="img-fluid rounded-circle">
                   </div>
                   <div class="flex-grow-1 overflow-hidden">
                     <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html"

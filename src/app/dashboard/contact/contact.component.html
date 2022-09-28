@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+              <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">({{total}})</span></h5>
             </div>
           </div><!-- end col -->
 
@@ -58,10 +58,10 @@
               </tr><!-- end tr -->
             </thead><!-- end thead -->
             <tbody>
-              <tr *ngFor="let con of contacts">
+              <tr *ngFor="let con of contacts; let i = index;">
 
                 <td>
-                  <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
+                  <img src="assets/images/users/avatar-{{i+1}}.jpg" alt="" class="avatar-sm rounded-circle me-2">
                   <a href="#" class="text-body fw-medium">{{con.first_name+" "+ con.last_name}}</a>
                 </td>
                 <td>{{con.work_phone}} Ext.+{{con.extension}}</td>
@@ -78,17 +78,21 @@
                 </td>
                 <td>{{con.mobile}}</td>
                 <td>
-                  <div class="dropdown">
-                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      <i class="uil uil-ellipsis-h"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                      <li><a class="dropdown-item" href="#">Edit</a></li>
-                      <li><a class="dropdown-item" href="#">Delete</a></li>
-                    </ul>
+                  <div class="dropdown" ngbDropdown>
+                      <button class="btn btn-light btn-sm dropdown-toggle"
+                          type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" ngbDropdownToggle>
+                          <i class="uil uil-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                          <li><a class="dropdown-item"
+                                  [routerLink]="[]" (click)="edit(con)">Edit</a></li>
+
+                          <li><a class="dropdown-item"
+                            [routerLink]="[]" (click)="delete(con)">Delete</a></li>
+                      </ul>
                   </div>
-                </td>
+              </td>
               </tr><!-- end tr -->
 
             </tbody><!-- end tbody -->

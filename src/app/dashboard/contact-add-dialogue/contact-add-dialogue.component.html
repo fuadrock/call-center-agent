@@ -2,7 +2,8 @@
   <div class="modal-content">
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation">
       <div class="modal-header">
-        <h5 class="modal-title" id="addContactModalLabel">Add Contact</h5>
+        <h5 class="modal-title" id="addContactModalLabel" *ngIf="!editData">Add Contact</h5>
+        <h5 class="modal-title" id="addContactModalLabel" *ngIf="editData">Edit Contact</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeDialog()"></button>
       </div>
       <!-- end modalheader -->

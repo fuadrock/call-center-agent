@@ -4,11 +4,10 @@ import { from, Observable, throwError } from 'rxjs';
 import { catchError, switchMap, tap } from 'rxjs/operators';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
-@Injectable({
-  providedIn: 'root',
-})
+
+@Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private apiService: ApiService, private router: Router, private storage: Storage) {
+  constructor(private apiService: ApiService, private router: Router) {
     console.log("sssss called")
   }
 
@@ -46,16 +45,11 @@ export class AuthInterceptor implements HttpInterceptor {
   // }
 
 
-    intercept(req: HttpRequest<any>,
-      next: HttpHandler):Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>,
+    next: HttpHandler): Observable<HttpEvent<any>> {
 
-  const clonedRequest = req.clone({
-   headers: req.headers.set(
-       'X-CustomAuthHeader',
-      "ggwp")
-  });
-  console.log("new headers", clonedRequest.headers.keys());
-  return next.handle(req);
+console.log(next);
+    return next.handle(req);
   }
 
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
@@ -74,7 +68,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addTokenHeader(request: HttpRequest<any>, token: string) {
-    this.storage.setAccessToken(token);
+
 
     return request.clone({ headers: request.headers.set("Authorization", 'Bearer ' + token) });
   }

@@ -6,8 +6,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { QueueLoginComponent } from './queue-login/queue-login.component';
 import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
-import { AuthInterceptor } from '../core/helpers/auth.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,11 +27,6 @@ const routes: Routes = [
     NgMultiSelectDropDownModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-
-  ]
 
 })
 export class AuthModule { }

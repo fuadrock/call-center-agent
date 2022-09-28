@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
 
         },
         err => {
+          console.log(err);
           this.spinner.hide();
           this.toastr.error('Login failed!', 'Failed!');
 

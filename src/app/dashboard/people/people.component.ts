@@ -10,11 +10,14 @@ import { ApiService } from 'src/app/core/services/api.service';
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.scss']
 })
-export class PeopleComponent implements OnInit,OnDestroy{
+export class PeopleComponent implements OnInit, OnDestroy {
 
-  submitted: boolean=false;
-  peoples: any=[];
-  subscribe: Subscription
+  submitted: boolean = false;
+  peoples: any = [];
+  subscribe: Subscription;
+  random:number=this.getRandomInt();
+  total: any=0;
+
 
   constructor(private apiService: ApiService,
     private router: Router,
@@ -22,25 +25,32 @@ export class PeopleComponent implements OnInit,OnDestroy{
     private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
 
-      this.spinner.show();
-     this.subscribe =  this.apiService.get('auth/peoples').subscribe(
-        (res) => {
-         this.peoples = res.peoples;
-         this.spinner.hide();
-        },
 
-        (err) => {
-          this.toastr.error('Failed to fetch peoples!', 'Failed!');
-          this.spinner.hide();
-        }
-      )
-     }
+    this.spinner.show();
+    this.subscribe = this.apiService.get('auth/peoples').subscribe(
+      (res) => {
+        this.peoples = res.peoples;
+        this.total = res.peoples.length;
+        this.spinner.hide();
+      },
+
+      (err) => {
+        this.toastr.error('Failed to fetch peoples!', 'Failed!');
+        this.spinner.hide();
+      }
+    )
+  }
 
   ngOnInit(): void {
 
   }
+
+  getRandomInt() {
+    return Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+  }
+
   ngOnDestroy(): void {
-      this.subscribe.unsubscribe();
+    this.subscribe.unsubscribe();
   }
 
 }

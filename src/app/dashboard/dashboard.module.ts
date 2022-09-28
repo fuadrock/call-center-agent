@@ -14,6 +14,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { SafePipeModule } from 'safe-pipe';
 import { ContactComponent } from './contact/contact.component';
 import { ContactAddDialogueComponent } from './contact-add-dialogue/contact-add-dialogue.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.component';
+import { FeatherModule } from 'angular-feather';
+import { allIcons } from 'angular-feather/icons';
 
 const routes: Routes = [
   {
@@ -55,7 +59,8 @@ const routes: Routes = [
     PeopleComponent,
     PanelComponent,
     ContactComponent,
-    ContactAddDialogueComponent
+    ContactAddDialogueComponent,
+    DeleteDialogueComponent
   ],
   imports: [
     CommonModule,
@@ -65,8 +70,11 @@ const routes: Routes = [
     MaterialModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgxSpinnerModule,
-    SafePipeModule
+    SafePipeModule,
+    NgbDropdownModule,
+    FeatherModule.pick(allIcons),
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [ContactAddDialogueComponent,DeleteDialogueComponent]
 })
 export class DashboardModule { }
