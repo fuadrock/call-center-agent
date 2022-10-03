@@ -30,39 +30,23 @@
     </div>
 
     <div class="d-flex">
-      <div class="dropdown d-inline-block" ngbDropdown placement="bottom-right">
-        <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" ngbDropdownToggle>
-          <i-feather class="icon-sm" name="search"></i-feather>
-        </button>
-        <div class="dropdown-menu dropdown-menu-lg p-0 dropdown-menu-end" ngbDropdownMenu>
-          <form class="p-2">
-            <div class="search-box">
-              <div class="position-relative">
-                <input type="text" class="form-control rounded bg-light border-0" placeholder="Search...">
-                <i class="mdi mdi-magnify search-icon"></i>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+<!--
+      <div class="dropdown d-none d-lg-inline-block" ngbDropdown >
+        <iframe [src]="iframeSrc" frameborder="0" scrolling="no" class="iframe-init" allowtransparency="true"
+        allow="camera;microphone"></iframe>
+      </div> -->
 
       <div class="dropdown d-inline-block d-flex align-items-center"> <i
           class="fas fa-circle  font-size-16 align-middle me-1" id="StatusBtn" #StatusBtn></i></div>
 
 
-      <div class="dropdown d-none d-lg-inline-block" ngbDropdown [autoClose]="false">
+      <!-- <div class="dropdown d-none d-lg-inline-block" ngbDropdown [autoClose]="false">
         <button type="button" class="btn header-item noti-icon" data-bs-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false" ngbDropdownToggle>
           <i-feather class="icon-sm" name="grid"></i-feather>
         </button>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" ngbDropdownMenu>
 
-          <iframe [src]="iframeSrc" allow="camera;microphone" style="height: 600px; width: 100%; " frameborder="0">
-          </iframe>
-
-        </div>
-      </div>
+      </div> -->
 
 
 

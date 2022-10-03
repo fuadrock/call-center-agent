@@ -5,7 +5,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { delay, timeout } from 'rxjs/operators';
 import { CommunicationService } from 'src/app/core/services/communication.service';
 
 @Component({
@@ -35,7 +34,7 @@ export class AgentComponent implements OnInit {
     this.password = localStorage.getItem('password');
     this.dropdownList = JSON.parse(localStorage.getItem('queues') || '{}');
     this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
-    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302&location=middle`);
 
   }
 
