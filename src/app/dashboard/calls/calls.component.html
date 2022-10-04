@@ -5,174 +5,144 @@
 
 
 
-  <!-- start page title -->
-  <div class="row">
-    <div class="col-12">
-        <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">Calls</h4>
-        </div>
+<!-- start page title -->
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+      <h4 class="mb-0">Calls</h4>
     </div>
+  </div>
 </div>
 <!-- end page title -->
 
 <div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="row mb-3">
-                            <label class="col-md-4 col-form-label">Direction</label>
-                            <div class="col-md-8">
-                                <select class="form-select">
-                                    <option>Select</option>
-                                    <option>Inbound</option>
-                                    <option>Outbound</option>
-                                    <option>Local</option>
-                                </select>
-                            </div>
-                        </div><!-- end row -->
-                        <div class="mb-3 row">
-                            <label for="example-search-input" class="col-md-4 col-form-label">Caller Number</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text"   name="caller_id_number">
-                            </div>
-                        </div><!-- end row -->
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="row mb-3">
+              <label class="col-md-4 col-form-label">Direction</label>
+              <div class="col-md-8">
+                <select class="form-select">
+                  <option>Select</option>
+                  <option>Inbound</option>
+                  <option>Outbound</option>
+                  <option>Local</option>
+                </select>
+              </div>
+            </div><!-- end row -->
+            <div class="mb-3 row">
+              <label for="example-search-input" class="col-md-4 col-form-label">Caller Number</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" name="caller_id_number">
+              </div>
+            </div><!-- end row -->
 
-                        <div class="mb-3 row">
-                            <label for="example-datetime-local-input" class="col-md-4 col-form-label">From Date and time</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00" id="example-datetime-local-input">
-                            </div>
-                        </div><!-- end row -->
-                        <div class="mb-3  mb-lg-0 row">
-                            <label for="example-search-input" class="col-md-4 col-form-label">Final Destination</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text"   name="caller_destination">
-                            </div>
-                        </div><!-- end row -->
-                    </div><!-- end col -->
+            <div class="mb-3 row">
+              <label for="example-datetime-local-input" class="col-md-4 col-form-label">From Date and time</label>
+              <div class="col-md-8">
+                <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00"
+                  id="example-datetime-local-input">
+              </div>
+            </div><!-- end row -->
+            <div class="mb-3  mb-lg-0 row">
+              <label for="example-search-input" class="col-md-4 col-form-label">Final Destination</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" name="caller_destination">
+              </div>
+            </div><!-- end row -->
+          </div><!-- end col -->
 
-                    <div class="col-xl-6">
-                        <div class="row mb-3">
-                            <label class="col-md-4 col-form-label">Call Type</label>
-                            <div class="col-md-8">
-                                <select class="form-select">
-                                    <option>Select</option>
-                                    <option>Missed</option>
-                                    <option>Answered</option>
-                                    <option>Voicemail</option>
-                                    <option>Cancelled</option>
-                                    <option>Failed</option>
-                                </select>
-                            </div>
-                        </div><!-- end row -->
-                        <div class="mb-3 row">
-                            <label for="example-search-input" class="col-md-4 col-form-label">Caller Destination</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text"   name="caller_destination">
-                            </div>
-                        </div><!-- end row -->
+          <div class="col-xl-6">
+            <div class="row mb-3">
+              <label class="col-md-4 col-form-label">Call Type</label>
+              <div class="col-md-8">
+                <select class="form-select">
+                  <option>Select</option>
+                  <option>Missed</option>
+                  <option>Answered</option>
+                  <option>Voicemail</option>
+                  <option>Cancelled</option>
+                  <option>Failed</option>
+                </select>
+              </div>
+            </div><!-- end row -->
+            <div class="mb-3 row">
+              <label for="example-search-input" class="col-md-4 col-form-label">Caller Destination</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" name="caller_destination">
+              </div>
+            </div><!-- end row -->
 
-                        <div class="mb-3 mb-lg-0 row">
-                            <label for="example-datetime-local-input" class="col-md-4 col-form-label">To Date and time</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00"  >
-                            </div>
-                        </div><!-- end row -->
-                        <div class="mb-3 mb-lg-0 row">
+            <div class="mb-3 mb-lg-0 row">
+              <label for="example-datetime-local-input" class="col-md-4 col-form-label">To Date and time</label>
+              <div class="col-md-8">
+                <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00">
+              </div>
+            </div><!-- end row -->
+            <div class="mb-3 mb-lg-0 row">
 
-                            <div class="col-md-8 pt-3">
-                                <button type="submit" class="btn btn-primary w-md">Submit</button>
-                            </div>
-                        </div><!-- end row -->
-                    </div><!-- end col -->
-                </div><!-- end row -->
-                <hr/>
-                <div class="table-responsive">
-                    <table class="table align-middle table-nowrap table-check">
-                        <thead>
-                            <tr class="bg-transparent">
-                                <th>Caller No</th>
-                                <th>Caller Destination</th>
-                                <th>Final Destination</th>
-                                <th>Call Start Time</th>
-                                <th>Duration</th>
-                                <th>Call Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let call of calls; let i = index">
-                                <th scope="row" [class]="call.class" title="Missed">
-                                    <i-feather [name]="call.icon"></i-feather><span class="text-dark"> {{call.caller_id_number}} ({{call.caller_id_name}})</span>
+              <div class="col-md-8 pt-3">
+                <button type="submit" class="btn btn-primary w-md">Submit</button>
+              </div>
+            </div><!-- end row -->
+          </div><!-- end col -->
+        </div><!-- end row -->
+        <hr />
+        <div class="table-responsive">
+          <table class="table align-middle table-nowrap table-check">
+            <thead>
+              <tr class="bg-transparent">
+                <th>Caller No</th>
+                <th>Caller Destination</th>
+                <th>Final Destination</th>
+                <th>Call Start Time</th>
+                <th>Duration</th>
+                <th>Call Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let call of calls; let i = index">
+                <th scope="row" [class]="call.class" title="Missed">
+                  <i-feather [name]="call.icon"></i-feather><span class="text-dark"> {{call.caller_id_number}}
+                    ({{call.caller_id_name}})</span>
 
-                                </th>
+                </th>
 
-                                <td> {{call.caller_destination}} </td>
-                                <td> {{call.destination_number}}</td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="#" class="badge badge-soft-primary">{{call.start_stamp}}</a>
+                <td> {{call.caller_destination}} </td>
+                <td> {{call.destination_number}}</td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="badge badge-soft-primary">{{call.start_stamp}}</a>
 
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="#" class="badge badge-soft-primary">{{call.duration}}</a>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="badge badge-soft-primary">{{call.duration}}</a>
 
-                                    </div>
-                                </td>
-                                <td>
-                                     {{call.type}}
-                                </td>
-                            </tr>
+                  </div>
+                </td>
+                <td>
+                  {{call.type}}
+                </td>
+              </tr>
 
-                        </tbody>
-                    </table>
-                </div>
+            </tbody>
+          </table>
+        </div>
 
-                <div >
+        <div>
 
-                  <mat-paginator #paginator (page)="onPaginateChange($event)" [length]="pageLength"
-                  [pageSizeOptions]="pageSizeOptions" [pageSize]="size" showFirstLastButtons>
-                </mat-paginator>
-                    <!-- <div class="col-sm-6">
-                        <div>
-                            <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
-                        </div>
-                    </div>
+          <mat-paginator #paginator (page)="onPaginateChange($event)" [length]="pageLength"
+            [pageSizeOptions]="pageSizeOptions" [pageSize]="size" showFirstLastButtons>
+          </mat-paginator>
 
-                    <div class="col-sm-6">
-                        <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
-                            <li class="page-item disabled">
-                                <a href="#" class="page-link"><i class="fas fa-arrow-left"></i></a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">4</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">5</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link"><i class="fas fa-arrow-right"></i></a>
-                            </li>
-                        </ul>
-                    </div> -->
-                </div><!-- end row -->
+        </div>
 
-            </div><!-- end card body -->
-        </div><!-- end card -->
-    </div><!-- end col -->
+      </div>
+    </div><!-- end card -->
+  </div><!-- end col -->
 </div><!-- end row -->
 <!-- end row -->
-
-

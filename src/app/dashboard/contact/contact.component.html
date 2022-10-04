@@ -34,8 +34,8 @@
               </div>
 
               <div>
-                <a [routerLink]="[]" (click)="addContact()" class="btn btn-light" ><i
-                    class="uil uil-plus me-1"></i> Add New</a>
+                <a [routerLink]="[]" (click)="addContact()" class="btn btn-light"><i class="uil uil-plus me-1"></i> Add
+                  New</a>
               </div>
 
             </div>
@@ -79,62 +79,32 @@
                 <td>{{con.mobile}}</td>
                 <td>
                   <div class="dropdown" ngbDropdown>
-                      <button class="btn btn-light btn-sm dropdown-toggle"
-                          type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false" ngbDropdownToggle>
-                          <i class="uil uil-ellipsis-h"></i>
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
-                          <li><a class="dropdown-item"
-                                  [routerLink]="[]" (click)="edit(con)">Edit</a></li>
+                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                      aria-expanded="false" ngbDropdownToggle>
+                      <i class="uil uil-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                      <li><a class="dropdown-item" [routerLink]="[]" (click)="edit(con)">Edit</a></li>
 
-                          <li><a class="dropdown-item"
-                            [routerLink]="[]" (click)="delete(con)">Delete</a></li>
-                      </ul>
+                      <li><a class="dropdown-item" [routerLink]="[]" (click)="delete(con)">Delete</a></li>
+                    </ul>
                   </div>
-              </td>
+                </td>
               </tr><!-- end tr -->
 
             </tbody><!-- end tbody -->
           </table><!-- end table -->
-        </div><!-- end table responsive -->
+        </div>
 
-        <div class="row g-0 text-center text-sm-start">
-          <div class="col-sm-6">
-            <div>
-              <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
-            </div>
-          </div>
-          <!-- end col -->
-          <div class="col-sm-6">
-            <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
-              <li class="page-item disabled">
-                <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">1</a>
-              </li>
-              <li class="page-item active">
-                <a href="#" class="page-link">2</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">3</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">4</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">5</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-              </li>
-            </ul><!-- end ul -->
-          </div><!-- end col -->
-        </div><!-- end row -->
+        <div>
+
+          <mat-paginator #paginator (page)="onPaginateChange($event)" [length]="pageLength"
+            [pageSizeOptions]="pageSizeOptions" [pageSize]="size" showFirstLastButtons>
+          </mat-paginator>
+        </div>
 
       </div><!-- end card body -->
     </div><!-- end card -->
   </div><!-- end col -->
 </div><!-- end row -->
-<!-- end row -->
+

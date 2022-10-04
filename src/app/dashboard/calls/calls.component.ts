@@ -12,7 +12,7 @@ import { MatSort } from "@angular/material/sort";
 })
 export class CallsComponent implements OnInit {
 
-  calls:any;
+  calls: any;
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -23,7 +23,7 @@ export class CallsComponent implements OnInit {
   size = 10;
   pageLength = 0;
   pageSizeOptions = [5, 10, 15, 20];
-  pageSort:any;
+  pageSort: any;
 
   constructor(private apiService: ApiService,
     private router: Router,
@@ -36,29 +36,29 @@ export class CallsComponent implements OnInit {
     this.getCalls();
   }
 
-  getCalls(){
+  getCalls() {
     let pagination = `?pageNumber=${this.page}&pageSize=${this.size}`;
     this.spinner.show();
-    this.apiService.get('auth/calls'+pagination).
-    subscribe(
-      res => {
-       this.calls = res.calls;
-       this.pageLength = res.total;
-        this.spinner.hide();
+    this.apiService.get('auth/calls' + pagination).
+      subscribe(
+        res => {
+          this.calls = res.calls;
+          this.pageLength = res.total;
+          this.spinner.hide();
 
-      },
-      err => {
-        this.spinner.hide();
-        this.toastr.error('Failed to fetch calls!', 'Failed!');
+        },
+        err => {
+          this.spinner.hide();
+          this.toastr.error('Failed to fetch calls!', 'Failed!');
 
-      }
-    )
+        }
+      )
   }
 
-  onPaginateChange(event:any) {
-    console.log(event);
+  onPaginateChange(event: any) {
+
     this.size = event.pageSize;
-    this.page = event.pageIndex+1;
+    this.page = event.pageIndex + 1;
     this.getCalls();
   }
 

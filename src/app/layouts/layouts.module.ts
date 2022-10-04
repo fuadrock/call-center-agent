@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { SimplebarAngularModule } from 'simplebar-angular';
-import { TranslateModule } from '@ngx-translate/core';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { LayoutComponent } from './layout.component';
 import { VerticalComponent } from './vertical/vertical.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -27,9 +24,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     NgbDropdownModule,
     FeatherModule.pick(allIcons),
     SimplebarAngularModule,
-    TranslateModule,
     RouterModule,
-    ClickOutsideModule
   ],
   providers: []
 })
