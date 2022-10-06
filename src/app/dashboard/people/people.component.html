@@ -31,7 +31,7 @@
                   <li class="nav-item">
                     <div class="search-box">
                       <div class="position-relative">
-                        <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                        <input type="text" #peopleSearchInput class="form-control rounded bg-light border-0 dialsearch"
                           placeholder="Enter name or Number...">
 
                       </div>
@@ -39,7 +39,7 @@
                     </div>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="#!" data-bs-toggle="tooltip" data-bs-placement="top"
+                    <a class="nav-link active" [routerLink]="[]" (click)="getPeoples()" data-bs-toggle="tooltip" data-bs-placement="top"
                       title="Search"><i class="uil-search search-icon"></i></a>
                   </li>
                 </ul>
@@ -50,7 +50,7 @@
           </div><!-- end col -->
         </div><!-- end row -->
 
-        <div class="row">
+        <div class="row" *ngIf="peoples.length>0">
           <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples;let i = index">
             <div class="card border shadow-none">
               <div class="card-body p-4">

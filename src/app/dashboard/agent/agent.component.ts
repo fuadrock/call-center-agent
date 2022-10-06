@@ -1,11 +1,14 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/core/services/api.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CommunicationService } from 'src/app/core/services/communication.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-agent',
@@ -22,6 +25,21 @@ export class AgentComponent implements OnInit {
   profile: any;
   password: any;
   queueText='';
+
+
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  paginateStartNo = 0;
+
+  page = 1;
+  size = 10;
+  pageLength = 0;
+  pageSizeOptions = [5, 10];
+  pageSort: any;
+  subscribe: Subscription;
+  total = 0;
+
 
   constructor(private apiService: ApiService,
     private router: Router,
@@ -50,17 +68,27 @@ export class AgentComponent implements OnInit {
       allowSearchFilter: true
     };
 
-    this.apiService.get('auth/contacts').subscribe(
-      res => {
-        this.contacts = res.contacts;
-      },
-      err => {
-        this.toastr.error('Failed to fetch contacts!', 'Failed!');
-
-      }
-    );
-
     this.queueText = this.getExtension();
+    this.getContact();
+  }
+
+  getContact() {
+    let pagination = `?pageNumber=${this.page}&pageSize=${this.size}`;
+
+    this.spinner.show();
+    this.subscribe = this.apiService.get('auth/contacts' + pagination).subscribe(
+      (res) => {
+        this.contacts = res.contacts.data;
+        this.pageLength = res.contacts.total;
+        this.total = res.contacts.total;
+        this.spinner.hide();
+      },
+
+      (err) => {
+        this.toastr.error('Failed to fetch contacts!', 'Failed!');
+        this.spinner.hide();
+      }
+    )
   }
 
 
@@ -153,6 +181,12 @@ export class AgentComponent implements OnInit {
 
   }
 
+  onPaginateChange(event: any) {
+
+    this.size = event.pageSize;
+    this.page = event.pageIndex + 1;
+    this.getContact();
+  }
 
 }
 
