@@ -18,6 +18,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'contact-details',
+    component: ContactDetailsComponent
   }
 ]
 
@@ -60,7 +65,8 @@ const routes: Routes = [
     PanelComponent,
     ContactComponent,
     ContactAddDialogueComponent,
-    DeleteDialogueComponent
+    DeleteDialogueComponent,
+    ContactDetailsComponent
   ],
   imports: [
     CommonModule,

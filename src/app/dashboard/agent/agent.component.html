@@ -6,7 +6,7 @@
   <div class="col-xl-3">
     <div class="card">
       <div class="card-body">
-        <div class="alert alert-warning border-0 d-flex align-items-center" role="alert">
+        <!-- <div class="alert alert-warning border-0 d-flex align-items-center" role="alert">
           <i class="uil uil-users-alt font-size-16 text-warning me-2"></i>
           <div class="flex-grow-1 text-truncate" [innerHTML]="queueText">
 
@@ -14,6 +14,13 @@
           <div class="flex-shrink-0">
             <a [routerLink]="[]" class="text-reset text-decoration-underline" (click)="queueLogout()"><b>Logout</b></a>
           </div>
+        </div> -->
+
+        <div class="alert alert-warning border-0 align-items-center" role="alert">
+          <a href="#!" class="text-reset text-decoration-underline float-end"><b>Logout</b></a>
+          <ul class="list-unstyled" [innerHTML]="queueText">
+
+          </ul>
         </div>
 
         <div class="row align-items-center">
@@ -51,88 +58,433 @@
         </div>
         <div>
 
-          <iframe
-            [src]="iframeSrc" allow="camera;microphone"
-            style="height: 600px; width: 100%; " frameborder="0">
+          <iframe [src]="iframeSrc" allow="camera;microphone" style="height: 600px; width: 100%; " frameborder="0"
+            scrolling="no">
           </iframe>
 
         </div>
-      </div> <!-- end card-body-->
+      </div>
     </div>
-    <!-- end card -->
 
-  </div> <!-- end col-->
+
+  </div>
+
+
   <div class="col-xl-5">
     <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <h5 class="card-title">Contacts <span class="text-muted fw-normal ms-2">({{total}})</span></h5>
+              <h5 class="card-title">
+                Call History
+              </h5>
             </div>
-          </div><!-- end col -->
-
-          <div class="col-md-6">
-            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
-
-              <div>
-                <a href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addContactModal"><i
-                    class="uil uil-plus me-1"></i> Add New</a>
-              </div>
-
-            </div>
-          </div><!-- end col -->
-        </div><!-- end row -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addContactModalLabel">Add Contact</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <!-- end modalheader -->
-              <div class="modal-body p-4">
-                <div>
-                  <div class="mb-3">
-                    <label for="addcontact-name-input" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="addcontact-name-input" placeholder="Enter Name">
-                  </div>
-                  <div class="mb-3">
-                    <label for="addcontact-designation-input" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="addcontact-designation-input"
-                      placeholder="Enter Phone Number">
-                  </div>
-                  <div class="mb-3">
-                    <label for="addcontact-file-input" class="form-label">Company</label>
-                    <input type="text" class="form-control" id="addcontact-company-input"
-                      placeholder="Enter Company Name">
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="addcontact-email-input" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="addcontact-email-input" placeholder="Enter Email">
-                  </div>
-                </div>
-              </div>
-              <!-- end modalbody -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary w-sm">Add</button>
-              </div>
-              <!-- end modalfooter -->
-            </div><!-- end content -->
           </div>
         </div>
-        <!-- end modal -->
 
-        <div class="table-responsive">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="search-box">
+              <div class="position-relative">
+                <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                  placeholder="Enter name or Number...">
+                <i class="uil-search search-icon"></i>
+              </div>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div class="list-group " data-simplebar style="max-height: 380px;">
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Voicemail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-cancel" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Canceled 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-off" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 100 (Shinto)</h6>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1">Failed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-missed" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="list-group " data-simplebar style="max-height: 380px;">
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 101 (Thangaraj)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Missed 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-answered" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="list-group " data-simplebar style="max-height: 380px;">
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 102 (Fuad)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">Answered 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-voicemail" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="list-group " data-simplebar style="max-height: 380px;">
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="Missed"></i>
+                      </div>
+                      <div class="col-11">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h6 class="mb-1"> 104 (Shijohn)</h6>
+                          <small>2 days ago</small>
+                        </div>
+                        <p class="mb-1">VoiceMail 7:11 PM</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <nav>
+              <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-all"
+                  type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i class="mdi mdi-phone-log"
+                    style="font-size:1.5rem" title="All Calls"></i></button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-missed"
+                  type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i
+                    class="mdi mdi-phone-missed" style="font-size:1.5rem" title="Missed"></i> </button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-answered"
+                  type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i
+                    class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Answered"></i> </button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-voicemail"
+                  type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i
+                    class="mdi mdi-phone-message" style="font-size:1.5rem" title="VoiceMail"></i> </button>
+              </div>
+            </nav>
+            <!--End tab-->
+          </div>
+          <!-- end col -->
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end card body -->
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col-->
+
+  <!-- <div class="table-responsive">
           <table class="table align-middle table-nowrap table-check">
 
             <tbody>
               <tr *ngFor="let contact of contacts">
+
+
+
 
                 <td>
                   <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded-circle me-2">
@@ -144,25 +496,17 @@
                     aria-expanded="false">
                     <i class="uil uil-phone"></i>
                   </button>
-                  <button class="btn btn-light btn-sm  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="uil uil-edit"></i>
-                  </button>
+
                 </td>
 
-            </tbody><!-- end tbody -->
-          </table><!-- end table -->
-        </div><!-- end table responsive -->
+            </tbody>
+          </table>
+        </div>
 
-        <div >
+        <div>
           <mat-paginator #paginator (page)="onPaginateChange($event)" [length]="pageLength"
-          [pageSizeOptions]="pageSizeOptions" [pageSize]="size" showFirstLastButtons>
-        </mat-paginator>
-        </div><!-- end row -->
-
-      </div><!-- end card body -->
-    </div><!-- end card -->
-
-
-  </div> <!-- end col-->
+            [pageSizeOptions]="pageSizeOptions" [pageSize]="size" showFirstLastButtons>
+          </mat-paginator>
+        </div> -->
 
 </div>

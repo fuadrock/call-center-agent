@@ -26,44 +26,58 @@
         (click)="toggleMobileMenu($event)">
         <i class="fa fa-fw fa-bars"></i>
       </button>
-
+      <button (click)="ResizeFrame1()"> click resize</button>
     </div>
 
     <div class="d-flex">
 
-      <div >
+      <div>
         <iframe [src]="iframeSrc" frameborder="0" scrolling="no" class="iframe-init" allowtransparency="true"
-        allow="camera;microphone"></iframe>
+          allow="camera;microphone" #frame></iframe>
       </div>
 
-      <div class="dropdown d-inline-block d-flex align-items-center"> <i
-          class="fas fa-circle  font-size-16 align-middle me-1" id="StatusBtn" #StatusBtn></i></div>
-
-
-      <!-- <div class="dropdown d-none d-lg-inline-block" ngbDropdown [autoClose]="false">
-        <button type="button" class="btn header-item noti-icon" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" ngbDropdownToggle>
-          <i-feather class="icon-sm" name="grid"></i-feather>
-        </button>
-
-      </div> -->
-
-
+      <!-- <div class="dropdown d-inline-block d-flex align-items-center"> <i
+          class="fas fa-circle  font-size-16 align-middle me-1" id="StatusBtn" #StatusBtn></i></div> -->
 
       <div class="dropdown d-inline-block" ngbDropdown>
-        <button type="button" class="btn header-item user text-start d-flex align-items-center"
+        <!-- <button type="button" class="btn header-item user text-start d-flex align-items-center"
           id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           ngbDropdownToggle>
           <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
           <span class="ms-2 d-none d-sm-block user-item-desc">
             <span class="user-name">{{user?.name }}</span>
-            <span class="user-sub-title">{{user?.agent?.designation}}</span>
+            <i class="fas fa-circle text-success font-size-12 align-middle me-1" id="StatusBtn" #StatusBtn></i>
+            <span class="badge bg-light">Available</span>
+            <span class="user-sub-title text-primary font-weight-bold">Ext. 100</span>
           </span>
-        </button>
+        </button> -->
+        <button
+        type="button"
+        class="btn header-item user text-start d-flex align-items-center"
+        id="page-header-user-dropdown"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ngbDropdownToggle
+      >
+        <img
+          class="rounded-circle header-profile-user"
+          src="assets/images/users/avatar-1.jpg"
+          alt="Header Avatar"
+        />
+        <span class="ms-2 d-none d-sm-block user-item-desc">
+          <span class="user-name">{{user?.name}}</span>
+          <i
+            class="fas fa-circle text-success font-size-12 align-middle me-1"
+            id="StatusBtn" #StatusBtn
+          ></i><span class="badge bg-light">{{currentStatus.name}}</span>
+          <span class="user-sub-title text-primary font-weight-bold">Ext. {{user?.agent?.extension}}</span>
+        </span>
+      </button>
         <div class="dropdown-menu dropdown-menu-end pt-0" ngbDropdownMenu>
           <div class="p-3 bg-primary border-bottom">
             <h6 class="mb-0 text-white">{{user?.email}}</h6>
-            <!-- <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{user.email}}</p> -->
+
           </div>
           <ng-container *ngFor="let status of statuses">
             <a class="dropdown-item" (click)="setStatus(status,StatusBtn)" [ngClass]="status.a_class"

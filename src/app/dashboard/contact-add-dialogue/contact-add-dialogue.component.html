@@ -69,7 +69,8 @@
       <!-- end modalbody -->
       <div class="modal-footer">
         <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal" (click)="closeDialog()">Close</button>
-        <button type="submit" class="btn btn-primary w-sm">Add</button>
+        <button type="submit" class="btn btn-primary w-sm" *ngIf="!editData">Add</button>
+        <button type="submit" class="btn btn-primary w-sm" *ngIf="editData">Edit</button>
       </div>
     </form>
     <!-- end modalfooter -->

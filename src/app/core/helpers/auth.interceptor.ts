@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private apiService: ApiService, private router: Router) {
-    console.log("sssss called")
+
   }
 
 
@@ -48,7 +48,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>,
     next: HttpHandler): Observable<HttpEvent<any>> {
 
-console.log(next);
+
     return next.handle(req);
   }
 

@@ -141,11 +141,11 @@ export class AgentComponent implements OnInit {
 
     });
     if (queues.length > 0) {
-      text+= "<b>" + queues[0].extension + "</b> " + queues[0].alias;
+      //text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ queues[0].extension +"</b>" + queues[0].alias +"</li>"
       queues.forEach((e: any, index: any) => {
-        if (index >= 1) {
-          text += " & <b>" + queues[index].extension + "</b> " + queues[index].alias;
-        }
+        text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ queues[index].extension +"</b>" + queues[index].alias +"</li>"
+          //text += " & <b>" + queues[index].extension + "</b> " + queues[index].alias;
+
       })
     }
 

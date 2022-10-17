@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ElementRef, Renderer2, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommunicationService } from 'src/app/core/services/communication.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
+declare const ResizeFrame: any;
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
@@ -14,6 +14,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
 export class TopbarComponent implements OnInit {
+  hight= 50;
 
   mode: string | undefined;
   flagvalue: any;
@@ -22,6 +23,7 @@ export class TopbarComponent implements OnInit {
   valueset: any;
   user: any = { name: "Admin", email: "admin@asiatel.com" };
   @ViewChild('StatusBtn', { static: true }) input: ElementRef;
+  @ViewChild('frame', { static: true }) frame: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
   iframeSrc: SafeUrl | undefined;
   password: string | null;
@@ -46,16 +48,15 @@ export class TopbarComponent implements OnInit {
     private apiService: ApiService,
     private com: CommunicationService,
     private sanitizer: DomSanitizer,
-    private element: ElementRef,
-    private renderer: Renderer2,) {
+    private renderer: Renderer2
+   ) {
 
     this.user = JSON.parse(localStorage.getItem("profile") || '{}');
-    console.log("profile3", this.user);
+
     this.password = localStorage.getItem('password');
 
     this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.user.agent.extension + `@20.212.144.167&uname=` + this.user.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-
-    console.log("source:", this.iframeSrc);
+   // (<any>window).reciveDataFromIframe = this.ResizeFrame.bind(this);
   }
 
 
@@ -147,5 +148,28 @@ export class TopbarComponent implements OnInit {
     )
 
   }
+
+  @HostListener("window:message", ["$event"])
+  ResizeFrame1(){
+    // if(this.hight==50){
+    //   this.renderer.setStyle(this.frame.nativeElement, "height", '500px');
+    //   this.hight = 500;
+    // }
+    // else{
+    //   this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
+    //   this.hight = 50;
+    // }
+    ResizeFrame()
+
+  }
+  
+
+@HostListener('window:message',['$event'])
+onMessage(e:any){
+
+}
+
+
+
 
 }
