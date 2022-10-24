@@ -11,6 +11,7 @@ import {
   distinctUntilChanged,
   filter
 } from "rxjs/operators";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-people',
@@ -30,7 +31,8 @@ export class PeopleComponent implements OnInit, OnDestroy {
     private router: Router,
 
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService) {
+    private spinner: NgxSpinnerService,
+    private sanitizer:DomSanitizer) {
 
     this.getPeoples();
   }
@@ -94,6 +96,14 @@ export class PeopleComponent implements OnInit, OnDestroy {
     )
   }
 
+  gotoDetails(number:any){
+
+    if(number){
+      this.router.navigate(['dashboard/contact-details/'+number]);
+    }
+
+  }
+
   getRandomInt() {
     return Math.floor(Math.random() * (10 - 1 + 1)) + 1;
   }
@@ -101,5 +111,7 @@ export class PeopleComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscribe.unsubscribe();
   }
+
+  url = this.sanitizer.bypassSecurityTrustResourceUrl('assets/iframe.html');
 
 }

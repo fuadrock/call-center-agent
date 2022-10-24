@@ -39,6 +39,7 @@ export class AgentComponent implements OnInit {
   pageSort: any;
   subscribe: Subscription;
   total = 0;
+  calls: any=[];
 
 
   constructor(private apiService: ApiService,
@@ -53,6 +54,8 @@ export class AgentComponent implements OnInit {
     this.dropdownList = JSON.parse(localStorage.getItem('queues') || '{}');
     this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
     this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302&location=middle`);
+
+
 
   }
 
@@ -69,18 +72,25 @@ export class AgentComponent implements OnInit {
     };
 
     this.queueText = this.getExtension();
-    this.getContact();
+    this.getCalls({index:0});
   }
 
-  getContact() {
-    let pagination = `?pageNumber=${this.page}&pageSize=${this.size}`;
-
+  getCalls(type:any) {
+    console.log(type)
+    let pagination = `?pageNumber=1&pageSize=5`;
+    if(type.index==1){
+      pagination +=`&type=Missed`
+    }
+    if(type.index==2){
+      pagination +=`&type=Answered`
+    }
+    if(type.index==3){
+      pagination +=`&type=Voice Mail`
+    }
     this.spinner.show();
-    this.subscribe = this.apiService.get('auth/contacts' + pagination).subscribe(
+    this.subscribe = this.apiService.get('auth/calls' + pagination).subscribe(
       (res) => {
-        this.contacts = res.contacts.data;
-        this.pageLength = res.contacts.total;
-        this.total = res.contacts.total;
+        this.calls = res.calls
         this.spinner.hide();
       },
 
@@ -116,7 +126,7 @@ export class AgentComponent implements OnInit {
 
       this.apiService.post('auth/queue_logout', queues).subscribe(
         res => {
-          this.toastr.success("Success", "Logout from queue successful!");
+          this.toastr.success("Success", "Logout from all the queues.");
           this.selectedItems = [];
           this.queueText = '';
           this.spinner.hide();
@@ -152,6 +162,8 @@ export class AgentComponent implements OnInit {
     return text;
   }
 
+
+
   queueLogin() {
     this.submitted = true;
     if (this.selectedItems.length > 0) {
@@ -181,12 +193,10 @@ export class AgentComponent implements OnInit {
 
   }
 
-  onPaginateChange(event: any) {
 
-    this.size = event.pageSize;
-    this.page = event.pageIndex + 1;
-    this.getContact();
-  }
+
+
+
 
 }
 

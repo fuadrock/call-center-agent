@@ -19,6 +19,8 @@ import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.compo
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { TimeagoClock, TimeagoFormatter, TimeagoIntl, TimeagoModule } from 'ngx-timeago';
+
 
 const routes: Routes = [
   {
@@ -26,7 +28,7 @@ const routes: Routes = [
     component: AgentComponent
   },
   {
-    path: 'people',
+    path: 'extension',
     component: PeopleComponent
   },
   {
@@ -50,7 +52,7 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
-    path: 'contact-details',
+    path: 'contact-details/:id',
     component: ContactDetailsComponent
   }
 ]
@@ -66,7 +68,8 @@ const routes: Routes = [
     ContactComponent,
     ContactAddDialogueComponent,
     DeleteDialogueComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+
   ],
   imports: [
     CommonModule,
@@ -79,6 +82,7 @@ const routes: Routes = [
     SafePipeModule,
     NgbDropdownModule,
     FeatherModule.pick(allIcons),
+    TimeagoModule.forChild()
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [ContactAddDialogueComponent,DeleteDialogueComponent]

@@ -26,14 +26,14 @@
         (click)="toggleMobileMenu($event)">
         <i class="fa fa-fw fa-bars"></i>
       </button>
-      <button (click)="ResizeFrame1()"> click resize</button>
+      <!-- <button (click)="ResizeFrame()"> click resize</button> -->
     </div>
 
     <div class="d-flex">
 
       <div>
         <iframe [src]="iframeSrc" frameborder="0" scrolling="no" class="iframe-init" allowtransparency="true"
-          allow="camera;microphone" #frame></iframe>
+          allow="camera;microphone" #frame style="height: 50px;"></iframe>
       </div>
 
       <!-- <div class="dropdown d-inline-block d-flex align-items-center"> <i

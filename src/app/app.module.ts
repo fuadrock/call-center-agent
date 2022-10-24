@@ -10,7 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SafePipeModule } from 'safe-pipe';
 import { AuthInterceptor } from './core/helpers/auth.interceptor';
-
+import { TimeagoModule } from 'ngx-timeago';
 
 
 
@@ -27,7 +27,8 @@ import { AuthInterceptor } from './core/helpers/auth.interceptor';
     MaterialModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    SafePipeModule
+    SafePipeModule,
+    TimeagoModule.forRoot()
   ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

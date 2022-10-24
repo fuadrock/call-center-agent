@@ -107,7 +107,7 @@ export class ContactComponent implements OnInit {
         console.log(res);
         if (res == 'confirm') {
           this.spinner.show();
-          this.subscribe = this.apiService.delete('auth/contacts?id=' + contact.id).subscribe(
+          this.subscribe = this.apiService.delete('auth/contacts/' + contact.id).subscribe(
             (res) => {
               this.getContact();
               this.toastr.success('Success deleting contact!', 'Success!');
@@ -117,10 +117,7 @@ export class ContactComponent implements OnInit {
               this.toastr.error('Failed to delete contacts!', 'Failed!');
               this.spinner.hide();
             }
-          )
-
-
-        }
+          ) }
       }
     )
   }

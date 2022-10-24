@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommunicationService } from 'src/app/core/services/communication.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import * as $ from 'jquery'
 declare const ResizeFrame: any;
 @Component({
   selector: 'app-topbar',
@@ -14,7 +15,7 @@ declare const ResizeFrame: any;
 
 
 export class TopbarComponent implements OnInit {
-  hight= 50;
+  height= 50;
 
   mode: string | undefined;
   flagvalue: any;
@@ -56,7 +57,12 @@ export class TopbarComponent implements OnInit {
     this.password = localStorage.getItem('password');
 
     this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.user.agent.extension + `@20.212.144.167&uname=` + this.user.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
-   // (<any>window).reciveDataFromIframe = this.ResizeFrame.bind(this);
+
+    if (window.addEventListener) {
+      window.addEventListener("message", this.receiveMessage.bind(this), false);
+    } else {
+       (<any>window).attachEvent("onmessage", this.receiveMessage.bind(this));
+    }
   }
 
 
@@ -149,25 +155,37 @@ export class TopbarComponent implements OnInit {
 
   }
 
-  @HostListener("window:message", ["$event"])
-  ResizeFrame1(){
-    // if(this.hight==50){
-    //   this.renderer.setStyle(this.frame.nativeElement, "height", '500px');
-    //   this.hight = 500;
-    // }
-    // else{
-    //   this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
-    //   this.hight = 50;
-    // }
-    ResizeFrame()
 
+  ResizeFrame(){
+    console.log("called function");
+    if(this.height==50){
+      this.renderer.setStyle(this.frame.nativeElement, "height", '500px');
+      this.height = 500;
+    }
+    else{
+      this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
+      this.height = 50;
+    }
   }
-  
 
-@HostListener('window:message',['$event'])
-onMessage(e:any){
+  receiveMessage = (event: any) => {
+     console.log("parent called");
+  //   console.log(event)
+  //   const height = event.data.height+'px';
+  //  this.renderer.setStyle(this.frame.nativeElement, "height", height);
+  //   $('.iframe-init').css("height", height);
 
-}
+
+  if(this.height==50){
+    this.renderer.setStyle(this.frame.nativeElement, "height", '500px');
+    this.height = 500;
+  }
+  else{
+    this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
+    this.height = 50;
+  }
+  }
+
 
 
 
