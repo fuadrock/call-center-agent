@@ -50,35 +50,6 @@
           </div><!-- end col -->
         </div><!-- end row -->
 
-        <!-- <div class="row" *ngIf="peoples.length>0">
-          <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples;let i = index">
-            <div class="card border shadow-none">
-              <div class="card-body p-4">
-                <div class="d-flex align-items-start">
-                  <div class="flex-shrink-0 avatar rounded-circle me-3">
-                    <img src='assets/images/users/avatar-{{i+1}}.jpg' alt="" class="img-fluid rounded-circle">
-                  </div>
-                  <div class="flex-grow-1 overflow-hidden">
-                    <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html"
-                        class="text-dark">{{con.name}} ({{con.extension}}) <br><span style="color: grey;">
-                          +{{con.mobile}}</span></a></h5>
-                    <p class="text-muted text-truncate mb-0"><i class="fas fa-circle  font-size-16 align-middle me-1"
-                        [ngClass]="con.status.i_class"></i> {{con.status.name}}</p>
-                  </div>
-
-                </div>
-              </div>
-              <div class="btn-group btn-icon" role="group">
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
-                  title="Profile"><i class="uil uil-user"></i></button>
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
-                  title="Chats"><i class="uil uil-envelope-alt"></i></button>
-                <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top"
-                  title="Calls"><i class="uil uil-phone"></i></button>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
 
         <div class="row" *ngIf="peoples.length>0">
@@ -111,10 +82,10 @@
                       <button (click)="gotoDetails(con.extension)" type="button" class="btn btn-outline-light"
                           data-bs-toggle="tooltip" data-bs-placement="top" title="Extension"><i
                               class="mdi mdi-card-account-phone" style="font-size: 18px;"></i> <br>{{con.extension}}</button>
-                      <button type="button" (click)="gotoDetails(con.extension)" class="btn btn-outline-light"
+                      <button type="button" (click)="gotoDetails(con.work_phone)" class="btn btn-outline-light"
                           data-bs-toggle="tooltip" data-bs-placement="top" title="Phone"><i
                               class="mdi mdi-phone-classic" style="font-size: 18px;"></i><br>{{con.work_phone}}</button>
-                      <button type="button" (click)="gotoDetails(con.extension)" class="btn btn-outline-light"
+                      <button type="button" (click)="gotoDetails(con.mobile)" class="btn btn-outline-light"
                           data-bs-toggle="tooltip" data-bs-placement="top" title="Mobile"><i
                               class="mdi mdi-cellphone-iphone" style="font-size: 18px;"></i> <br>{{con.mobile}}</button>
                   </div>

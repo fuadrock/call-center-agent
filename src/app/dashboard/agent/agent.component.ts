@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -9,13 +9,17 @@ import { CommunicationService } from 'src/app/core/services/communication.servic
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Subscription } from 'rxjs';
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+import { ScheduleService } from 'src/app/core/services/schedule.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-agent',
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.scss']
 })
-export class AgentComponent implements OnInit {
+export class AgentComponent implements OnInit,OnDestroy {
   iframeSrc: SafeUrl | undefined;
   dropdownList: any = [];
   selectedItems: any = [];
@@ -41,13 +45,19 @@ export class AgentComponent implements OnInit {
   total = 0;
   calls: any=[];
 
+  // @ViewChild('iframeT', {static: false}) iframe: ElementRef;
+  doc: any;
+  subsctiption: Subscription;
+
+
 
   constructor(private apiService: ApiService,
     private router: Router,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private sanitizer: DomSanitizer,
-    private com: CommunicationService) {
+    private com: CommunicationService,
+    private scheduler:ScheduleService) {
 
     this.profile = JSON.parse(localStorage.getItem('profile') || '{}');
     this.password = localStorage.getItem('password');
@@ -73,6 +83,48 @@ export class AgentComponent implements OnInit {
 
     this.queueText = this.getExtension();
     this.getCalls({index:0});
+
+    this.scheduler.getEventLog();
+
+
+    this.subsctiption = this.scheduler.eventData.subscribe(
+      res=>{
+        if(res.message){
+          if(res.tiers.length>0){
+            let data:any = [];
+            let textData:any = [];
+            res.tiers.forEach((e: { queue: any; queue_uuid: any }) =>{
+              textData.push(e.queue);
+              data.push({"name":e.queue.name,"alias": e.queue.alias});
+            });
+            let currentSelected = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
+            if( _.isEqual(currentSelected,data)){
+
+
+            }
+            else{
+              console.log("selected:", this.selectedItems);
+              console.log("data current:", data);
+              this.selectedItems = data;
+              localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
+              let text = '';
+              textData.forEach((e: any, index: any) => {
+                text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ e.extension +"</b>" + e.alias +"</li>"
+
+              });
+              this.queueText = text;
+            }
+
+          }
+          else{
+            this.selectedItems = [];
+            localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
+
+            this.queueText = ''
+          }
+        }
+      }
+    );
   }
 
   getCalls(type:any) {
@@ -151,10 +203,8 @@ export class AgentComponent implements OnInit {
 
     });
     if (queues.length > 0) {
-      //text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ queues[0].extension +"</b>" + queues[0].alias +"</li>"
       queues.forEach((e: any, index: any) => {
         text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ queues[index].extension +"</b>" + queues[index].alias +"</li>"
-          //text += " & <b>" + queues[index].extension + "</b> " + queues[index].alias;
 
       })
     }
@@ -193,8 +243,14 @@ export class AgentComponent implements OnInit {
 
   }
 
+  ngOnDestroy(): void {
 
+    this.scheduler.stopEventLog();
+    if(this.subsctiption){
+      this.subsctiption.unsubscribe();
+    }
 
+  }
 
 
 

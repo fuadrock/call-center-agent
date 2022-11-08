@@ -5,7 +5,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CommunicationService } from 'src/app/core/services/communication.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import * as $ from 'jquery'
 declare const ResizeFrame: any;
 @Component({
   selector: 'app-topbar',
@@ -16,7 +15,7 @@ declare const ResizeFrame: any;
 
 export class TopbarComponent implements OnInit {
   height= 50;
-
+  doc:any;
   mode: string | undefined;
   flagvalue: any;
   cookieValue: any;
@@ -86,6 +85,26 @@ export class TopbarComponent implements OnInit {
       err => { }
     );
     this.getCurrentStatus();
+
+
+    this.com.getCall.subscribe(
+      res => {
+        if (res!='') {
+          console.log("gggggg: ", res);
+
+          this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.user.agent.extension + `@20.212.144.167&uname=` + this.user.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302&callto=`+res);
+
+
+        }
+      }
+    );
+
+  }
+
+  myLoadEvent(frame:any){
+   this.doc =  frame.contentWindow;
+   this.doc.postMessage({ message: "openDialer", value: "50" }, "*");
+   console.log("sorce: ",this.iframeSrc)
 
   }
 
@@ -169,21 +188,16 @@ export class TopbarComponent implements OnInit {
   }
 
   receiveMessage = (event: any) => {
-     console.log("parent called");
-  //   console.log(event)
-  //   const height = event.data.height+'px';
-  //  this.renderer.setStyle(this.frame.nativeElement, "height", height);
-  //   $('.iframe-init').css("height", height);
-
-
-  if(this.height==50){
-    this.renderer.setStyle(this.frame.nativeElement, "height", '500px');
-    this.height = 500;
-  }
-  else{
-    this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
-    this.height = 50;
-  }
+    console.log(event);
+  // if(this.height==50){
+     this.renderer.setStyle(this.frame.nativeElement, "height", event.data.value+'px');
+    // this.height = 500;
+  // }
+  // else{
+  //  // this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.user.agent.extension + `@20.212.144.167&uname=` + this.user.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302`);
+  //   this.renderer.setStyle(this.frame.nativeElement, "height", '50px');
+  //   this.height = 50;
+  // }
   }
 
 

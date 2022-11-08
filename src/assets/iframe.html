@@ -20,4 +20,10 @@
     console.log("clicked");
     window.parent.postMessage({ message: "resize", value: "50" }, "*");
   }
+
+  window.onmessage = function(e) {
+    if (e.data.message == 'resize') {
+        alert('It works!');
+    }
+};
 </script>

@@ -12,6 +12,7 @@ import {
   filter
 } from "rxjs/operators";
 import { DomSanitizer } from '@angular/platform-browser';
+import { CommunicationService } from 'src/app/core/services/communication.service';
 
 @Component({
   selector: 'app-people',
@@ -29,7 +30,7 @@ export class PeopleComponent implements OnInit, OnDestroy {
 
   constructor(private apiService: ApiService,
     private router: Router,
-
+    private dataCom: CommunicationService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private sanitizer:DomSanitizer) {
@@ -98,8 +99,10 @@ export class PeopleComponent implements OnInit, OnDestroy {
 
   gotoDetails(number:any){
 
+    this.dataCom.openCall(number);
+
     if(number){
-      this.router.navigate(['dashboard/contact-details/'+number]);
+     // this.router.navigate(['dashboard/contact-details/'+number]);
     }
 
   }
@@ -112,6 +115,6 @@ export class PeopleComponent implements OnInit, OnDestroy {
     this.subscribe.unsubscribe();
   }
 
-  url = this.sanitizer.bypassSecurityTrustResourceUrl('assets/iframe.html');
+
 
 }

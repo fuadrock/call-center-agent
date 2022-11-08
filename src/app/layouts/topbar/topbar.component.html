@@ -32,7 +32,7 @@
     <div class="d-flex">
 
       <div>
-        <iframe [src]="iframeSrc" frameborder="0" scrolling="no" class="iframe-init" allowtransparency="true"
+        <iframe (load)="myLoadEvent(frame)" [src]="iframeSrc" frameborder="0" scrolling="no" class="iframe-init" allowtransparency="true"
           allow="camera;microphone" #frame style="height: 50px;"></iframe>
       </div>
 
