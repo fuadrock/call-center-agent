@@ -11,6 +11,10 @@ export class CommunicationService {
   getProfile = this.profile.asObservable();
 
 
+  public loggedInQueues = new BehaviorSubject<any>('');
+  getloggedInQueues = this.loggedInQueues.asObservable();
+
+
   public call = new BehaviorSubject<any>('');
   getCall = this.call.asObservable();
 
@@ -22,5 +26,10 @@ export class CommunicationService {
 
   openCall(data:any){
     this.call.next(data);
+  }
+
+
+  setLoggedInQueues(data:any){
+    this.loggedInQueues.next(data);
   }
 }

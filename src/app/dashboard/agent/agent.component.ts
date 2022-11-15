@@ -29,7 +29,7 @@ export class AgentComponent implements OnInit,OnDestroy {
   profile: any;
   password: any;
   queueText='';
-
+  loggedInQueue:any = [];
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -62,15 +62,22 @@ export class AgentComponent implements OnInit,OnDestroy {
     this.profile = JSON.parse(localStorage.getItem('profile') || '{}');
     this.password = localStorage.getItem('password');
     this.dropdownList = JSON.parse(localStorage.getItem('queues') || '{}');
-    this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
+  //  this.selectedItems = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
     this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(`https://365smartconnect.asiamediatel.com/dialer/js_sip-dialpad.html?uri=sip:` + this.profile.agent.extension + `@20.212.144.167&uname=` + this.profile.agent.extension + `@20.212.144.167&password=` + this.password + `&stun=stun:stun.l.google.com:19302&location=middle`);
-
-
 
   }
 
 
   ngOnInit() {
+
+    this.com.getloggedInQueues.subscribe(res=>{
+      if(res!=''){
+        this.loggedInQueue = res;
+        this.selectedItems = res;
+        this.queueText = this.getExtension();
+      }
+    })
+
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'name',
@@ -81,7 +88,8 @@ export class AgentComponent implements OnInit,OnDestroy {
       allowSearchFilter: true
     };
 
-    this.queueText = this.getExtension();
+
+    
     this.getCalls({index:0});
 
     this.scheduler.getEventLog();
@@ -97,16 +105,15 @@ export class AgentComponent implements OnInit,OnDestroy {
               textData.push(e.queue);
               data.push({"name":e.queue.name,"alias": e.queue.alias});
             });
-            let currentSelected = JSON.parse(localStorage.getItem('loggedInQueue') || '[]');
+            let currentSelected = this.loggedInQueue;
             if( _.isEqual(currentSelected,data)){
 
-
+              console.log(currentSelected);
+              console.log(data)
             }
             else{
-              console.log("selected:", this.selectedItems);
-              console.log("data current:", data);
               this.selectedItems = data;
-              localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
+              this.loggedInQueue = data;
               let text = '';
               textData.forEach((e: any, index: any) => {
                 text+= "<li> <i class='uil uil-users-alt font-size-16 text-warning me-2'></i><b>"+ e.extension +"</b>" + e.alias +"</li>"
@@ -118,8 +125,7 @@ export class AgentComponent implements OnInit,OnDestroy {
           }
           else{
             this.selectedItems = [];
-            localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
-
+            this.loggedInQueue = [];
             this.queueText = ''
           }
         }
@@ -165,7 +171,7 @@ export class AgentComponent implements OnInit,OnDestroy {
 
   queueLogout() {
 
-    let loggedInqueue = JSON.parse(localStorage.getItem('loggedInQueue') || '{}');
+    let loggedInqueue = this.loggedInQueue;
     if (loggedInqueue.length > 0) {
 
       this.spinner.show();

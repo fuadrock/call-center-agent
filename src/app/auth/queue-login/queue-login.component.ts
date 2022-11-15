@@ -73,7 +73,8 @@ export class QueueLoginComponent implements OnInit {
       this.apiService.post('auth/queue_login', queues).subscribe(
         res => {
 
-          localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
+         // localStorage.setItem("loggedInQueue", JSON.stringify(this.selectedItems));
+         this.com.setLoggedInQueues(this.selectedItems);
 
           this.toastr.success('Login Success!', 'Success!');
 
