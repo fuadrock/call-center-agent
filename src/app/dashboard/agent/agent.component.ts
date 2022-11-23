@@ -76,7 +76,7 @@ export class AgentComponent implements OnInit,OnDestroy {
         this.selectedItems = res;
         this.queueText = this.getExtension();
       }
-    })
+    });
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -146,7 +146,7 @@ export class AgentComponent implements OnInit,OnDestroy {
       pagination +=`&type=Voice Mail`
     }
     this.spinner.show();
-    this.subscribe = this.apiService.get('auth/calls' + pagination).subscribe(
+    this.subscribe = this.apiService.get('auth/calls_dashboard'+pagination).subscribe(
       (res) => {
         this.calls = res.calls
         this.spinner.hide();

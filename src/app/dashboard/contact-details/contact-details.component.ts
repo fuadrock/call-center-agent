@@ -120,12 +120,12 @@ export class ContactDetailsComponent implements OnInit {
       this.spinner.show();
       this.apiService.post('auth/ticket_responses',formData).subscribe(
         res => {
+          let data = res.ticket_response;
+          data.user = JSON.parse(localStorage.getItem('profile') || '{}');
           this.spinner.hide();
           this.toastr.success('Adding response successful!', 'Success!');
           this.responseForm.reset();
-         this.ticketResponse.responses.push(res.ticket_response);
-
-
+         this.ticketResponse.responses.push(data);
         },
         err => {
           this.spinner.hide();

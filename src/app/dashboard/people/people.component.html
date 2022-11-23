@@ -18,29 +18,30 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
+
           <div class="col-md-6">
             <div class="mb-3">
               <h5 class="card-title">Extensions List <span class="text-muted fw-normal ms-2">({{total}})</span></h5>
-
             </div>
-          </div><!-- end col -->
+          </div>
+
           <div class="col-md-6">
             <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
               <div>
+                
                 <ul class="nav nav-pills">
                   <li class="nav-item">
                     <div class="search-box">
                       <div class="position-relative">
                         <input type="text" #peopleSearchInput class="form-control rounded bg-light border-0 dialsearch"
                           placeholder="Enter name or Number...">
-
                       </div>
-
                     </div>
                   </li>
+
                   <li class="nav-item">
-                    <a class="nav-link active" [routerLink]="[]" (click)="getPeoples()" data-bs-toggle="tooltip" data-bs-placement="top"
-                      title="Search"><i class="uil-search search-icon"></i></a>
+                    <a class="nav-link active" [routerLink]="[]" (click)="getPeoples()" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Search"><i class="uil-search search-icon"></i></a>
                   </li>
                 </ul>
               </div>
@@ -54,79 +55,45 @@
 
         <div class="row" *ngIf="peoples.length>0">
           <div class="col-xl-4 col-sm-6" *ngFor="let con of peoples;let i = index">
-              <div class="card border shadow-none">
-                  <div class="card-body p-4">
-                      <div class="d-flex align-items-start">
-                          <div class="flex-shrink-0 avatar rounded-circle me-3">
-                            <img src='assets/images/users/avatar-{{i+1}}.jpg' alt=""
-                                  class="img-fluid rounded-circle">
-                          </div>
-                          <div class="flex-grow-1 overflow-hidden">
-                              <h5 class="font-size-15 mb-1 text-truncate"><a
-                                      href="pages-profile.html" class="text-dark">{{con.name}} ({{con.extension}})</a></h5>
-                                      <p class="text-muted text-truncate mb-0"><i class="fas fa-circle  font-size-16 align-middle me-1"
-                                        [ngClass]="con.status.i_class"></i> {{con.status.name}}</p>
-                          </div>
-                          <div class="flex-shrink-0 dropdown">
-                              <a class="text-body dropdown-toggle font-size-16" href="#"
-                                  role="button" data-bs-toggle="dropdown"
-                                  aria-haspopup="true">
-                                  <i class="icon-xs" data-feather="more-horizontal"></i>
-                              </a>
+            <div class="card border shadow-none">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-start">
+                  <div class="flex-shrink-0 avatar rounded-circle me-3">
+                    <img src='assets/images/users/avatar-{{i+1}}.jpg' alt="" class="img-fluid rounded-circle">
+                  </div>
+                  <div class="flex-grow-1 overflow-hidden">
+                    <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html"
+                        class="text-dark">{{con.name}} ({{con.extension}})</a></h5>
+                    <p class="text-muted text-truncate mb-0"><i class="fas fa-circle  font-size-16 align-middle me-1"
+                        [ngClass]="con.status.i_class"></i> {{con.status.name}}</p>
+                  </div>
+                  <div class="flex-shrink-0 dropdown">
+                    <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown"
+                      aria-haspopup="true">
+                      <i class="icon-xs" data-feather="more-horizontal"></i>
+                    </a>
 
-                          </div><!-- end dropdown -->
-                      </div>
-                  </div>
-                  <!-- end card body -->
-                  <div class="btn-group btn-icon" role="group">
-                      <button (click)="gotoDetails(con.extension)" type="button" class="btn btn-outline-light"
-                          data-bs-toggle="tooltip" data-bs-placement="top" title="Extension"><i
-                              class="mdi mdi-card-account-phone" style="font-size: 18px;"></i> <br>{{con.extension}}</button>
-                      <button type="button" (click)="gotoDetails(con.work_phone)" class="btn btn-outline-light"
-                          data-bs-toggle="tooltip" data-bs-placement="top" title="Phone"><i
-                              class="mdi mdi-phone-classic" style="font-size: 18px;"></i><br>{{con.work_phone}}</button>
-                      <button type="button" (click)="gotoDetails(con.mobile)" class="btn btn-outline-light"
-                          data-bs-toggle="tooltip" data-bs-placement="top" title="Mobile"><i
-                              class="mdi mdi-cellphone-iphone" style="font-size: 18px;"></i> <br>{{con.mobile}}</button>
-                  </div>
-              </div><!-- end card -->
+                  </div><!-- end dropdown -->
+                </div>
+              </div>
+              <!-- end card body -->
+              <div class="btn-group btn-icon" role="group">
+                <button (click)="gotoDetails(con.extension)" type="button" class="btn btn-outline-light"
+                  data-bs-toggle="tooltip" data-bs-placement="top" title="Extension"><i
+                    class="mdi mdi-card-account-phone" style="font-size: 18px;"></i> <br>{{con.extension}}</button>
+                <button type="button" (click)="gotoDetails(con.work_phone)" class="btn btn-outline-light"
+                  data-bs-toggle="tooltip" data-bs-placement="top" title="Phone"><i class="mdi mdi-phone-classic"
+                    style="font-size: 18px;"></i><br>{{con.work_phone}}</button>
+                <button type="button" (click)="gotoDetails(con.mobile)" class="btn btn-outline-light"
+                  data-bs-toggle="tooltip" data-bs-placement="top" title="Mobile"><i class="mdi mdi-cellphone-iphone"
+                    style="font-size: 18px;"></i> <br>{{con.mobile}}</button>
+              </div>
+            </div><!-- end card -->
           </div><!-- end col -->
 
-          </div>
+        </div>
 
-        <div class="row g-0 text-center text-sm-start">
-          <div class="col-sm-6">
-            <div>
-              <p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
-            </div>
-          </div>
-          <!-- end col -->
-          <div class="col-sm-6">
-            <ul class="pagination pagination-rounded justify-content-center justify-content-sm-end mb-sm-0">
-              <li class="page-item disabled">
-                <a href="#" class="page-link"><i class="ui uil-arrow-left"></i></a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">1</a>
-              </li>
-              <li class="page-item active">
-                <a href="#" class="page-link">2</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">3</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">4</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">5</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link"><i class="ui uil-arrow-right"></i></a>
-              </li>
-            </ul>
-          </div><!-- end col -->
-        </div><!-- end row -->
+
       </div><!-- end card body -->
     </div><!-- end card -->
   </div><!-- end col -->

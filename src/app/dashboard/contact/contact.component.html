@@ -26,9 +26,14 @@
 
               <div class="search-box">
                 <div class="position-relative">
-                  <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                  <input type="text" #contactSearchInput class="form-control rounded bg-light border-0 dialsearch"
                     placeholder="Enter name or Number...">
+                    <a  [routerLink]="[]" (click)="getPeoples()" data-bs-toggle="tooltip"
+                    data-bs-placement="top" title="Search"><i class="uil-search search-icon"></i></a>
 
+                </div>
+                <div>
+                 
                 </div>
 
               </div>
@@ -62,10 +67,12 @@
 
                 <td>
                   <img src="assets/images/users/avatar-{{i+1}}.jpg" alt="" class="avatar-sm rounded-circle me-2">
-                  <a  [routerLink]="'/dashboard/contact-details/'+con.extension" class="text-body fw-medium">{{con.first_name+" "+ con.last_name}}</a>
+                  <a [routerLink]="'/dashboard/contact-details/'+con.extension"
+                    class="text-body fw-medium">{{con.first_name+" "+ con.last_name}}</a>
                 </td>
                 <td>
-                  <a  [routerLink]="'/dashboard/contact-details/'+con.work_phone" class="text-body fw-medium">{{con.work_phone}}</a>
+                  <a [routerLink]="'/dashboard/contact-details/'+con.work_phone"
+                    class="text-body fw-medium">{{con.work_phone}}</a>
 
                   Ext.+{{con.extension}}
                 </td>
@@ -73,16 +80,19 @@
                 <td>{{con.email}}</td>
                 <td>
                   <div class="d-flex gap-2">
-                    <a [routerLink]="'/dashboard/contact-details/'+con.extension" class="badge badge-soft-primary">{{con.role}}</a>
+                    <a [routerLink]="'/dashboard/contact-details/'+con.extension"
+                      class="badge badge-soft-primary">{{con.role}}</a>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex gap-2">
-                    <a [routerLink]="'/dashboard/contact-details/'+con.extension" class="badge badge-soft-primary">{{con.organization}}</a>
+                    <a [routerLink]="'/dashboard/contact-details/'+con.extension"
+                      class="badge badge-soft-primary">{{con.organization}}</a>
                   </div>
                 </td>
 
-                <td><a  [routerLink]="'/dashboard/contact-details/'+con.mobile" class="text-body fw-medium">{{con.mobile}}</a>
+                <td><a [routerLink]="'/dashboard/contact-details/'+con.mobile"
+                    class="text-body fw-medium">{{con.mobile}}</a>
                 </td>
 
                 <td>
@@ -115,4 +125,3 @@
     </div><!-- end card -->
   </div><!-- end col -->
 </div><!-- end row -->
-

@@ -8,7 +8,8 @@
       <div class="card-body">
 
         <div class="alert alert-warning border-0 align-items-center" role="alert">
-          <a (click)="queueLogout()" [routerLink]="[]" class="text-reset text-decoration-underline float-end"><b>Logout</b></a>
+          <a (click)="queueLogout()" [routerLink]="[]"
+            class="text-reset text-decoration-underline float-end"><b>Logout</b></a>
           <ul class="list-unstyled" [innerHTML]="queueText">
 
           </ul>
@@ -89,7 +90,7 @@
                 <ng-template mat-tab-label (click)="getCalls('')">
                   <i class="mdi mdi-phone-log" style="font-size:1.5rem" title="All Calls"></i>
                 </ng-template>
-                <div class="list-group " data-simplebar style="max-height: 380px;">
+                <div class="list-group "  style="max-height: 380px; overflow-y: scroll">
                   <a [routerLink]="[]" class="list-group-item list-group-item-action " aria-current="true"
                     *ngFor="let call of calls">
                     <div class="row">
@@ -118,7 +119,7 @@
 
                 <div class="no-data" *ngIf="calls.length==0">No Data Available!</div>
 
-                <div class="list-group " data-simplebar style="max-height: 380px;">
+                <div class="list-group " style="max-height: 380px; overflow-y: scroll">
                   <a [routerLink]="[]" class="list-group-item list-group-item-action " aria-current="true"
                     *ngFor="let call of calls">
                     <div class="row">
@@ -141,7 +142,7 @@
                 <ng-template mat-tab-label>
                   <i class="mdi mdi-phone-in-talk" style="font-size:1.5rem" title="Answered"></i>
                 </ng-template>
-                <div class="list-group " data-simplebar style="max-height: 380px;">
+                <div class="list-group" style="max-height: 380px; overflow-y: scroll">
                   <a [routerLink]="[]" class="list-group-item list-group-item-action " aria-current="true"
                     *ngFor="let call of calls">
                     <div class="row">
@@ -164,7 +165,7 @@
                 <ng-template mat-tab-label>
                   <i class="mdi mdi-phone-message" style="font-size:1.5rem" title="VoiceMail"></i>
                 </ng-template>
-                <div class="list-group " data-simplebar style="max-height: 380px;">
+                <div class="list-group" style="max-height: 380px; overflow-y: scroll">
                   <a [routerLink]="[]" class="list-group-item list-group-item-action " aria-current="true"
                     *ngFor="let call of calls">
                     <div class="row">
@@ -184,7 +185,7 @@
                 </div>
               </mat-tab>
             </mat-tab-group>
-              <!-- <button (click)="sentiframe()">sent iframe</button>
+            <!-- <button (click)="sentiframe()">sent iframe</button>
             <iframe src="/assets/iframe.html" (load)="onLoad(iframeT)" frameborder="0" #iframeT></iframe> -->
 
           </div>

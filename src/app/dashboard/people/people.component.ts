@@ -20,7 +20,8 @@ import { CommunicationService } from 'src/app/core/services/communication.servic
   styleUrls: ['./people.component.scss']
 })
 export class PeopleComponent implements OnInit, OnDestroy {
-  @ViewChild('peopleSearchInput', { static: true }) peopleSearchInput: ElementRef;
+ // @ViewChild('peopleSearchInput') peopleSearch: ElementRef;
+  @ViewChild('peopleSearchInput') peopleSearch:ElementRef;
   submitted: boolean = false;
   peoples: any = [];
   subscribe: Subscription;
@@ -41,48 +42,43 @@ export class PeopleComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    console.log(this.peopleSearchInput);
+   // console.log(this.peopleSearch.nativeElement.value);
 
-    fromEvent(this.peopleSearchInput.nativeElement, 'keyup').pipe(
+    // fromEvent(this.peopleSearchInput.nativeElement, 'keyup').pipe(
+    //   map((event: any) => {
+    //     return event.target.value;
+    //   }),
+    //   filter(res => res.length > 1),
+    //   debounceTime(500),
+    //   distinctUntilChanged()).
+    //   subscribe((text: string) => {
 
-      // get value
-      map((event: any) => {
-        return event.target.value;
-      })
-      // if character length greater then 2
-      , filter(res => res.length > 1)
+    //   this.spinner.show();
+    //   this.subscribe = this.apiService.get('auth/peoples?search=' + text).subscribe(
+    //     (res) => {
+    //       this.peoples = [];
+    //       this.peoples = res.peoples;
+    //       this.total = res.peoples.length;
+    //       this.spinner.hide();
+    //     },
 
-      // Time in milliseconds between key events
-      , debounceTime(500)
+    //     (err) => {
+    //       this.toastr.error('Failed to fetch peoples!', 'Failed!');
+    //       this.spinner.hide();
+    //     }
+    //   )
 
-      // If previous query is diffent from current
-      , distinctUntilChanged()
-
-      // subscription for response
-    ).subscribe((text: string) => {
-
-      this.spinner.show();
-      this.subscribe = this.apiService.get('auth/peoples?search=' + text).subscribe(
-        (res) => {
-          this.peoples = [];
-          this.peoples = res.peoples;
-          this.total = res.peoples.length;
-          this.spinner.hide();
-        },
-
-        (err) => {
-          this.toastr.error('Failed to fetch peoples!', 'Failed!');
-          this.spinner.hide();
-        }
-      )
-
-    });
+    // });
   }
 
   getPeoples() {
+    let search = ''
+    if(this.peopleSearch){
+     search = this.peopleSearch.nativeElement.value;
+    }
 
     this.spinner.show();
-    this.subscribe = this.apiService.get('auth/peoples').subscribe(
+    this.subscribe = this.apiService.get('auth/peoples?search='+search).subscribe(
       (res) => {
         this.peoples = [];
         this.peoples = res.peoples;
@@ -112,7 +108,9 @@ export class PeopleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if(this.subscribe){
     this.subscribe.unsubscribe();
+    }
   }
 
 

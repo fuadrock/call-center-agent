@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -18,6 +18,8 @@ export class ContactComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild('contactSearchInput') contactSearchInput:ElementRef;
+
   paginateStartNo = 0;
 
   page = 1;
@@ -42,6 +44,10 @@ export class ContactComponent implements OnInit {
   }
 
   getContact() {
+    let search = ''
+    if(this.contactSearchInput){
+     search = this.contactSearchInput.nativeElement.value;
+    }
     let pagination = `?pageNumber=${this.page}&pageSize=${this.size}`;
 
     this.spinner.show();
@@ -128,5 +134,9 @@ export class ContactComponent implements OnInit {
     this.size = event.pageSize;
     this.page = event.pageIndex + 1;
     this.getContact();
+  }
+
+  getPeoples(){
+
   }
 }
