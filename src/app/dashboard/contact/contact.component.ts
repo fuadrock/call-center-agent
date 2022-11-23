@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild('contactSearchInput') contactSearchInput:ElementRef;
+  @ViewChild('contactSearchInput') contactSearchInput: ElementRef;
 
   paginateStartNo = 0;
 
@@ -45,8 +45,8 @@ export class ContactComponent implements OnInit {
 
   getContact() {
     let search = ''
-    if(this.contactSearchInput){
-     search = this.contactSearchInput.nativeElement.value;
+    if (this.contactSearchInput) {
+      search = this.contactSearchInput.nativeElement.value;
     }
     let pagination = `?pageNumber=${this.page}&pageSize=${this.size}`;
 
@@ -64,6 +64,32 @@ export class ContactComponent implements OnInit {
         this.spinner.hide();
       }
     )
+  }
+
+  searchResult() {
+    let search = ''
+    if (this.contactSearchInput) {
+      search = this.contactSearchInput.nativeElement.value.trim();
+    }
+    if (search == "") {
+      this.getContact();
+      return false;
+    }
+    else {
+
+      this.spinner.show();
+      this.subscribe = this.apiService.get('auth/get_contact_list/' + search).subscribe(
+        (res) => {
+          this.contacts = res.contacts;
+          this.spinner.hide();
+        },
+
+        (err) => {
+          this.toastr.error('Failed to fetch contacts!', 'Failed!');
+          this.spinner.hide();
+        });
+      return false;
+    }
   }
 
   addContact() {
@@ -123,7 +149,8 @@ export class ContactComponent implements OnInit {
               this.toastr.error('Failed to delete contacts!', 'Failed!');
               this.spinner.hide();
             }
-          ) }
+          )
+        }
       }
     )
   }
@@ -136,7 +163,7 @@ export class ContactComponent implements OnInit {
     this.getContact();
   }
 
-  getPeoples(){
+  getPeoples() {
 
   }
 }
