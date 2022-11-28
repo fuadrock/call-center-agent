@@ -79,9 +79,9 @@
 
             <div class="search-box">
               <div class="position-relative">
-                <input type="text" class="form-control rounded bg-light border-0 dialsearch"
+                <input  [(ngModel)]="callSearch" type="text" class="form-control rounded bg-light border-0 dialsearch"
                   placeholder="Enter name or Number...">
-                <i class="uil-search search-icon"></i>
+                <i (click)="getCalls()" class="uil-search search-icon"></i>
               </div>
             </div>
 

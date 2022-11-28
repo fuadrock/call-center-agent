@@ -31,6 +31,8 @@ export class AgentComponent implements OnInit,OnDestroy {
   queueText='';
   loggedInQueue:any = [];
 
+  currentTab = 0;
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -49,7 +51,7 @@ export class AgentComponent implements OnInit,OnDestroy {
   doc: any;
   subsctiption: Subscription;
 
-
+  callSearch='';
 
   constructor(private apiService: ApiService,
     private router: Router,
@@ -133,20 +135,22 @@ export class AgentComponent implements OnInit,OnDestroy {
     );
   }
 
-  getCalls(type:any) {
-    console.log(type)
-    let pagination = `?pageNumber=1&pageSize=5`;
-    if(type.index==1){
-      pagination +=`&type=Missed`
+  getCalls(type?:any) {
+    if(type){
+      this.currentTab = type.index;
     }
-    if(type.index==2){
-      pagination +=`&type=Answered`
+    let query = `?name_number=`+this.callSearch;
+    if(this.currentTab==1){
+      query +=`&type=Missed`
     }
-    if(type.index==3){
-      pagination +=`&type=Voice Mail`
+    if(this.currentTab==2){
+      query +=`&type=Answered`
+    }
+    if(this.currentTab==3){
+      query +=`&type=Voice Mail`
     }
     this.spinner.show();
-    this.subscribe = this.apiService.get('auth/calls_dashboard'+pagination).subscribe(
+    this.subscribe = this.apiService.get('auth/calls_dashboard'+query).subscribe(
       (res) => {
         this.calls = res.calls
         this.spinner.hide();

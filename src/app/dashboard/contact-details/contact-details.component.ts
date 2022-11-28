@@ -249,6 +249,18 @@ export class ContactDetailsComponent implements OnInit {
 
   }
 
+  getAgentName(id:number){
+    var data = this.peoples.find((people:any) => {
+      if(people.id == id)
+        return true;
+      else{
+        return false
+      }
+    });
+    return data.name
+
+  }
+
   getAgent() {
     this.subscribe = this.apiService.get('auth/peoples').subscribe(
       (res) => {

@@ -1,139 +1,11 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
   <p style="color: white"> Loading... </p>
 </ngx-spinner>
+
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body pb-0">
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-          <div class="row">
-            <div class="col">
-              <div class="d-flex align-items-center">
-                <div class="flex-shrink-0">
-                  <div class="avatar">
-                    <div class="avatar-title bg-soft-primary text-primary font-size-18 rounded">
-                      S
-                    </div>
-                  </div>
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <div class="row text-muted ">
-                    <div class="form-floating mb-3 col-4">
-                      <input class="form-control font-size-16 font-weight-bold mt-1" type="text"
-                        placeholder="New Contact" formControlName="first_name">
-                      <label for="floatingInput">First Name</label>
-                    </div>
-                    <div class="form-floating mb-3 col-4">
-                      <input class="form-control font-size-16 font-weight-bold mt-1" type="text" placeholder="Last Name"
-                        formControlName="last_name">
-                      <label for="floatingInput">Last Name</label>
-                    </div>
-                    <div class="form-floating mb-3 col-4">
-                      <input class="form-control font-size-16 font-weight-bold mt-1" type="text" readonly
-                        formControlName="work_phone">
-                      <label for="floatingInput">Phone Number</label>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-auto">
-              <div>
-                <div class="d-flex flex-wrap align-items-start justify-content-md-end gap-2 mb-3">
-                  <button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" class="feather feather-save">
-                      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                      <polyline points="7 3 7 8 15 8"></polyline>
-                    </svg></button>
-
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-          </div>
-          <!-- end row -->
-
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="mt-3">
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" placeholder="Company"
-                    formControlName="organization">
-                  <label for="floatingInput">Company</label>
-                </div>
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" placeholder="Designation"
-                    formControlName="role">
-                  <label for="floatingInput">Designation</label>
-                </div>
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="country"
-                    placeholder="City">
-                  <label for="floatingInput">Country</label>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-              <div class="mt-3">
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="email"
-                    placeholder="Email Address">
-                  <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" placeholder="Address"
-                    formControlName="address">
-                  <label for="floatingInput">Address</label>
-                </div>
-                <div class="form-floating mb-3 ">
-                  <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="zip"
-                    placeholder="Zip Code">
-                  <label for="floatingInput">Zip Code</label>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-
-              <div class="row">
-
-                <div class="col-lg-12 col-sm-6">
-                  <div class="form-floating mb-3 mt-3">
-                    <select formControlName="type" class="form-select" id="floatingSelectGrid"
-                      aria-label="Floating label select example">
-                      <option value="Customer">Customer</option>
-                      <option value="Supplier">Supplier</option>
-                      <option value="Contractor">Contractor</option>
-                      <option value="Lead">Lead</option>
-                      <option value="Friend">Friend</option>
-                    </select>
-                    <label for="floatingInput">Type</label>
-                  </div>
-                  <div class="form-floating mb-3 ">
-                    <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="city"
-                      placeholder="City">
-                    <label for="floatingInput">City</label>
-                  </div>
-                  <div class="d-flex align-items-center mt-4">
-                    <div class="flex-shrink-0 me-3">
-                      <i class="uil uil-calendar-alt text-primary font-size-22"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h5 class="font-size-12 mb-1">First Called Date Time</h5>
-                      <p class="text-muted mb-0">06 Mar, 2021 12:00 AM</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
         <div class="row">
           <div class="col-xl-3 col-sm-6">
             <div class="card border shadow-none bg-light">
@@ -152,8 +24,8 @@
                     <h5 class="font-size-16 mb-0">{{details?.total_tickets}}</h5>
                   </div>
                 </div>
-              </div><!-- end card body -->
-            </div><!-- end card -->
+              </div>
+            </div>
           </div>
           <div class="col-xl-3 col-sm-6">
             <div class="card border shadow-none bg-light">
@@ -172,8 +44,8 @@
                     <h5 class="font-size-16 mb-0">{{details?.closed_tickets}}</h5>
                   </div>
                 </div>
-              </div><!-- end card body -->
-            </div><!-- end card -->
+              </div>
+            </div>
           </div>
           <div class="col-xl-3 col-sm-6">
             <div class="card border shadow-none bg-soft-primary">
@@ -192,8 +64,8 @@
                     <h5 class="font-size-16 mb-0">{{details?.total_calls}}</h5>
                   </div>
                 </div>
-              </div><!-- end card body -->
-            </div><!-- end card -->
+              </div>
+            </div>
           </div>
           <div class="col-xl-3 col-sm-6">
             <div class="card border shadow-none bg-soft-primary">
@@ -212,11 +84,10 @@
                     <h5 class="font-size-16 mb-0">{{details?.calls_today}}</h5>
                   </div>
                 </div>
-              </div><!-- end card body-->
-            </div><!-- end card -->
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -227,7 +98,7 @@
 
 
             <div class="row">
-              <div class="col-lg-8">
+              <div class="col-lg-4">
                 <div class="card border shadow-none h-100 mb-lg-0">
                   <div class="card-body">
                     <form [formGroup]="ticketForm" (ngSubmit)="onSubmitTicket('new')">
@@ -300,9 +171,9 @@
                       </div>
 
                     </form>
-                  </div><!-- end card body -->
-                </div><!-- end card -->
-              </div><!-- end col -->
+                  </div>
+                </div>
+              </div>
               <div class="col-lg-4">
                 <div class="card border shadow-none h-100 mb-lg-0">
                   <div class="card-body">
@@ -314,8 +185,8 @@
                           <tr>
                             <th scope="col">Details</th>
                             <th scope="col">Status</th>
-                          </tr><!-- end tr -->
-                        </thead><!-- end thead -->
+                          </tr>
+                        </thead>
                         <tbody>
                           <tr *ngFor="let ticket of recentTickets">
                             <td>
@@ -328,18 +199,147 @@
                             <td>
                               <span class="badge badge-soft-primary font-size-12">{{ticket?.ticket_status}}</span>
                             </td>
-                          </tr><!-- end tr -->
+                          </tr>
 
-                        </tbody><!-- end tbody -->
-                      </table><!-- end table -->
+                        </tbody>
+                      </table>
                     </div>
-                  </div><!-- end card -->
-                </div><!-- end card -->
-              </div><!-- end col -->
-            </div><!-- end row -->
-          </div><!-- end col -->
-        </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="card border shadow-none h-100 mb-lg-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <div class="avatar">
+                                            <div class="avatar-title bg-soft-primary text-primary font-size-18 rounded">
+                                                S
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <div class="row text-muted ">  
+                                            <div class="form-floating mb-3 col-6">
+                                                <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="first_name" placeholder="New Contact" >
+                                                <label for="floatingInput">First Name</label>
+                                            </div>
+                                            <div class="form-floating mb-3 col-6">
+                                                <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="last_name" placeholder="Last Name" >
+                                                <label for="floatingInput">Last Name</label>
+                                            </div> 
+                                            
+                                        </div> 
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
 
+                            <div class="col-auto">
+                                <div>
+                                    <div class="d-flex flex-wrap align-items-start justify-content-md-end gap-2 mb-3"> 
+                                        <button type="submit" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg></button> 
+                                              
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mt-3">
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text"  readonly  formControlName="work_phone">
+                                        <label for="floatingInput">Phone Number</label>
+                                    </div> 
+                                    <div class="form-floating mb-3 mt-3">
+                                      <select formControlName="type" class="form-select" id="floatingSelectGrid"
+                                      aria-label="Floating label select example">
+                                      <option value="Customer">Customer</option>
+                                      <option value="Supplier">Supplier</option>
+                                      <option value="Contractor">Contractor</option>
+                                      <option value="Lead">Lead</option>
+                                      <option value="Friend">Friend</option>
+                                    </select>
+                                        <label for="floatingInput">Type</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="organization" placeholder="Company" >
+                                        <label for="floatingInput">Company</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="role" placeholder="Designation" >
+                                        <label for="floatingInput">Designation</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="country" placeholder="Country" >
+                                        <label for="floatingInput">Country</label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6">
+                                <div class="mt-3">
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="email" placeholder="Email Address" >
+                                        <label for="floatingInput">Email</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="address" placeholder="Address" >
+                                        <label for="floatingInput">Address</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="zip" placeholder="Zip Code" >
+                                        <label for="floatingInput">Zip Code</label>
+                                    </div>
+                                    <div class="form-floating mb-3 ">
+                                        <input class="form-control font-size-16 font-weight-bold mt-1" type="text" formControlName="city" placeholder="City" >
+                                        <label for="floatingInput">City</label>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-4">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="uil uil-calendar-alt text-primary font-size-22"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="font-size-12 mb-1">First Called Date Time</h5>
+                                            <p class="text-muted mb-0">06 Mar, 2021 12:00 AM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-4">
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-lg-12 col-sm-6">
+                                       
+                                        
+                                       
+                                    </div>
+                                    <!-- end col -->
+
+                                    
+                                </div><!-- end row -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                        
+                       
+                    </div><!-- end card -->
+                </div><!-- end card -->
+                </form>
+            </div>
+
+            </div>
+          </div>
+        </div>
       </mat-tab>
       <mat-tab label="Tickets">
 
@@ -372,8 +372,8 @@
                         <th scope="col">Assignee</th>
                         <th scope="col">Status</th>
                         <th scope="col" style="width: 140px;">Action</th>
-                      </tr><!-- end tr -->
-                    </thead><!-- end thead -->
+                      </tr>
+                    </thead>
                     <tbody>
                       <tr *ngFor="let ticket of recentTickets">
                         <td>
@@ -394,10 +394,10 @@
                           <div class="avatar-group">
                             <div class="avatar-group-item">
                               <a href="javascript: void(0);" class="d-block" data-bs-toggle="tooltip"
-                                data-bs-placement="top" title="Shinto Joseph">
+                                data-bs-placement="top" title="{{getAgentName(ticket?.agent_id)}}">
                                 <div class="avatar-sm">
                                   <div class="avatar-title rounded-circle bg-primary">
-                                    S
+                                    {{getAgentName(ticket?.agent_id)[0]}}
                                   </div>
                                 </div>
                               </a>
@@ -405,7 +405,7 @@
                           </div>
                         </td>
                         <td>
-                          <span class="badge badge-soft-primary font-size-12">Open</span>
+                          <span class="badge badge-soft-primary font-size-12">{{ticket?.ticket_status}}</span>
                         </td>
                         <td>
                           <div class="btn-group dropdown dropup" ngbDropdown>
@@ -532,8 +532,6 @@
           </div>
         </div>
       </mat-tab>
-
-
     </mat-tab-group>
 
   </div>
@@ -621,15 +619,16 @@
                     </div>
 
                   </form>
-                </div><!-- end card body -->
-              </div><!-- end card -->
-            </div><!-- end col -->
+                </div>
+              </div>
+            </div>
 
-          </div><!-- end row -->
-        </div><!-- end col -->
+          </div>
+        </div>
       </div>
     </div>
 
   </ng-template>
 
 </div>
+
