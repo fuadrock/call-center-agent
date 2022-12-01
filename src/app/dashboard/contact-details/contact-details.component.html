@@ -98,115 +98,7 @@
 
 
             <div class="row">
-              <div class="col-lg-4">
-                <div class="card border shadow-none h-100 mb-lg-0">
-                  <div class="card-body">
-                    <form [formGroup]="ticketForm" (ngSubmit)="onSubmitTicket('new')">
-                      <h5 class="card-title mb-4">Create New Ticket</h5>
-
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput"
-                          placeholder="Ex: Issue in Desktop Computer" formControlName="subject">
-                      </div>
-                      <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Description</label>
-                        <textarea class="form-control" rows="5" formControlName="description"></textarea>
-                      </div>
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                          <label for="formGroupExampleInput2" class="form-label">Department</label>
-                          <select class="form-select" formControlName="department_id">
-                            <option value="">Select Department</option>
-                            <option *ngFor="let dep of departments" [value]="dep.id">{{dep.name}}</option>
-
-                          </select>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label for="formGroupExampleInput2" class="form-label">Priority</label>
-                          <select class="form-select" formControlName="priority">
-                            <option>Low</option>
-                            <option>Normal</option>
-                            <option>High</option>
-                            <option>Critical</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="text-muted">
-
-                        <div class="row mb-3">
-                          <div class="col-6 mb-3">
-                            <label for="formGroupExampleInput2" class="form-label">Assign To</label>
-                            <select class="form-select js-example-basic-multiple col-12 p-2" name="assign[]"
-                              formControlName="agent_id">
-                              <option value="">None</option>
-                              <option *ngFor="let people of peoples" [value]="people.id">{{people.name}}</option>
-
-                            </select>
-                          </div>
-                          <div class="mb-3 col-6">
-                            <label for="formGroupExampleInput2" class="form-label">Status</label>
-                            <select class="form-select" formControlName="ticket_status">
-                              <option>Open</option>
-                              <option>Resolved</option>
-                              <option>Closed</option>
-                              <option>Re-Opened</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <div class="col-6 mb-3">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block mb-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-layers">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                <polyline points="2 17 12 22 22 17"></polyline>
-                                <polyline points="2 12 12 17 22 12"></polyline>
-                              </svg>
-                              Create Ticket</button>
-
-                          </div>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card border shadow-none h-100 mb-lg-0">
-                  <div class="card-body">
-                    <h5 class="card-title mb-3">Recent Tickets</h5>
-
-                    <div>
-                      <table class="table align-middle table-nowrap mb-0">
-                        <thead>
-                          <tr>
-                            <th scope="col">Details</th>
-                            <th scope="col">Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let ticket of recentTickets">
-                            <td>
-                              <h5 class="font-size-14"><span
-                                  class="badge badge-soft-primary font-size-12" (click)="showResponse(ticket)">#DS{{ticket?.ticket_number}}</span>
-                                <a [routerLink]="[]" (click)="showResponse(ticket)" class="text-dark ticket-dteail-show">{{ticket?.description}} </a>
-                              </h5>
-                              <p class="text-muted mb-0">{{ticket.updated_at | date:'longDate'}}</p>
-                            </td>
-                            <td>
-                              <span class="badge badge-soft-primary font-size-12">{{ticket?.ticket_status}}</span>
-                            </td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
               <div class="col-lg-4">
                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="card border shadow-none h-100 mb-lg-0">
@@ -336,7 +228,115 @@
                 </div><!-- end card -->
                 </form>
             </div>
+              <div class="col-lg-4">
+                <div class="card border shadow-none h-100 mb-lg-0">
+                  <div class="card-body">
+                    <h5 class="card-title mb-3">Recent Tickets</h5>
 
+                    <div>
+                      <table class="table align-middle table-nowrap mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col">Details</th>
+                            <th scope="col">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let ticket of recentTickets">
+                            <td>
+                              <h5 class="font-size-14"><span
+                                  class="badge badge-soft-primary font-size-12" (click)="showResponse(ticket)">#DS{{ticket?.ticket_number}}</span>
+                                <a [routerLink]="[]" (click)="showResponse(ticket)" class="text-dark ticket-dteail-show">{{ticket?.description}} </a>
+                              </h5>
+                              <p class="text-muted mb-0">{{ticket.updated_at | date:'longDate'}}</p>
+                            </td>
+                            <td>
+                              <span class="badge badge-soft-primary font-size-12">{{ticket?.ticket_status}}</span>
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="col-lg-4">
+              <div class="card border shadow-none h-100 mb-lg-0">
+                <div class="card-body">
+                  <form [formGroup]="ticketForm" (ngSubmit)="onSubmitTicket('new')">
+                    <h5 class="card-title mb-4">Create New Ticket</h5>
+
+                    <div class="mb-3">
+                      <label for="formGroupExampleInput" class="form-label">Subject</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Ex: Issue in Desktop Computer" formControlName="subject">
+                    </div>
+                    <div class="mb-3">
+                      <label for="formGroupExampleInput2" class="form-label">Description</label>
+                      <textarea class="form-control" rows="5" formControlName="description"></textarea>
+                    </div>
+                    <div class="row">
+                      <div class="mb-3 col-6">
+                        <label for="formGroupExampleInput2" class="form-label">Department</label>
+                        <select class="form-select" formControlName="department_id">
+                          <option value="">Select Department</option>
+                          <option *ngFor="let dep of departments" [value]="dep.id">{{dep.name}}</option>
+
+                        </select>
+                      </div>
+                      <div class="mb-3 col-6">
+                        <label for="formGroupExampleInput2" class="form-label">Priority</label>
+                        <select class="form-select" formControlName="priority">
+                          <option>Low</option>
+                          <option>Normal</option>
+                          <option>High</option>
+                          <option>Critical</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="text-muted">
+
+                      <div class="row mb-3">
+                        <div class="col-6 mb-3">
+                          <label for="formGroupExampleInput2" class="form-label">Assign To</label>
+                          <select class="form-select js-example-basic-multiple col-12 p-2" name="assign[]"
+                            formControlName="agent_id">
+                            <option value="">None</option>
+                            <option *ngFor="let people of peoples" [value]="people.id">{{people.name}}</option>
+
+                          </select>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label for="formGroupExampleInput2" class="form-label">Status</label>
+                          <select class="form-select" formControlName="ticket_status">
+                            <option>Open</option>
+                            <option>Resolved</option>
+                            <option>Closed</option>
+                            <option>Re-Opened</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-6 mb-3">
+                          <button type="submit" class="btn btn-primary btn-lg btn-block mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                              stroke-linejoin="round" class="feather feather-layers">
+                              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                              <polyline points="2 17 12 22 22 17"></polyline>
+                              <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                            Create Ticket</button>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -353,9 +353,9 @@
                 <div class="float-end mb-3">
                   <div class="search-box ">
                     <div class="position-relative">
-                      <input type="text" class="form-control bg-light border-light rounded"
+                      <input type="text" [(ngModel)]="ticketSearch" class="form-control bg-light border-light rounded"
                         placeholder="Enter Ticket #...">
-                      <i class="uil uil-search search-icon"></i>
+                      <i class="uil uil-search search-icon" (click)="ticketSearchResult()"></i>
                     </div>
                   </div>
                 </div>
@@ -470,7 +470,7 @@
                             </div>
                             <div class="flex-grow-1 overflow-hidden">
                               <h5 class="font-size-13 mb-1 text-truncate"><a href="javascript: void(0);"
-                                  class="text-dark">{{response?.user?.name}}</a> <small
+                                  class="text-dark">{{getAgentName(response?.user_id)}}</a> <small
                                   class="text-muted ms-1">{{response?.updated_at | date:'longDate'}}</small></h5>
                               <p class="text-muted mb-0">{{response?.notes}}</p>
                             </div>

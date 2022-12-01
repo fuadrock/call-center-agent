@@ -15,6 +15,8 @@ import { DeleteDialogueComponent } from '../delete-dialogue/delete-dialogue.comp
 })
 export class ContactDetailsComponent implements OnInit {
 
+  ticketSearch: any;
+
   public userId: string;
   subscribe: any;
   details: any;
@@ -27,6 +29,7 @@ export class ContactDetailsComponent implements OnInit {
   ticketResponse: any;
   responseForm: any;
   editTicketForm: any;
+  contact_id: any;
 
   constructor(route: ActivatedRoute, private apiService: ApiService,
     private toastr: ToastrService,
@@ -181,6 +184,24 @@ export class ContactDetailsComponent implements OnInit {
 
   }
 
+  ticketSearchResult(){
+    this.spinner.show();
+    this.subscribe = this.apiService.get('auth/tickets?contact_id='+this.contact_id+'&ticket_number=' +this.ticketSearch).subscribe(
+      (res) => {
+
+        this.spinner.hide();
+        this.recentTickets = res.tickets;
+      },
+      err=>{
+
+        this.spinner.hide();
+        this.toastr.error('No data found!', 'Failed!');
+
+        this.recentTickets =[]
+      }
+    )
+  }
+
   getDetails() {
 
     this.spinner.show();
@@ -190,7 +211,7 @@ export class ContactDetailsComponent implements OnInit {
         this.spinner.hide();
 
         this.recentTickets = this.details.contact.tickets;
-
+        this.contact_id = this.details.contact.id;
         this.contactForm.setValue({
           type: this.details.contact.type,
           first_name: this.details.contact.first_name,
