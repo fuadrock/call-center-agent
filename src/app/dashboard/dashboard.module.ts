@@ -19,7 +19,8 @@ import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.compo
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
-import { TimeagoClock, TimeagoFormatter, TimeagoIntl, TimeagoModule } from 'ngx-timeago';
+import { TimeagoModule } from 'ngx-timeago';
+import { WallboardComponent } from './wallboard/wallboard.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'contact-details/:id',
     component: ContactDetailsComponent
+  },
+  {
+    path: 'wallboard',
+    component: WallboardComponent
   }
 ]
 
@@ -69,6 +74,7 @@ const routes: Routes = [
     ContactAddDialogueComponent,
     DeleteDialogueComponent,
     ContactDetailsComponent,
+    WallboardComponent,
 
   ],
   imports: [

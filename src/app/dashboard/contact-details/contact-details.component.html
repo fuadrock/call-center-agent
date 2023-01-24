@@ -383,7 +383,7 @@
                           </div>
                         </td>
                         <td><a class="ticket-dteail-show" [routerLink]="[]"
-                            (click)="showResponse(ticket)">DS{{ticket?.ticket_number}}</a></td>
+                            (click)="showResponse(ticket)">{{ticket?.ticket_number}}</a></td>
                         <td>
                           <h5 class="font-size-14"><a [routerLink]="[]" class="text-dark ticket-dteail-show"
                               (click)="showResponse(ticket)">{{ticket?.description}}</a></h5>
@@ -436,8 +436,17 @@
           <div class="card">
             <div class="card-header bg-transparent border-bottom d-flex">
 
-              <h5 class="card-title mb-0">Responses for Ticket #DS{{ticketResponse?.ticket_number}} -
-                {{ticketResponse?.description}} </h5>
+              <div class="row">
+
+                <h5 class="card-title mb-0">Responses for Ticket #{{ticketResponse?.ticket_number}} -
+                  {{ticketResponse?.subject}} </h5> <br/>                                        
+
+                <p class="text-muted mb-0">{{ticketResponse?.description}}</p>
+
+                </div>
+              <!-- <h5 class="card-title mb-0">Responses for Ticket #{{ticketResponse?.ticket_number}} -
+                {{ticketResponse?.subject}} </h5><br>
+                <div class="card-title mb-0"> {{ticketResponse?.description}}</div> -->
 
               <div class="ms-auto">
                 <ul class="nav nav-tabs card-header-tabs float-end border-bottom-0">

@@ -31,26 +31,27 @@ export class AuthInterceptor implements HttpInterceptor {
   //   );
   // }
 
-  // intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  //   return next.handle(request).pipe(catchError(error => {
-  //     console.log("ssss", error)
-  //     if (error instanceof HttpErrorResponse && !request.url.includes('auth/login') && error.status === 401) {
-  //       console.log("error1,", error);
-  //       return this.handle401Error(request, next);
-  //     }
+    return next.handle(request).pipe(catchError(error => {
+      console.log("ssss", error)
+      if (error instanceof HttpErrorResponse && !request.url.includes('auth/login') && error.status === 401) {
+        console.log("error1,", error);
+       // return this.handle401Error(request, next);
+      }
 
-  //     return throwError(error);
-  //   }));
-  // }
-
-
-  intercept(req: HttpRequest<any>,
-    next: HttpHandler): Observable<HttpEvent<any>> {
-
-
-    return next.handle(req);
+      return throwError(error);
+    }));
   }
+
+
+  // intercept(req: HttpRequest<any>,
+  //   next: HttpHandler): Observable<HttpEvent<any>> {
+
+  //     console.log("inter: ",req)
+
+  //   return next.handle(req);
+  // }
 
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
     console.log("handler");
