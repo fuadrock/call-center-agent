@@ -1,36 +1,42 @@
-    <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0">Wallboard</h4> 
-            </div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Wallboard</h4>
         </div>
     </div>
-    <!-- end page title -->
+</div>
 
-    <div class="d-xl-flex">
-        <div class="w-100">
-            <div class="d-md-flex">
-                <div class="card filemanager-sidebar me-md-3">
-                    <div class="card-body">
 
-                        <div class="d-flex flex-column h-100">
-                            <div class="mb-4">
-                                <ul class="list-unstyled categories-list">
-                                     
-                                    <li class="card border shadow-none mb-2">
-                                        <a href="javascript: void(0);" class="text-body d-flex align-items-center">
-                                            <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">All Queues</span> 
-                                        </a>
-                                    </li>
-                                  
-                                    <li *ngFor="let que of queues " class="card border shadow-none mb-2 bg-light">
-                                        <a href="javascript: void(0);" (click)="getCallsByQueue(que)" class="text-body d-flex align-items-center">
-                                            <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">{{que?.alias}} - {{que?.extension}}</span> 
-                                        </a>
-                                    </li>
+<div class="d-xl-flex">
+    <div class="w-100">
+        <div class="d-md-flex">
+            <div class="card filemanager-sidebar me-md-3">
+                <div class="card-body">
 
-                                    <!-- <li class="card border shadow-none mb-2">
+                    <div class="d-flex flex-column h-100">
+                        <div class="mb-4">
+                            <ul class="list-unstyled categories-list">
+
+                                <li class="card border shadow-none mb-2">
+                                    <a href="javascript: void(0);" class="text-body d-flex align-items-center">
+                                        <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">All
+                                            Queues</span>
+                                    </a>
+                                </li>
+
+                                <li *ngFor="let que of queues " class="card border shadow-none mb-2 bg-light">
+                                    <a href="javascript: void(0);" (click)="getCallsByQueue(que)"
+                                        class="text-body d-flex align-items-center">
+                                        <i class="fas fa-spinner font-size-13 me-2"></i> <span
+                                            class="me-auto">{{que?.alias}} - {{que?.extension}}</span>
+                                    </a>
+                                </li>
+
+                                <!-- <li class="card border shadow-none mb-2">
                                         <a href="javascript: void(0);" class="text-body d-flex align-items-center">
                                             <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">Support - 801</span> 
                                         </a>
@@ -45,263 +51,279 @@
                                             <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">General Enquiries - 803</span> 
                                         </a>
                                     </li> -->
-                                     
-                                </ul>
-                            </div>
 
-                             
+                            </ul>
                         </div>
-                    </div><!-- end cardbody-->
-                </div><!-- end card -->
-                <!-- filemanager-leftsidebar -->
 
-                <div class="w-100">
-                    <div class="card">
-                        <div class="card-body">
-                             
 
-                            <div>
-                                <div class="row">
-                                    <div class="col-xl-6 col-sm-6">
-                                        <div class="card shadow-none bg-primary border">
-                                            <div class="card-body p-3">
+                    </div>
+                </div><!-- end cardbody-->
+            </div><!-- end card -->
+            <!-- filemanager-leftsidebar -->
+
+            <div class="w-100">
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div>
+                            <div class="row">
+                                <div class="col-xl-6 col-sm-6">
+                                    <div class="card shadow-none bg-primary border">
+                                        <div class="card-body p-3">
+                                            <div>
+
+                                                <div class="avatar-sm me-3 mb-3">
+                                                    <div class="avatar-title bg-transparent rounded">
+                                                        <i class="fas fa-spinner  font-size-24 text-white me-2"></i>
+                                                    </div>
+
+                                                </div>
                                                 <div>
-                                                   
-                                                    <div class="avatar-sm me-3 mb-3">
-                                                        <div class="avatar-title bg-transparent rounded">
-                                                            <i class="fas fa-spinner  font-size-24 text-white me-2"></i> 
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-24  text-white">{{activeQueue?.extension}} - {{activeQueue?.alias}} <a href="javascript: void(0);" class="text-light"> Dashboard</a> </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert alert-info">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24  text-primary text-center">
-                                                        <i class=" font-size-24  fas fa-phone-alt  text-info "></i> 
-                                                       
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-24  text-primary text-center"> Total Calls </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
+                                                    <h5 class="font-size-24  text-white">{{activeQueue?.extension}} -
+                                                        {{activeQueue?.alias}} <a href="javascript: void(0);"
+                                                            class="text-light"> Dashboard</a> </h5>
 
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class="card shadow-none bg-light border">
-                                            <div class="card-body p-3">
-                                                <div> 
-                                                    
-                                                    <div>
-                                                        <h5 class="font-size-24  text-primary text-center"> 10-12-2022 </h5>
-                                                        
-                                                    </div>
-                                                    <div class="mb-3 font-size-24  text-primary text-center">
-                                                        <i class="fas fa-clock  font-size-24 text-primary "></i> 
-                                                       12:00 AM
-                                                    </div>
                                                 </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                   
-                                    
-                                   
-                                </div><!-- end row -->
-                            </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
 
-                            <div class="mt-4">
-                                
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert alert-info">
+                                            <div>
+                                                <div class="mb-3 font-size-24  text-primary text-center">
+                                                    <i class=" font-size-24  fas fa-phone-alt  text-info "></i>
+                                                    50
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-24  text-primary text-center"> Total Calls
+                                                    </h5>
 
-                                <div class="row">
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-success">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      0
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> WAITING </h5>
-                                                        
-                                                    </div>
                                                 </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-success">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      00:15
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> TALKTIME </h5>
-                                                        
-                                                    </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class="card shadow-none bg-light border">
+                                        <div class="card-body p-3">
+                                            <div>
+
+                                                <div>
+                                                    <h5 class="font-size-24  text-primary text-center"> 01-24-2023 </h5>
+
                                                 </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-success">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      3
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> ANSWERED </h5>
-                                                        
-                                                    </div>
+                                                <div class="mb-3 font-size-24  text-primary text-center">
+                                                    <i class="fas fa-clock  font-size-24 text-primary "></i>
+                                                    12:00 AM
                                                 </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-danger">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                     4
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> ABANDONED </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-success">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      1
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> AGENTS BUSY </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-success">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      5
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> LOGGED IN </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-warning">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                      2
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> MISSED </h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-3 col-sm-6">
-                                        <div class=" ">
-                                            <div class="card-body p-3 alert bg-danger">
-                                                <div> 
-                                                    <div class="mb-3 font-size-24 font-weight-bold text-white text-center" style="font-size:30px"> 
-                                                     00:20
-                                                    </div>
-                                                    <div>
-                                                        <h5 class="font-size-20  text-white text-center"> WAITING TIME</h5>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                     
-                                    
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
 
 
-                                     
-                                </div><!-- end row -->
-                            </div>
 
-                            <div class="mt-4">
-                                <div class="d-flex flex-wrap  ">
-                                    <h5 class="font-size-14 me-3 text-primary">Call Status</h5>
+                            </div><!-- end row -->
+                        </div>
 
-                                    <div class="ms-auto">
-                                        <a href="javascript: void(0);" class="fw-medium text-reset"><i class="fas fa-history"></i> Call History</a>
-                                    </div>
+                        <div class="mt-4">
+
+
+                            <div class="row">
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-success">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    0
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> WAITING </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-success">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    {{queueData?.duration}}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> TALKTIME </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-success">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    {{callType?.answered}}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> ANSWERED </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-danger">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    {{callType?.abandoned}}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> ABANDONED </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-success">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    1
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> AGENTS BUSY </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-success">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    5
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> LOGGED IN </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-warning">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    {{callType?.missed}}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> MISSED </h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+                                <div class="col-xl-3 col-sm-6">
+                                    <div class=" ">
+                                        <div class="card-body p-3 alert bg-danger">
+                                            <div>
+                                                <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
+                                                    style="font-size:30px">
+                                                    {{queueData?.waitTime}}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-size-20  text-white text-center"> WAITING TIME</h5>
+
+                                                </div>
+                                            </div>
+                                        </div><!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+
+
+
+
+
+                            </div><!-- end row -->
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="d-flex flex-wrap  ">
+                                <h5 class="font-size-14 me-3 text-primary">Call Status</h5>
+
+                                <div class="ms-auto">
+                                    <a href="javascript: void(0);" class="fw-medium text-reset"><i
+                                            class="fas fa-history"></i> Call History</a>
                                 </div>
-                                <hr class="mt-2">
+                            </div>
+                            <hr class="mt-2">
 
-                                <div class="table-responsive" style="min-height:500px;">
-                                    <table class="table align-middle table-nowrap table-hover mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Caller</th>
-                                                <th scope="col">Callee</th>
-                                                <th scope="col" >Duration</th>
-                                                <th scope="col"  >Details</th>
-                                            </tr><!-- end tr -->
-                                          </thead><!-- end thead -->
-                                        <tbody>
-                                            <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-phone-alt align-middle text-success me-2"></i> Shinto Joseph [100]  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
+                            <div class="table-responsive" style="min-height:500px;">
+                                <table class="table align-middle table-nowrap table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Caller</th>
+                                            <th scope="col">Callee</th>
+                                            <th scope="col">Duration</th>
+                                            <th scope="col">Details</th>
+                                        </tr><!-- end tr -->
+                                    </thead><!-- end thead -->
+                                    <tbody>
+                                        <tr *ngFor="let call of slicedCalls; let i as index">
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="font-size-16 text-dark fw-medium dropdown-toggle"
+                                                        role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                        <i class="fas fa-phone-alt align-middle text-success me-2"></i>
+                                                        {{call?.caller_id_name}} [{{call?.caller_id_number}}] <i
+                                                            class="uil uil-ellipsis-h"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Barge In</a>
+                                                        <a class="dropdown-item" href="#">Listen</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Whisper to Shijohn Joseph
+                                                            [104]</a>
+                                                        <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
+                                                        <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Drop</a>
+                                                        <a class="dropdown-item" href="#">Record</a>
                                                     </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >John Smith (+65102123)</td>
-                                                <td>00:56</td>
-                                                <td>
-                                                   Connected
-                                                </td>
-                                            </tr><!-- end tr -->
-                                            <tr>
+                                                </div>
+                                            </td>
+                                            <td class="text-dark fw-medium">John Smith (+65102123)</td>
+                                            <td>{{call?.duration}}</td>
+                                            <td>
+                                                {{call?.type}}
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
                                                 
                                                 <td>
                                                     <div class="dropdown">
@@ -326,8 +348,8 @@
                                                 <td>
                                                    Waiting in Queue
                                                 </td>
-                                            </tr><!-- end tr -->
-                                            <tr>
+                                            </tr> -->
+                                        <!-- <tr>
                                                 
                                                 <td>
                                                     <div class="dropdown">
@@ -352,8 +374,8 @@
                                                 <td>
                                                    Connected to Queue
                                                 </td>
-                                            </tr><!-- end tr -->
-                                            <tr>
+                                            </tr> -->
+                                        <!-- <tr>
                                                 
                                                 <td>
                                                     <div class="dropdown">
@@ -378,8 +400,8 @@
                                                 <td>
                                                    Waiting in Queue
                                                 </td>
-                                            </tr><!-- end tr -->
-                                            <tr>
+                                            </tr> -->
+                                        <!-- <tr>
                                                 
                                                 <td>
                                                     <div class="dropdown">
@@ -404,8 +426,8 @@
                                                 <td>
                                                    Waiting in Queue
                                                 </td>
-                                            </tr><!-- end tr -->
-                                            <tr>
+                                            </tr> -->
+                                        <!-- <tr>
                                                 
                                                 <td>
                                                     <div class="dropdown">
@@ -430,45 +452,47 @@
                                                 <td>
                                                    Waiting in Queue
                                                 </td>
-                                            </tr><!-- end tr -->
-                                            
-                                        </tbody><!-- end tbody -->
-                                    </table><!-- end table -->
-                                </div><!-- end table responsive -->
-                            </div>
-                        </div><!-- end cardbody-->
-                    </div><!-- end card -->
-                </div><!-- end w-100 -->
-            </div>
+                                            </tr> -->
+
+                                    </tbody><!-- end tbody -->
+                                </table><!-- end table -->
+                            </div><!-- end table responsive -->
+                        </div>
+                    </div><!-- end cardbody-->
+                </div><!-- end card -->
+            </div><!-- end w-100 -->
         </div>
+    </div>
 
-        <div class="card filemanager-sidebar ms-lg-3">
-            <div class="card-body">
-                <div class="text-center">
-                    <h5 class="font-size-15 mb-4">Agent Status</h5> 
-                </div>
+    <div class="card filemanager-sidebar ms-lg-3">
+        <div class="card-body">
+            <div class="text-center">
+                <h5 class="font-size-15 mb-4">Agent Status</h5>
+            </div>
 
-                <div class="mt-4">
-                    <div *ngFor="let people of peoples" class="card border shadow-none mb-2">
-                        <a href="javascript: void(0);" class="text-body">
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                        <img src="assets/images/users/avatar-1.jpg" alt=""
-                                            class="img-fluid rounded-circle">
-                                    </div>
+            <div class="mt-4">
+                <div *ngFor="let people of peoples" class="card border shadow-none mb-2">
+                    <a href="javascript: void(0);" class="text-body">
+                        <div class="p-2">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 avatar-m rounded-circle me-3">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="img-fluid rounded-circle">
+                                </div>
 
-                                    <div class="overflow-hidden me-auto">
-                                        <h5 class="font-size-13 text-truncate mb-1">{{people?.extension}} - {{people?.name}}</h5>
-                                        <p class="text-muted text-truncate mb-0"><i [ngClass]="people.status.i_class" class="fas fa-circle  font-size-16 align-middle me-1"></i> {{people?.status.name}}
-                                        </p>
-                                    </div> 
+                                <div class="overflow-hidden me-auto">
+                                    <h5 class="font-size-13 text-truncate mb-1">{{people?.extension}} - {{people?.name}}
+                                    </h5>
+                                    <p class="text-muted text-truncate mb-0"><i [ngClass]="people.status.i_class"
+                                            class="fas fa-circle  font-size-16 align-middle me-1"></i>
+                                        {{people?.status.name}}
+                                    </p>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                </div>
 
-                    <!-- <div class="card border shadow-none mb-2">
+                <!-- <div class="card border shadow-none mb-2">
                         <a href="javascript: void(0);" class="text-body">
                             <div class="p-2">
                                 <div class="d-flex">
@@ -543,7 +567,7 @@
                             </div>
                         </a>
                     </div> -->
-                </div>
-            </div><!-- end card body -->
-        </div><!-- end card -->
-    </div><!-- end row -->   
+            </div>
+        </div><!-- end card body -->
+    </div><!-- end card -->
+</div><!-- end row -->

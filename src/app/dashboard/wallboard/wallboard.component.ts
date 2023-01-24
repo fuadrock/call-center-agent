@@ -18,13 +18,16 @@ export class WallboardComponent implements OnInit {
   subscribe: any;
   calls: any;
   queueData: any;
+  callType:any={};
+  slicedCalls:any=[];
 
   constructor(private apiService: ApiService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,) {
 
     this.getQueue();
-    this.getAgents()
+    this.getAgents();
+    this.getCalls();
 
   }
 
@@ -35,7 +38,6 @@ export class WallboardComponent implements OnInit {
   getQueue() {
     this.apiService.get('auth/queues').subscribe(
       res => {
-
         this.queues = res.queues;
         this.activeQueue = res.queues[0];
         this.getCallsByQueue(res.queues[0]);
@@ -43,8 +45,7 @@ export class WallboardComponent implements OnInit {
       },
       err => {
 
-      }
-    );
+      });
   }
 
   getAgents() {
@@ -58,41 +59,54 @@ export class WallboardComponent implements OnInit {
       (err) => {
         this.toastr.error('Failed to fetch peoples!', 'Failed!');
         this.spinner.hide();
-      }
-    )
+      })
   }
 
   getCalls() {
 
-    let pagination = `?pageNumber=0&pageSize=50`;
+    this.spinner.show();
+    let pagination = `?pageNumber=1&pageSize=50`;
     this.apiService.get('auth/calls' + pagination).
       subscribe(
         res => {
+
+          this.spinner.hide();
           this.calls = res.calls;
+          this.slicedCalls =  res.calls.slice(0,10);
+          this.callType = this.countCalls(res.calls);
 
         },
         err => {
+
+          this.spinner.hide();
           this.toastr.error('Failed to fetch calls!', 'Failed!');
         }
       )
   }
 
   getCallsByQueue(queue: any) {
+    
+    this.spinner.show();
     this.activeQueue = queue;
 
     this.apiService.get('auth/call-list-by-queue/' + queue.name).subscribe(
       res => {
+        
+    this.spinner.hide();
         this.queueData = res;
       },
       err => {
 
+        this.spinner.hide();
       })
   }
-
+  
   countCalls(arr: any) {
     var answered = 0;
     var missed = 0;
     var abandoned = 0;
+    var failed = 0;
+    var cancelled = 0
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].type === "Answered") {
         answered++;
@@ -100,9 +114,13 @@ export class WallboardComponent implements OnInit {
         missed++;
       } else if (arr[i].type === "Abandoned") {
         abandoned++;
+      }else if (arr[i].type === "Failed") {
+        failed++;
+      }else if (arr[i].type === "Cancelled") {
+        cancelled++;
       }
     }
-    return {"Missed":missed,"answered":answered,"abandoned":abandoned};
+    return { "missed": missed, "answered": answered, "abandoned": abandoned };
   }
 
 }
