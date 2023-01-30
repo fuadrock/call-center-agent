@@ -21,13 +21,15 @@ export class WallboardComponent implements OnInit {
   callType:any={};
   slicedCalls:any=[];
 
+  liveData :any;
+
   constructor(private apiService: ApiService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,) {
 
     this.getQueue();
     this.getAgents();
-    this.getCalls();
+    
 
   }
 
@@ -36,23 +38,33 @@ export class WallboardComponent implements OnInit {
   }
 
   getQueue() {
+    this.spinner.show();
     this.apiService.get('auth/queues').subscribe(
       res => {
+        this.spinner.hide();
         this.queues = res.queues;
         this.activeQueue = res.queues[0];
         this.getCallsByQueue(res.queues[0]);
-
+        this.getCalls(res.queues[0].name);
+        this.getLiveData(res.queues[0].name);
       },
       err => {
-
+        this.spinner.hide();
       });
   }
 
-  getAgents() {
+  changeQueue(queue:any){
+    this.activeQueue = queue;
+    this.getCallsByQueue(queue);
+    this.getCalls(queue.name);
+    this.getLiveData(queue.name);
+  }
 
+  getAgents() {
+    this.spinner.show();
     this.subscribe = this.apiService.get('auth/peoples').subscribe(
       (res) => {
-        console.log("peoples", res);
+        this.spinner.hide();
         this.peoples = res.peoples;
       },
 
@@ -62,10 +74,10 @@ export class WallboardComponent implements OnInit {
       })
   }
 
-  getCalls() {
+  getCalls(uid:any) {
 
     this.spinner.show();
-    let pagination = `?pageNumber=1&pageSize=50`;
+    let pagination = '?pageNumber=1&pageSize=50&queue_uuid='+uid;
     this.apiService.get('auth/calls' + pagination).
       subscribe(
         res => {
@@ -79,7 +91,7 @@ export class WallboardComponent implements OnInit {
         err => {
 
           this.spinner.hide();
-          this.toastr.error('Failed to fetch calls!', 'Failed!');
+          this.toastr.error('Failed to fetch calls!50', 'Failed!');
         }
       )
   }
@@ -87,8 +99,6 @@ export class WallboardComponent implements OnInit {
   getCallsByQueue(queue: any) {
     
     this.spinner.show();
-    this.activeQueue = queue;
-
     this.apiService.get('auth/call-list-by-queue/' + queue.name).subscribe(
       res => {
         
@@ -122,5 +132,23 @@ export class WallboardComponent implements OnInit {
     }
     return { "missed": missed, "answered": answered, "abandoned": abandoned };
   }
+
+  getLiveData(name:any){
+    if(name){
+    this.spinner.show();
+    this.apiService.get('auth/queue_realtime/' + name).
+      subscribe(
+        res => {
+          this.liveData = res.data;
+          this.spinner.hide();
+        },
+        err => {
+         
+          this.spinner.hide();
+          this.toastr.error('Failed to fetch callssss!', 'Failed!');
+        }
+      )
+  }
+}
 
 }

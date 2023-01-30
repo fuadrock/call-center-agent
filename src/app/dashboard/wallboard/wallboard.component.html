@@ -29,7 +29,7 @@
                                 </li>
 
                                 <li *ngFor="let que of queues " class="card border shadow-none mb-2 bg-light">
-                                    <a href="javascript: void(0);" (click)="getCallsByQueue(que)"
+                                    <a href="javascript: void(0);" (click)="changeQueue(que)"
                                         class="text-body d-flex align-items-center">
                                         <i class="fas fa-spinner font-size-13 me-2"></i> <span
                                             class="me-auto">{{que?.alias}} - {{que?.extension}}</span>
@@ -141,7 +141,7 @@
                                             <div>
                                                 <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
                                                     style="font-size:30px">
-                                                    0
+                                                    {{liveData?.waiting}}
                                                 </div>
                                                 <div>
                                                     <h5 class="font-size-20  text-white text-center"> WAITING </h5>
@@ -205,7 +205,7 @@
                                             <div>
                                                 <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
                                                     style="font-size:30px">
-                                                    1
+                                                    {{liveData?.busy}}
                                                 </div>
                                                 <div>
                                                     <h5 class="font-size-20  text-white text-center"> AGENTS BUSY </h5>
@@ -221,7 +221,7 @@
                                             <div>
                                                 <div class="mb-3 font-size-24 font-weight-bold text-white text-center"
                                                     style="font-size:30px">
-                                                    5
+                                                    {{liveData?.logged_in}}
                                                 </div>
                                                 <div>
                                                     <h5 class="font-size-20  text-white text-center"> LOGGED IN </h5>
@@ -293,14 +293,14 @@
                                         </tr><!-- end tr -->
                                     </thead><!-- end thead -->
                                     <tbody>
-                                        <tr *ngFor="let call of slicedCalls; let i as index">
+                                        <tr *ngFor="let call of liveData?.calls; let i as index">
 
                                             <td>
                                                 <div class="dropdown">
                                                     <a class="font-size-16 text-dark fw-medium dropdown-toggle"
                                                         role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                         <i class="fas fa-phone-alt align-middle text-success me-2"></i>
-                                                        {{call?.caller_id_name}} [{{call?.caller_id_number}}] <i
+                                                        {{call?.name}} [{{call?.extension}}] <i
                                                             class="uil uil-ellipsis-h"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
@@ -317,10 +317,10 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="text-dark fw-medium">John Smith (+65102123)</td>
+                                            <td class="text-dark fw-medium">{{call.served_by}} ({{call.caller_number}})</td>
                                             <td>{{call?.duration}}</td>
                                             <td>
-                                                {{call?.type}}
+                                                {{call?.call_status}}
                                             </td>
                                         </tr>
                                         <!-- <tr>
