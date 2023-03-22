@@ -36,21 +36,7 @@
                                     </a>
                                 </li>
 
-                                <!-- <li class="card border shadow-none mb-2">
-                                        <a href="javascript: void(0);" class="text-body d-flex align-items-center">
-                                            <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">Support - 801</span> 
-                                        </a>
-                                    </li>
-                                    <li class="card border shadow-none mb-2">
-                                        <a href="javascript: void(0);" class="text-body d-flex align-items-center">
-                                            <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">Billing - 802</span> 
-                                        </a>
-                                    </li>
-                                    <li class="card border shadow-none mb-2">
-                                        <a href="javascript: void(0);" class="text-body d-flex align-items-center">
-                                            <i class="fas fa-spinner font-size-13 me-2"></i> <span class="me-auto">General Enquiries - 803</span> 
-                                        </a>
-                                    </li> -->
+                              
 
                             </ul>
                         </div>
@@ -272,7 +258,96 @@
                         </div>
 
                         <div class="mt-4">
-                            <div class="d-flex flex-wrap  ">
+                            <mat-tab-group >
+                                <mat-tab label="Call Status">
+                                    <table mat-table [dataSource]="caller_status" class="mat-elevation-z8">
+
+                                   
+                                      
+                                        <ng-container matColumnDef="agent">
+                                          <th mat-header-cell *matHeaderCellDef> Agent </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.agent}} [{{element.extension}}] </td>
+                                        </ng-container>
+                                      
+                                       
+                                        <ng-container matColumnDef="status">
+                                          <th mat-header-cell *matHeaderCellDef> Status </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                                        </ng-container>
+                                      
+                                        <ng-container matColumnDef="state">
+                                          <th mat-header-cell *matHeaderCellDef> State </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                                        </ng-container>
+                                      
+                                        <ng-container matColumnDef="missed">
+                                          <th mat-header-cell *matHeaderCellDef> Missed </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.missed}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="answered">
+                                            <th mat-header-cell *matHeaderCellDef> Answered </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.answered}} </td>
+                                          </ng-container>
+
+                                          <ng-container matColumnDef="caller">
+                                            <th mat-header-cell *matHeaderCellDef> Caller </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.caller}} </td>
+                                          </ng-container>
+
+                                          <ng-container matColumnDef="duration">
+                                            <th mat-header-cell *matHeaderCellDef> Duration </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+                                          </ng-container>
+                                      
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                      </table>
+                                </mat-tab>
+                                <mat-tab label="Call History">
+                                    <table mat-table [dataSource]="slicedCalls" class="mat-elevation-z8">
+
+                                        <ng-container matColumnDef="agent">
+                                          <th mat-header-cell *matHeaderCellDef>Caller No</th>
+                                          <td mat-cell *matCellDef="let element"> {{element.caller_id_name}} [{{element.caller_id_number}}] </td>
+                                        </ng-container>
+                                      
+                                   
+                                        <ng-container matColumnDef="destination">
+                                          <th mat-header-cell *matHeaderCellDef>Caller Destination</th>
+                                          <td mat-cell *matCellDef="let element"> {{element.caller_destination}} </td>
+                                        </ng-container>
+                                      
+                                       
+                                        <ng-container matColumnDef="final">
+                                          <th mat-header-cell *matHeaderCellDef>Final Destination</th>
+                                          <td mat-cell *matCellDef="let element"> {{element.caller_destination}} </td>
+                                        </ng-container>
+                                      
+                                    
+                                        <ng-container matColumnDef="start">
+                                          <th mat-header-cell *matHeaderCellDef>Call Start Time</th>
+                                          <td mat-cell *matCellDef="let element"> {{element.start_stamp}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="type">
+                                            <th mat-header-cell *matHeaderCellDef>Call Type</th>
+                                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                                          </ng-container>
+
+                                        <ng-container matColumnDef="duration">
+                                            <th mat-header-cell *matHeaderCellDef>Duration</th>
+                                            <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+                                          </ng-container>
+                                      
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumnHistory"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumnHistory;"></tr>
+                                      </table>
+                                </mat-tab>
+                              
+                              </mat-tab-group>
+                              
+                            <!-- <div class="d-flex flex-wrap  ">
                                 <h5 class="font-size-14 me-3 text-primary">Call Status</h5>
 
                                 <div class="ms-auto">
@@ -290,8 +365,8 @@
                                             <th scope="col">Callee</th>
                                             <th scope="col">Duration</th>
                                             <th scope="col">Details</th>
-                                        </tr><!-- end tr -->
-                                    </thead><!-- end thead -->
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr *ngFor="let call of liveData?.calls; let i as index">
 
@@ -323,251 +398,56 @@
                                                 {{call?.call_status}}
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-spinner align-middle text-warning me-2"></i> Thangaraj [101]  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >Sales (800)</td>
-                                                <td>00:22</td>
-                                                <td>
-                                                   Waiting in Queue
-                                                </td>
-                                            </tr> -->
-                                        <!-- <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-phone-alt align-middle text-danger me-2"></i> Vimal Adhi [666] - Customer Support  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >Sales (800)</td>
-                                                <td>00:22</td>
-                                                <td>
-                                                   Connected to Queue
-                                                </td>
-                                            </tr> -->
-                                        <!-- <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-spinner align-middle text-warning me-2"></i> Fuad [102]  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >Sales (800)</td>
-                                                <td>00:22</td>
-                                                <td>
-                                                   Waiting in Queue
-                                                </td>
-                                            </tr> -->
-                                        <!-- <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-spinner align-middle text-warning me-2"></i> Selvambikai [103]  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >Sales (800)</td>
-                                                <td>00:22</td>
-                                                <td>
-                                                   Waiting in Queue
-                                                </td>
-                                            </tr> -->
-                                        <!-- <tr>
-                                                
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="font-size-16 text-dark fw-medium dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                            <i class="fas fa-spinner align-middle text-warning me-2"></i> Shiji Mol [105]  <i class="uil uil-ellipsis-h"></i>
-                                                        </a> 
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Barge In</a>
-                                                            <a class="dropdown-item" href="#">Listen</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Whisper to Shijohn Joseph [104]</a>                                                                               
-                                                            <a class="dropdown-item" href="#">Transfer Selvambikai [103]</a>
-                                                            <a class="dropdown-item" href="#">Park Thangaraj [101]</a>
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#">Drop</a>
-                                                            <a class="dropdown-item" href="#">Record</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-dark fw-medium" >Sales (800)</td>
-                                                <td>00:22</td>
-                                                <td>
-                                                   Waiting in Queue
-                                                </td>
-                                            </tr> -->
-
-                                    </tbody><!-- end tbody -->
-                                </table><!-- end table -->
-                            </div><!-- end table responsive -->
+                                  
+                                    </tbody>
+                                </table>
+                            </div> -->
                         </div>
-                    </div><!-- end cardbody-->
-                </div><!-- end card -->
-            </div><!-- end w-100 -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="card filemanager-sidebar ms-lg-3">
-        <div class="card-body">
-            <div class="text-center">
-                <h5 class="font-size-15 mb-4">Agent Status</h5>
-            </div>
-
-            <div class="mt-4">
-                <div *ngFor="let people of peoples" class="card border shadow-none mb-2">
-                    <a href="javascript: void(0);" class="text-body">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="img-fluid rounded-circle">
-                                </div>
-
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">{{people?.extension}} - {{people?.name}}
-                                    </h5>
-                                    <p class="text-muted text-truncate mb-0"><i [ngClass]="people.status.i_class"
-                                            class="fas fa-circle  font-size-16 align-middle me-1"></i>
-                                        {{people?.status.name}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+     
+            <div class="p-2">
+                <div class="text-center">
+                    <h5 class="font-size-15 mb-4">Agent Status</h5> 
                 </div>
-
-                <!-- <div class="card border shadow-none mb-2">
-                        <a href="javascript: void(0);" class="text-body">
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                        <img src="assets/images/users/avatar-2.jpg" alt=""
-                                            class="img-fluid rounded-circle">
-                                    </div>
-
-                                    <div class="overflow-hidden me-auto">
-                                        <h5 class="font-size-13 text-truncate mb-1">101 - Thangaraj</h5>
-                                        <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-warning  font-size-16 align-middle me-1"></i> Away
-                                        </p>
-                                    </div> 
-                                </div>
-                            </div>
-                        </a>
+                <div class="search-box ">
+                    <div class="position-relative">
+                        <input type="text" class="form-control rounded bg-light border-0" #peopleSearchInput placeholder="Search...">
+                        <i class="mdi mdi-magnify search-icon"></i>
                     </div>
-
-                    <div class="card border shadow-none mb-2">
-                        <a href="javascript: void(0);" class="text-body">
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                        <img src="assets/images/users/avatar-3.jpg" alt=""
-                                            class="img-fluid rounded-circle">
-                                    </div>
-
-                                    <div class="overflow-hidden me-auto">
-                                        <h5 class="font-size-13 text-truncate mb-1">102 - Fuad</h5>
-                                        <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-danger  font-size-16 align-middle me-1"></i> Donot Disturb
-                                        </p>
-                                    </div> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card border shadow-none mb-2">
-                        <a href="javascript: void(0);" class="text-body">
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                        <img src="assets/images/users/avatar-4.jpg" alt=""
-                                            class="img-fluid rounded-circle">
-                                    </div>
-
-                                    <div class="overflow-hidden me-auto">
-                                        <h5 class="font-size-13 text-truncate mb-1">103 - Selvambikai</h5>
-                                        <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-success  font-size-16 align-middle me-1"></i> Available
-                                        </p>
-                                    </div> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="card border shadow-none mb-2">
-                        <a href="javascript: void(0);" class="text-body">
-                            <div class="p-2">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0 avatar-m rounded-circle me-3">
-                                        <img src="assets/images/users/avatar-5.jpg" alt=""
-                                            class="img-fluid rounded-circle">
-                                    </div>
-
-                                    <div class="overflow-hidden me-auto">
-                                        <h5 class="font-size-13 text-truncate mb-1">104 - Shijohn Joseph</h5>
-                                        <p class="text-muted text-truncate mb-0"><i class="fas fa-circle text-warning font-size-16 align-middle me-1"></i> Away
-                                        </p>
-                                    </div> 
-                                </div>
-                            </div>
-                        </a>
-                    </div> -->
+                </div>
             </div>
-        </div><!-- end card body -->
+
+            <div class="chat-message-list" data-simplebar>
+                <div class="p-3 pt-1">
+                    <div>  
+                        <ul class="list-unstyled chat-list">
+                            <li class="active" *ngFor="let people of peoples">
+                                <a [routerLink]="[]">
+                                    <div class="d-flex align-items-start">
+                                        
+                                        <div class="flex-shrink-0 user-img st-available align-self-center me-3">
+                                            <img src="assets/images/users/avatar-2.jpg" [ngClass]="people.status.a_class" class="rounded-circle avatar-sm" alt="">
+                                            <span class="user-status"></span>
+                                        </div>
+                                        
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-14 mb-1">{{people?.extension}} - {{people?.name}}</h5>
+                                            <p class="text-truncate mb-0 " [ngClass]="people.status.i_class"> {{people?.status.name}} <button type="button" class="btn btn-primary font-size-11 p-1"  (click)="addToQueue(people.uuid)" style="line-height: 10px;"><i class="uil uil-user-plus font-size-12"></i> Add</button></p>
+                                        </div> 
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+      
     </div><!-- end card -->
 </div><!-- end row -->

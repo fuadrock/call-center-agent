@@ -3,3 +3,17 @@
     width: 2.5rem;
     
     }
+
+    ::ng-deep .mat-tab-header .mat-tab-label:last-child {
+        margin-left: auto;
+      }
+/*# sourceMappingURL=app.min.css.map */
+.chat-list li .user-img.st-available .user-status{background-color:#51d28c}
+.chat-list li .user-img.st-away .user-status{background-color:#f7cc53}
+.chat-list li .user-img.st-lunch .user-status{background-color:#7fff00}
+.chat-list li .user-img.st-btrip .user-status{background-color:#c47a0f}
+.chat-list li .user-img.st-dnd .user-status{background-color:#f34e4e}
+
+table {
+    width: 100%;
+  }
